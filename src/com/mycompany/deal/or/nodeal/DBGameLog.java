@@ -26,16 +26,17 @@ public class DBGameLog implements IDBGameLog
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stmt = conn.createStatement();
             
+            
             DatabaseMetaData dbMeta = conn.getMetaData();
-            ResultSet rs = dbMeta.getTables(null, null, firstName + "_" + lastName, null);
+            ResultSet rs = dbMeta.getTables(null, null, firstName + "_" + lastName + "_GAMELOG", null);
             if(!rs.next())
             {
-                stmt.executeUpdate("CREATE TABLE " + firstName + "_" + lastName + "("
+                stmt.executeUpdate("CREATE TABLE " + firstName + "_" + lastName + "_GAMELOG" + "("
                         + "TIMESTAMP TIMESTAMP, "
                         + "ACTION VARCHAR(256))");
             }
             
-            String insertQuery = "INSERT INTO " + firstName + "_" + lastName
+            String insertQuery = "INSERT INTO " + firstName + "_" + lastName + "_GAMELOG"
                     + " (TIMESTAMP, ACTION) VALUES (?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);
             pstmt.setTimestamp(1, timeStamp);
@@ -43,23 +44,23 @@ public class DBGameLog implements IDBGameLog
             pstmt.executeUpdate();
             
 //            // Test
-//            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName);
+//            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_GAMELOG");
 //            while(rs.next())
 //            {
 //                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
 //                        + "Action: " + rs.getString("ACTION") + "\n");  
 //            }
 //            System.out.println("");
-//            conn.close();
+            conn.close();
         }
         catch(Exception E)
         {
             E.printStackTrace();
         }
     }
-    
+//    
 //    public static void main(String[] args) 
 //    {
-//        dbGameLog("RAFAEL", "MARCO", "ENTERED FIRST NAME");
+//        dbGameLog("RAFAEL", "MARCO", "INITIALISED FIRST NAME");
 //    }
 }
