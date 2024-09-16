@@ -8,7 +8,7 @@ package com.mycompany.deal.or.nodeal;
  *
  * @author rafae
  */
-public interface IDBOut 
+public interface IDBListWin 
 {
     public void dbListWin(String firstName, String lastName, double winnings);
 }

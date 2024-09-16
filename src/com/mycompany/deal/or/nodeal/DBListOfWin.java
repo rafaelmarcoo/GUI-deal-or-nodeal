@@ -11,7 +11,7 @@ package com.mycompany.deal.or.nodeal;
 import java.sql.*;
 import java.time.LocalDate;
 
-public class DBListOfWin implements IDBOut
+public class DBListOfWin implements IDBListWin
 {
     @Override
     public void dbListWin(String firstName, String lastName, double winnings)
