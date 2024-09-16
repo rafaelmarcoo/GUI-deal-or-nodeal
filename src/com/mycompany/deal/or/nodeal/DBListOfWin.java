@@ -11,9 +11,10 @@ package com.mycompany.deal.or.nodeal;
 import java.sql.*;
 import java.time.LocalDate;
 
-public class DBListOfWin 
+public class DBListOfWin implements IDBOut
 {
-    public static void dbListWin(String firstName, String lastName, double winnings)
+    @Override
+    public void dbListWin(String firstName, String lastName, double winnings)
     {
         String dbURL = "jdbc:derby:dealornodealDB;create=true";
         LocalDate date = LocalDate.now();
@@ -43,16 +44,16 @@ public class DBListOfWin
             pstmt.setDouble(4, winnings);
             pstmt.executeUpdate();
             
-            // Test
-            rs = stmt.executeQuery("SELECT * FROM ListOfWinners");
-            while(rs.next())
-            {
-                System.out.println("Date: " + rs.getDate("DATE_PLAYED") + "\n"
-                        + rs.getString("FIRST_NAME") + "\n"  
-                        + rs.getString("LAST_NAME") + "\n" 
-                        + rs.getDouble("AMOUNT_WON"));
-            }
-            conn.close();
+//            // Test
+//            rs = stmt.executeQuery("SELECT * FROM ListOfWinners");
+//            while(rs.next())
+//            {
+//                System.out.println("Date: " + rs.getDate("DATE_PLAYED") + "\n"
+//                        + rs.getString("FIRST_NAME") + "\n"  
+//                        + rs.getString("LAST_NAME") + "\n" 
+//                        + rs.getDouble("AMOUNT_WON"));
+//            }
+//            conn.close();
         }
         catch(Exception E)
         {
@@ -60,12 +61,12 @@ public class DBListOfWin
         }
     }
     
-    public static void main(String[] args) 
-    {
-        String first = "Rafael";
-        String last = "Marco";
-        double amount = 1234.42;
-        
-        dbListWin(first,last,amount);
-    }
+//    public static void main(String[] args) 
+//    {
+//        String first = "Rafael";
+//        String last = "Marco";
+//        double amount = 1234.42;
+//        
+//        dbListWin(first,last,amount);
+//    }
 }
