@@ -11,9 +11,10 @@ import java.time.LocalDateTime;
  *
  * @author rafae
  */
-public class DBGameLog 
+public class DBGameLog implements IDBGameLog
 {
-    public static void dbGameLog(String firstName, String lastName, String action)
+    @Override
+    public void dbGameLog(String firstName, String lastName, String action)
     {
         LocalDateTime time = LocalDateTime.now();
         Timestamp timeStamp = Timestamp.valueOf(time);
