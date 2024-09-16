@@ -1,0 +1,14 @@
+17:08:20 || Action: Entered first and last name.
+17:08:21 || Action: Selected case 2 for the first time.
+17:08:21 || Action: Start of Round 1
+17:08:22 || Action: Opened case 3 containing $1000000.0
+17:08:23 || Action: Opened case 4 containing $1.0
+17:08:24 || Action: Opened case 1 containing $400000.0
+17:08:26 || Action: Opened case 20 containing $750000.0
+17:08:27 || Action: Opened case 21 containing $10.0
+17:08:27 || Action: End of Round 1
+17:08:27 || Action: Banker offered $22867.1
+17:08:29 || Action: Accepted banker's offer of $22867.1
+17:08:29 || Action: Game Finished.
+
+

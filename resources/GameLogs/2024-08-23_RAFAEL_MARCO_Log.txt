@@ -1,0 +1,66 @@
+19:32:09 || Action: Entered first and last name.
+19:32:12 || Action: Selected case 1 for the first time.
+19:32:12 || Action: Start of Round 1
+19:32:14 || Action: Opened case 2 containing $100.0
+19:32:15 || Action: Opened case 3 containing $200000.0
+19:32:16 || Action: Opened case 4 containing $5.0
+19:32:17 || Action: Opened case 5 containing $75.0
+19:32:19 || Action: Opened case 6 containing $300.0
+19:32:19 || Action: End of Round 1
+19:32:19 || Action: Banker offered $57358.72
+19:32:23 || Action: Accepted banker's offer of $57358.72
+19:32:23 || Action: Game Finished.
+
+
+19:33:12 || Action: Entered first and last name.
+19:33:14 || Action: Selected case 1 for the first time.
+19:33:14 || Action: Start of Round 1
+19:33:16 || Action: Opened case 2 containing $5.0
+19:33:17 || Action: Opened case 3 containing $300000.0
+19:33:18 || Action: Opened case 4 containing $1000.0
+19:33:29 || Action: Opened case 5 containing $200000.0
+19:33:31 || Action: Opened case 6 containing $200.0
+19:33:31 || Action: End of Round 1
+19:33:31 || Action: Banker offered $53342.72
+19:33:38 || Action: Rejected banker's offer of $53342.72
+19:33:38 || Action: Start of Round 2
+19:33:40 || Action: Opened case 7 containing $50000.0
+19:33:42 || Action: Opened case 8 containing $10.0
+19:33:43 || Action: Opened case 9 containing $5000.0
+19:33:45 || Action: Opened case 10 containing $100000.0
+19:33:46 || Action: Opened case 11 containing $750.0
+19:33:46 || Action: End of Round 2
+19:33:46 || Action: Banker offered $83712.53
+19:33:49 || Action: Rejected banker's offer of $83712.53
+19:33:49 || Action: Start of Round 3
+19:33:51 || Action: Opened case 12 containing $25000.0
+19:33:52 || Action: Opened case 13 containing $750000.0
+19:33:54 || Action: Opened case 14 containing $500.0
+19:33:55 || Action: Opened case 15 containing $400.0
+19:33:56 || Action: Opened case 16 containing $10000.0
+19:33:56 || Action: End of Round 3
+19:33:56 || Action: Banker offered $103528.56
+19:33:59 || Action: Rejected banker's offer of $103528.56
+19:34:02 || Action: Decided to swap case.
+19:34:06 || Action: Swapped case 1 with case 20
+19:34:06 || Action: Start of Round 4
+19:34:10 || Action: Opened case 1 containing $75.0
+19:34:13 || Action: Opened case 17 containing $100.0
+19:34:18 || Action: Opened case 18 containing $50.0
+19:34:19 || Action: Opened case 19 containing $400000.0
+19:34:21 || Action: Opened case 21 containing $1.0
+19:34:21 || Action: End of Round 4
+19:34:21 || Action: Banker offered $185545.5
+19:34:23 || Action: Rejected banker's offer of $185545.5
+19:34:32 || Action: Decided to swap case.
+19:34:37 || Action: Backed out from swapping case.
+19:34:37 || Action: Start of Round 5
+19:34:39 || Action: End of Round 5
+19:34:40 || Action: End of Round 5
+19:34:41 || Action: End of Round 5
+19:34:43 || Action: End of Round 5
+19:34:51 || Action: Chose to keep case 20
+19:34:51 || Action: Won $0.01
+19:34:51 || Action: Game Finished.
+
+

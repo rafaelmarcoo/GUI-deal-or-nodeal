@@ -1,0 +1,46 @@
+20:46:56 || Action: Entered first and last name.
+20:46:58 || Action: Selected case 2 for the first time.
+20:46:58 || Action: Start of Round 1
+20:47:00 || Action: Opened case 22 containing $1000.0
+20:47:02 || Action: Opened case 20 containing $750000.0
+20:47:04 || Action: Opened case 8 containing $25000.0
+20:47:07 || Action: Opened case 10 containing $0.01
+20:47:10 || Action: Opened case 7 containing $400.0
+20:47:10 || Action: End of Round 1
+20:47:10 || Action: Banker offered $47839.82
+20:47:13 || Action: Accepted banker's offer of $47839.82
+20:47:13 || Action: Game Finished.
+
+
+20:48:10 || Action: Entered first and last name.
+20:48:12 || Action: Selected case 3 for the first time.
+20:48:12 || Action: Start of Round 1
+20:48:17 || Action: Opened case 23 containing $5000.0
+20:48:19 || Action: Opened case 7 containing $100000.0
+20:48:21 || Action: Opened case 2 containing $75000.0
+20:48:22 || Action: Opened case 1 containing $750000.0
+20:48:25 || Action: Opened case 26 containing $750.0
+20:48:25 || Action: End of Round 1
+20:48:25 || Action: Banker offered $44751.82
+20:48:27 || Action: Rejected banker's offer of $44751.82
+20:48:27 || Action: Start of Round 2
+20:48:31 || Action: Opened case 24 containing $0.01
+20:48:33 || Action: Opened case 8 containing $500000.0
+20:48:35 || Action: Opened case 21 containing $300000.0
+20:48:38 || Action: Opened case 25 containing $500.0
+20:48:42 || Action: Opened case 18 containing $5.0
+20:48:42 || Action: End of Round 2
+20:48:42 || Action: Banker offered $47902.87
+20:48:44 || Action: Rejected banker's offer of $47902.87
+20:48:44 || Action: Start of Round 3
+20:48:48 || Action: Opened case 9 containing $50.0
+20:48:50 || Action: Opened case 5 containing $400000.0
+20:48:52 || Action: Opened case 6 containing $300.0
+20:48:54 || Action: Opened case 22 containing $400.0
+20:48:57 || Action: Opened case 15 containing $25000.0
+20:48:57 || Action: End of Round 3
+20:48:57 || Action: Banker offered $60680.16
+20:48:59 || Action: Accepted banker's offer of $60680.16
+20:48:59 || Action: Game Finished.
+
+

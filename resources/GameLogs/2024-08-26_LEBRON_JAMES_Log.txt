@@ -1,0 +1,52 @@
+16:16:01 || Action: Entered first and last name.
+16:16:15 || Action: Selected case 1 for the first time.
+16:16:15 || Action: Start of Round 1
+16:16:41 || Action: Opened case 2 containing $50000.0
+16:17:01 || Action: Opened case 3 containing $400.0
+16:17:10 || Action: Opened case 4 containing $10.0
+16:17:20 || Action: Opened case 20 containing $75000.0
+16:17:22 || Action: Opened case 21 containing $0.01
+16:17:22 || Action: End of Round 1
+16:17:22 || Action: Banker offered $60840.12
+16:17:42 || Action: Rejected banker's offer of $60840.12
+16:17:42 || Action: Start of Round 2
+16:17:44 || Action: Opened case 5 containing $500000.0
+16:17:45 || Action: Opened case 6 containing $750000.0
+16:17:47 || Action: Opened case 7 containing $500.0
+16:17:49 || Action: Opened case 8 containing $25000.0
+16:17:50 || Action: Opened case 9 containing $5.0
+16:17:50 || Action: End of Round 2
+16:17:50 || Action: Banker offered $58883.37
+16:17:53 || Action: Rejected banker's offer of $58883.37
+16:17:53 || Action: Start of Round 3
+16:17:54 || Action: Opened case 10 containing $100000.0
+16:17:56 || Action: Opened case 11 containing $1000000.0
+16:17:57 || Action: Opened case 12 containing $100.0
+16:17:59 || Action: Opened case 13 containing $200000.0
+16:18:00 || Action: Opened case 14 containing $1.0
+16:18:00 || Action: End of Round 3
+16:18:00 || Action: Banker offered $36984.0
+16:18:04 || Action: Rejected banker's offer of $36984.0
+16:18:21 || Action: Decided to swap case.
+16:18:26 || Action: Swapped case 1 with case 23
+16:18:26 || Action: Start of Round 4
+16:18:30 || Action: Opened case 1 containing $1000.0
+16:18:33 || Action: Opened case 15 containing $10000.0
+16:18:34 || Action: Opened case 16 containing $50.0
+16:18:35 || Action: Opened case 17 containing $300.0
+16:18:37 || Action: Opened case 18 containing $25.0
+16:18:37 || Action: End of Round 4
+16:18:37 || Action: Banker offered $84815.5
+16:18:39 || Action: Rejected banker's offer of $84815.5
+16:18:41 || Action: Decided to swap case.
+16:18:49 || Action: Swapped case 23 with case 25
+16:18:49 || Action: Start of Round 5
+16:19:06 || Action: End of Round 5
+16:19:07 || Action: End of Round 5
+16:19:10 || Action: End of Round 5
+16:19:13 || Action: End of Round 5
+16:19:36 || Action: Chose to swap case 25 with case 24
+16:19:36 || Action: Won $300000.0
+16:19:36 || Action: Game Finished.
+
+

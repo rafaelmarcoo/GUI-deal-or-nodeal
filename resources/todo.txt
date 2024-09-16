@@ -1,0 +1,13 @@
+✅	- finish last play 
+	
+	file in
+✅	- bad comments -> arrayList
+✅	- good comments -> arrayList
+
+	file out
+✅	- player list and date and winnings
+✅	- player Name and date and game logs
+✅	- errors
+
+
+

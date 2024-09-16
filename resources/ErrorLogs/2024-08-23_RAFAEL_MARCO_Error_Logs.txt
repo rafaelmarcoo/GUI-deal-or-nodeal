@@ -1,0 +1,24 @@
+19:32:23 || Error: Game Finished.
+
+
+19:33:22 || Error: Case already opened - MPlayRound
+19:33:24 || Error: Invalid Case Number - MPlayRound
+19:33:25 || Error: Invalid input! Only case numbers!
+19:33:27 || Error: Invalid input! Only case numbers!
+19:33:33 || Error: Invalid! ('d' or 'n' only!) - MDeal
+19:33:34 || Error: Invalid! ('d' or 'n' only!) - MDeal
+19:33:36 || Error: Invalid! ('d' or 'n' only!) - MDeal
+19:33:42 || Error: Invalid input! Only case numbers!
+19:34:22 || Error: Invalid! ('d' or 'n' only!) - MDeal
+19:34:26 || Error: Invalid input - Swapping Cases
+19:34:28 || Error: Invalid input - Swapping Cases
+19:34:29 || Error: Invalid input - Swapping Cases
+19:34:33 || Error: Invalid input! Only case numbers! - MChangeCase
+19:34:34 || Error: Invalid case number! - ChangeCase
+19:34:35 || Error: Invalid input! Only case numbers! - MChangeCase
+19:34:47 || Error: Invalid input - MLastPlay
+19:34:48 || Error: Invalid input - MLastPlay
+19:34:49 || Error: Invalid input - MLastPlay
+19:34:51 || Error: Game Finished.
+
+

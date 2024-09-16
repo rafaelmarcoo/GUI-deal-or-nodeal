@@ -1,0 +1,9 @@
+16:17:12 || Error: Invalid input! Only case numbers!
+16:17:15 || Error: Invalid Case Number - MPlayRound
+16:17:39 || Error: Invalid! ('d' or 'n' only!) - MDeal
+16:17:41 || Error: Invalid! ('d' or 'n' only!) - MDeal
+16:18:17 || Error: Invalid input - Swapping Cases - MStartGame
+16:18:18 || Error: Invalid input - Swapping Cases - MStartGame
+16:19:36 || Error: Game Finished.
+
+
