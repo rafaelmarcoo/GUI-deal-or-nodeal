@@ -74,7 +74,7 @@ public class Cases
         return cases;
     }
 
-    public int[] getCaseNums() 
+    public int[] getCaseNums()
     {
         return caseNums;
     }

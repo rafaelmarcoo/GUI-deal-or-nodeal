@@ -17,7 +17,7 @@ public class DBInitCases
 { 
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
     
-    public static void dbInitCases()
+    public void dbInitCases()
     {
         try
         {
@@ -51,12 +51,12 @@ public class DBInitCases
                 }
                 br.close();
                 
-                // Test
-                rs = stmt.executeQuery("SELECT * FROM Prizes");
-                while(rs.next())
-                {
-                    System.out.println("Value: " + rs.getDouble("MONEY"));
-                }
+//                // Test
+//                rs = stmt.executeQuery("SELECT * FROM Prizes");
+//                while(rs.next())
+//                {
+//                    System.out.println("Value: " + rs.getDouble("MONEY"));
+//                }
                 conn.close();
             }
             catch(Exception E)
@@ -69,8 +69,8 @@ public class DBInitCases
             System.out.println("File not found!");
         }
     }
-    public static void main(String[] args) 
-    {
-        dbInitCases();
-    }
+//    public static void main(String[] args) 
+//    {
+//        dbInitCases();
+//    }
 }
