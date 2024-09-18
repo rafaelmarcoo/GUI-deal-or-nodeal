@@ -32,8 +32,8 @@ public class DBErrorLog implements IDBErrorLog
             if(!rs.next())
             {
                 stmt.executeUpdate("CREATE TABLE " + firstName + "_" + lastName + "_ERRORLOG"
-                        + " (TIMESTAMP TIMESTAMP, "
-                        + "ACTION VARCHAR(256))");
+                    + " (TIMESTAMP TIMESTAMP, "
+                    + "ACTION VARCHAR(256))");
             }
             
             String insertQuery = "INSERT INTO " + firstName + "_" + lastName + "_ERRORLOG"

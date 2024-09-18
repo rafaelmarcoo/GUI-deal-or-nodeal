@@ -29,12 +29,12 @@ public class DBListOfWin implements IDBListWin
             if(!rs.next())
             {
                 stmt.executeUpdate("CREATE TABLE ListOfWinners ("
-                        + "DATE_PLAYED DATE, "
-                        + "FIRST_NAME VARCHAR(50), "
-                        + "LAST_NAME VARCHAR(50), "
-                        + "AMOUNT_WON DOUBLE)");
+                    + "DATE_PLAYED DATE, "
+                    + "FIRST_NAME VARCHAR(50), "
+                    + "LAST_NAME VARCHAR(50), "
+                    + "AMOUNT_WON DOUBLE)");
             }
-            
+
             String insertQuery = "INSERT INTO ListOfWinners (DATE_PLAYED, FIRST_NAME, LAST_NAME, AMOUNT_WON)"
                     + " VALUES (?, ?, ? ,?)";
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);

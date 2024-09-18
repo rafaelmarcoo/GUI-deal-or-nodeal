@@ -34,12 +34,13 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
                 
                 DatabaseMetaData dbMeta = conn.getMetaData();
                 ResultSet rs = dbMeta.getTables(null, null, "BADCOMMENTSTABLE", null);
-                if(!rs.next())
+                if(rs.next())
                 {
-                    stmt.executeUpdate("CREATE TABLE BadCommentsTable"
+                    stmt.executeUpdate("DROP TABLE BadCommentsTable");
+                }
+                stmt.executeUpdate("CREATE TABLE BadCommentsTable"
                             + " (ID INT PRIMARY KEY, "
                             + "COMMENT VARCHAR(256))");
-                }
                 
                 String line;
                 int id = 1;

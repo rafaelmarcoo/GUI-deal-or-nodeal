@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
  *
  * @author rafae
  */
-public class DBGameLog implements IDBGameLog
+public class DBGameLog
 {
-    @Override
-    public void dbGameLog(String firstName, String lastName, String action)
+//    @Override
+    public static void dbGameLog(String firstName, String lastName, String action)
     {
         LocalDateTime time = LocalDateTime.now();
         Timestamp timeStamp = Timestamp.valueOf(time);
@@ -26,14 +26,13 @@ public class DBGameLog implements IDBGameLog
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stmt = conn.createStatement();
             
-            
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, firstName + "_" + lastName + "_GAMELOG", null);
             if(!rs.next())
             {
                 stmt.executeUpdate("CREATE TABLE " + firstName + "_" + lastName + "_GAMELOG" + "("
-                        + "TIMESTAMP TIMESTAMP, "
-                        + "ACTION VARCHAR(256))");
+                    + "TIMESTAMP TIMESTAMP, "
+                    + "ACTION VARCHAR(256))");
             }
             
             String insertQuery = "INSERT INTO " + firstName + "_" + lastName + "_GAMELOG"
@@ -43,14 +42,14 @@ public class DBGameLog implements IDBGameLog
             pstmt.setString(2, action);
             pstmt.executeUpdate();
             
-//            // Test
-//            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_GAMELOG");
-//            while(rs.next())
-//            {
-//                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
-//                        + "Action: " + rs.getString("ACTION") + "\n");  
-//            }
-//            System.out.println("");
+            // Test
+            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_GAMELOG");
+            while(rs.next())
+            {
+                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
+                        + "Action: " + rs.getString("ACTION") + "\n");  
+            }
+            System.out.println("");
             conn.close();
         }
         catch(Exception E)
@@ -58,9 +57,9 @@ public class DBGameLog implements IDBGameLog
             E.printStackTrace();
         }
     }
-//    
-//    public static void main(String[] args) 
-//    {
-//        dbGameLog("RAFAEL", "MARCO", "INITIALISED FIRST NAME");
-//    }
+    
+    public static void main(String[] args) 
+    {
+        dbGameLog("RAFAEL", "MARCO", "INITIALISED FIRST NAME");
+    }
 }

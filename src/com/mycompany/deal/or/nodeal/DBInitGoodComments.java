@@ -35,10 +35,12 @@ public class DBInitGoodComments implements IDBInitComments, ICommentUI
                 ResultSet rs = dbMeta.getTables(null, null, "GOODCOMMENTSTABLE", null);
                 if(!rs.next())
                 {
-                    stmt.executeUpdate("CREATE TABLE GoodCommentsTable"
+                    stmt.executeUpdate("DROP TABLE GoodCommentsTable");
+                }
+                
+                stmt.executeUpdate("CREATE TABLE GoodCommentsTable"
                             + " (ID INT PRIMARY KEY, "
                             + "COMMENT VARCHAR(256))");
-                }
                 
                 String line;
                 int id = 1;
