@@ -51,6 +51,7 @@ public class DBErrorLog implements IDBErrorLog
 //                        + "Action: " + rs.getString("ACTION") + "\n");  
 //            }
 //            System.out.println("");
+            conn.close();
         }
         catch(Exception E)
         {

@@ -53,7 +53,7 @@ public class DBListOfWin implements IDBListWin
 //                        + rs.getString("LAST_NAME") + "\n" 
 //                        + rs.getDouble("AMOUNT_WON"));
 //            }
-//            conn.close();
+            conn.close();
         }
         catch(Exception E)
         {

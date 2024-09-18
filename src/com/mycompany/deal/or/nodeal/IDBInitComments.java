@@ -10,5 +10,5 @@ package com.mycompany.deal.or.nodeal;
  */
 public interface IDBInitComments 
 {
-    public void DBInitComments();
+    public void dBInitComments();
 }

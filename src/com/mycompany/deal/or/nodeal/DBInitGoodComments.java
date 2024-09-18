@@ -8,18 +8,19 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.*;
+import java.util.Random;
 
 /**
  *
  * @author rafae
  */
-public class DBInitGoodComments implements IDBInitComments
+public class DBInitGoodComments implements IDBInitComments, ICommentUI
 {
+    public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
+    
     @Override
-    public void DBInitComments()
-    {
-        String dbURL = "jdbc:derby:dealornodealDB;create=true";
-        
+    public void dBInitComments()
+    {        
         try
         {
             FileReader fr = new FileReader("./resources/UIresources/goodcomment.txt");
@@ -61,6 +62,7 @@ public class DBInitGoodComments implements IDBInitComments
 //                            + "Comment: " + rs.getString("COMMENT") + "\n");  
 //                }
 //                System.out.println("");
+                conn.close();
             }
             catch(Exception E)
             {
@@ -69,12 +71,45 @@ public class DBInitGoodComments implements IDBInitComments
         }
         catch(FileNotFoundException E)
         {
-            System.out.println("File not found");
+            System.out.println("File not found!");
         }
+    }
+    
+    @Override
+    public String comment()
+    {
+        int numOfComments = 10;
+        String comment = "";
+        Random rand = new Random();
+        int id = rand.nextInt(numOfComments) + 1;
+        
+        try
+        {
+            Connection conn = DriverManager.getConnection(dbURL);
+            
+            String query = "SELECT COMMENT FROM GoodCommentsTable WHERE ID = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+                comment = rs.getString("COMMENT");
+            }
+            
+//            // Test
+//            System.out.println("ID: " + id + "\n" + "Comment: " + comment);
+        }
+        catch(Exception E)
+        {
+            E.printStackTrace();
+        }
+        
+        return comment;
     }
     
 //    public static void main(String[] args) 
 //    {
 //        DBInitGoodComments();
+//        comment();
 //    }
 }
