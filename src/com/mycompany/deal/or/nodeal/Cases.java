@@ -4,78 +4,68 @@
  */
 package com.mycompany.deal.or.nodeal;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
+import java.sql.*;
 
 /**
  *
  * @author rcman
  */
 
-// This class is responsible for handling of cases and the shuffling of the values in the cases
-// Retrieves prize values from a file, shuffling, and storing them in a HashMap collection
-// Also contains a FILE READ FUNCTION  /resources/UIresources/prizes.txt
-// Used a collection - HashMap 
 public class Cases
 {
-    private HashMap<Integer, Double> cases; 
+    private static HashMap<Integer, Double> cases; 
     private int[] caseNums;
     private double[] caseValues;
     private int totalCases = 26;
+    
+    DBInitCases initCases = new DBInitCases(); 
+    public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
     
     public Cases()
     {
         cases = new HashMap<>();
         caseNums = new int[totalCases];
         caseValues = new double[totalCases];
+
+        initCases.dbInitCases();
         
-        // File Read function - reading the money values from a file
-        try 
+        try
         {
-            FileReader fr = new FileReader("./resources/UIresources/prizes.txt");
-            BufferedReader br = new BufferedReader(fr);
+            Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
             
-            String line;
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Prizes");
             int index = 0;
-            while((line = br.readLine()) != null && index < totalCases) // Reading each line of the file and putting it into arrays
+            while(rs.next())
             {
-                double value = Double.parseDouble(line);
-                caseValues[index] = value;
+                caseValues[index] = rs.getDouble("MONEY");
                 caseNums[index] = index + 1;
                 index++;
             }
-            br.close();  
-            
-            // Shuffling of caseValues array using a for loop and a Random object
-            Random rand = new Random();
-            for(int i = 0; i < caseValues.length; i++)
-            {
-                int randomIndex = rand.nextInt(caseValues.length);
-                double temp = caseValues[randomIndex];
-                caseValues[randomIndex] = caseValues[i];
-                caseValues[i] = temp;
-            }
-            
-            // Filling in the HashMap with caseNums as the keys and caseValues as the values 
-            for(int i = 0; i < caseNums.length; i++)
-            {
-                cases.put(caseNums[i], caseValues[i]);
-            }
-        } 
-        catch(FileNotFoundException ex) 
-        {
-            System.out.println("File not found.");
+            conn.close();
         }
-        catch(IOException e)
+        catch(Exception E)
         {
-            System.out.println("Error reading from file.");
+            E.printStackTrace();
         }
-        
-        
+
+        // Shuffling of caseValues array using a for loop and a Random object
+        Random rand = new Random();
+        for(int i = 0; i < caseValues.length; i++)
+        {
+            int randomIndex = rand.nextInt(caseValues.length);
+            double temp = caseValues[randomIndex];
+            caseValues[randomIndex] = caseValues[i];
+            caseValues[i] = temp;
+        }
+
+        // Filling in the HashMap with caseNums as the keys and caseValues as the values 
+        for(int i = 0; i < caseNums.length; i++)
+        {
+            cases.put(caseNums[i], caseValues[i]);
+        }
     }
     
     // Encapsulation - methods to access the HashMap, arrays - for implementation of game methods
@@ -97,6 +87,17 @@ public class Cases
     public int getTotalCases() 
     {
         return totalCases;
+    }
+    
+    public static void main(String[] args) 
+    {
+        Cases gameCases = new Cases();
+        // Test
+        for(Integer i : gameCases.getCases().keySet()) 
+        {
+            System.out.println("Case Num: " + i + " Value: " + cases.get(i));
+            System.out.println("");
+        }
     }
 }
 
