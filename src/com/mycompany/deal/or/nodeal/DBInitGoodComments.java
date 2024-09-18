@@ -13,7 +13,7 @@ import java.sql.*;
  *
  * @author rafae
  */
-public class DBInsertGoodComments implements IDBInitComments
+public class DBInitGoodComments implements IDBInitComments
 {
     @Override
     public void DBInitComments()
