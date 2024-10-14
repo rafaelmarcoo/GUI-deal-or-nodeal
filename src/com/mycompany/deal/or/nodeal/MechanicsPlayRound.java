@@ -28,6 +28,10 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
     FileOutGameLog folog = new FileOutGameLog();
     FileOutErrorLog foerror = new FileOutErrorLog();
     
+    // DB - Instances to log game and errors and results
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    
     @Override
     public void playRound(Cases cases, int roundNum) 
     {
@@ -39,6 +43,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
         
         // Log the start of the round.
         folog.FileOutLog(Player.firstName, Player.lastName, "Start of Round " + roundNum);
+        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Start of Round " + roundNum);
         
         // Loop until the player has picked the required number of cases
         while(count < 5)
@@ -57,6 +62,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                 if(input.equalsIgnoreCase("x"))
                 {
                     folog.FileOutLog(Player.firstName, Player.lastName, "User quit game\n\n");
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game\n\n");
                     messageUI.displayExitMessage();
                     System.exit(0);
                 }
@@ -69,12 +75,14 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                     if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
                     {
                         foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid Case Number - MPlayRound");
+                        dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid Case Number - MPlayRound");
                         System.out.println("Invalid case number! Please try again!\n");
                     }
                     // Check if the case has already been opened.
                     else if(!cases.getCases().containsKey(caseNum))
                     {
                         foerror.FileOutLog(Player.firstName, Player.lastName, "Case already opened - MPlayRound");
+                        dbELog.dbErrorLog(Player.firstName, Player.lastName, "Case already opened - MPlayRound");
                         System.out.println("Case has already been opened! Pick another one!\n");
                     }
                     else
@@ -98,6 +106,8 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                         // Log the case selection and its contents.
                         folog.FileOutLog(Player.firstName, Player.lastName, "Opened case " + caseNum +
                                 " containing $" + cases.getCases().get(caseNum));
+                        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Opened case " + caseNum +
+                                " containing $" + cases.getCases().get(caseNum));
 
                         // Remove the opened case from the available cases.
                         cases.getCases().remove(caseNum);
@@ -112,11 +122,13 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                 {
                     // Handle invalid input (non-numeric) and log the error.
                     foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers!");
+                    dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers!");
                     System.out.println("Invalid input! Only case numbers!\n");
                 }
             }
         }
         // Log the end of the round.
         folog.FileOutLog(Player.firstName, Player.lastName, "End of Round " + roundNum);
+        dbGLog.dbGameLog(Player.firstName, Player.lastName, "End of Round " + roundNum);
     }
 }
