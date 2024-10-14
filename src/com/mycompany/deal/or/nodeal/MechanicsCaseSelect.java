@@ -25,6 +25,10 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
     FileOutGameLog folog = new FileOutGameLog();
     FileOutErrorLog foerror = new FileOutErrorLog();
     
+    // DB - Instances to log game and errors
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    
     /*
       Handles the player's case selection process. The player is prompted to choose a case. 
       The method validates the input, handles quitting, and logs the selected case or any errors.
@@ -47,6 +51,10 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
             {
                 // Handle when player decides to quit
                 folog.FileOutLog(Player.firstName, Player.lastName, "User quit game.\n\n");
+                
+                // DB Log
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
+                
                 messageUI.displayExitMessage();
                 System.exit(0);
             }
@@ -58,6 +66,10 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
                 {
                     // Handle and log invalid (non-numeric) input
                     foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid case number! - MCaseSelect");
+                    
+                    // DB Error Log
+                    dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid case number! - MCaseSelect");
+                    
                     System.out.println("Invalid case number! Please try again!\n");
                 }
                 else
@@ -72,6 +84,9 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
                     // Log the selection of the case
                     folog.FileOutLog(Player.firstName, Player.lastName, "Selected case " + playerCase + " for the first time.");
                     
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Selected case " + playerCase + " for the first time.");
+                    
                     break;
                 }
             }
@@ -79,6 +94,10 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
             {
                 // Handle and log invalid (non-numeric) input
                 foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid input! - MCaseSelect");
+                
+                // DB Error Log
+                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! - MCaseSelect");
+                
                 System.out.println("Invalid input! Only case numbers!\n");
             }
         }
