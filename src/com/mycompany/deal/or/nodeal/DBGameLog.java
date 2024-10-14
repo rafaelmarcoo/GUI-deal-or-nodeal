@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
  *
  * @author rafae
  */
-public class DBGameLog
+public class DBGameLog implements IDBGameLog
 {
-//    @Override
-    public static void dbGameLog(String firstName, String lastName, String action)
+    @Override
+    public void dbGameLog(String firstName, String lastName, String action)
     {
         LocalDateTime time = LocalDateTime.now();
         Timestamp timeStamp = Timestamp.valueOf(time);
@@ -42,14 +42,14 @@ public class DBGameLog
             pstmt.setString(2, action);
             pstmt.executeUpdate();
             
-            // Test
-            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_GAMELOG");
-            while(rs.next())
-            {
-                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
-                        + "Action: " + rs.getString("ACTION") + "\n");  
-            }
-            System.out.println("");
+//            // Test
+//            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_GAMELOG");
+//            while(rs.next())
+//            {
+//                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
+//                        + "Action: " + rs.getString("ACTION") + "\n");  
+//            }
+//            System.out.println("");
             conn.close();
         }
         catch(Exception E)
@@ -58,8 +58,8 @@ public class DBGameLog
         }
     }
     
-    public static void main(String[] args) 
-    {
-        dbGameLog("RAFAEL", "MARCO", "INITIALISED FIRST NAME");
-    }
+//    public static void main(String[] args) 
+//    {
+//        dbGameLog("RAFAEL", "MARCO", "INITIALISED FIRST NAME");
+//    }
 }

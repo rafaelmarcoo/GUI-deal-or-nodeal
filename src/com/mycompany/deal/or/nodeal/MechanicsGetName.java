@@ -55,6 +55,9 @@ public class MechanicsGetName implements IGetName
         
         // Convert the name to uppercase before returning
         first = first.toUpperCase();
+        // Trim off whitespaces
+        first = first.replaceAll("\\s", "");
+        
         return first;
     }
     
@@ -94,6 +97,9 @@ public class MechanicsGetName implements IGetName
         
         // Convert the name to uppercase before returning
         last = last.toUpperCase();
+        // Trim off whitespaces
+        last = last.replaceAll("\\s", "");
+        
         return last;
     }
 }
