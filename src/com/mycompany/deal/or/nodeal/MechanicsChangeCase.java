@@ -25,6 +25,11 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
     // Instances for logging game activities and errors
     FileOutGameLog folog = new FileOutGameLog();
     FileOutErrorLog foerror = new FileOutErrorLog();
+    
+    // DB - Instances to log game and errors
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    
 
     @Override
     public void changeCase(Cases cases)
@@ -44,6 +49,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
             if(input.equalsIgnoreCase("x"))
             {
                 folog.FileOutLog(Player.firstName, Player.lastName, "User quit game.\n\n");
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
                 messageUI.displayExitMessage();
                 System.exit(0);
             }
@@ -52,6 +58,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
             if(input.equalsIgnoreCase("b"))
             {                
                 folog.FileOutLog(Player.firstName, Player.lastName, "Backed out from swapping case.");
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Backed out from swapping case.");
                 System.out.println();
                 break;
             }
@@ -64,6 +71,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                 {
                     System.out.println("Invalid case number! Please try again!\n");
                     foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid case number! - ChangeCase");
+                    dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid case number! - ChangeCase");
                 }
                 else
                 {
@@ -83,6 +91,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
 
                     // Log the case swap action
                     folog.FileOutLog(Player.firstName, Player.lastName, "Swapped case " + temp + " with case " + caseNum);
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Swapped case " + temp + " with case " + caseNum);
                     
                     break;
                 }
@@ -91,6 +100,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
             {
                 // Handle and log invalid (non-numeric) input
                 foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers! - MChangeCase");
+                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers! - MChangeCase");
                 System.out.println("Invalid input! Only case numbers!\n");
             }
         }
