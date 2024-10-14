@@ -11,21 +11,28 @@ import java.time.LocalDateTime;
  *
  * @author rafae
  */
+
+/*
+    This class has a WRITE DB method which records the player's actions and decisions
+    in a table throughout their gameplay.
+*/
 public class DBGameLog implements IDBGameLog
 {
     @Override
     public void dbGameLog(String firstName, String lastName, String action)
     {
-        LocalDateTime time = LocalDateTime.now();
-        Timestamp timeStamp = Timestamp.valueOf(time);
+        LocalDateTime time = LocalDateTime.now(); // Current Date
+        Timestamp timeStamp = Timestamp.valueOf(time); // Current time
         
         String dbURL = "jdbc:derby:dealornodealDB;create=true";
         
         try
         {
+            // Make connection
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stmt = conn.createStatement();
             
+            // If table does not exist then create it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, firstName + "_" + lastName + "_GAMELOG", null);
             if(!rs.next())
@@ -35,6 +42,7 @@ public class DBGameLog implements IDBGameLog
                     + "ACTION VARCHAR(256))");
             }
             
+            // Insertion and update of table with game actions and decisions
             String insertQuery = "INSERT INTO " + firstName + "_" + lastName + "_GAMELOG"
                     + " (TIMESTAMP, ACTION) VALUES (?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);

@@ -12,11 +12,17 @@ import java.time.LocalDateTime;
  *
  * @author rafae
  */
+
+/*
+    This class has a WRITE DB method which stores and writes the errors the user triggers
+    throughout their gameplay
+*/
 public class DBErrorLog implements IDBErrorLog
 {
     @Override
     public void dbErrorLog(String firstName, String lastName, String action)
     {
+        // Current time
         LocalDateTime time = LocalDateTime.now();
         Timestamp timeStamp = Timestamp.valueOf(time);
 
@@ -24,9 +30,11 @@ public class DBErrorLog implements IDBErrorLog
 
         try
         {
+            // Make connection
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stmt = conn.createStatement();
             
+            // If the table does not exist then create it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, firstName + "_" + lastName + "_ERRORLOG", null);
             if(!rs.next())
@@ -36,6 +44,7 @@ public class DBErrorLog implements IDBErrorLog
                     + "ACTION VARCHAR(256))");
             }
             
+            // Insert and update the table with the errors
             String insertQuery = "INSERT INTO " + firstName + "_" + lastName + "_ERRORLOG"
                     + " (TIMESTAMP, ACTION) VALUES (?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(insertQuery);

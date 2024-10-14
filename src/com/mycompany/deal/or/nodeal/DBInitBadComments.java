@@ -13,6 +13,11 @@ import java.util.Random;
  *
  * @author rafae
  */
+
+/*
+    This class contains a WRITE AND READ database method to read comments from a file and store it in a
+    table to be utilised in the game. It also has a method to retrieve a random comment
+*/
 public class DBInitBadComments implements IDBInitComments, ICommentUI
 {
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
@@ -24,24 +29,28 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
         
         try
         {
+            // Read the comments from a file
             FileReader fr = new FileReader("./resources/UIresources/badcomment.txt");
             BufferedReader br = new BufferedReader(fr);
             
             try
             {
-                Connection conn = DriverManager.getConnection(dbURL);
+                Connection conn = DriverManager.getConnection(dbURL); // Make databse connection
                 Statement stmt = conn.createStatement();
                 
+                // To check if table exists, then drop it
                 DatabaseMetaData dbMeta = conn.getMetaData();
                 ResultSet rs = dbMeta.getTables(null, null, "BADCOMMENTSTABLE", null);
                 if(rs.next())
                 {
                     stmt.executeUpdate("DROP TABLE BadCommentsTable");
                 }
+                // Then create the table
                 stmt.executeUpdate("CREATE TABLE BadCommentsTable"
                             + " (ID INT PRIMARY KEY, "
                             + "COMMENT VARCHAR(256))");
                 
+                // Then insertion of the comments into BadCommentsTable with an id
                 String line;
                 int id = 1;
                 while((line = br.readLine()) != null)
@@ -56,14 +65,15 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
                 }
                 br.close();
                 
-                // Test
-                rs = stmt.executeQuery("SELECT * FROM BadCommentsTable");
-                while(rs.next())
-                {
-                    System.out.println("ID: " + rs.getInt("ID") + "\n"
-                            + "Comment: " + rs.getString("COMMENT"));
-                    System.out.println("");
-                }
+//                // Test
+//                rs = stmt.executeQuery("SELECT * FROM BadCommentsTable");
+//                while(rs.next())
+//                {
+//                    System.out.println("ID: " + rs.getInt("ID") + "\n"
+//                            + "Comment: " + rs.getString("COMMENT"));
+//                    System.out.println("");
+//                }
+                conn.close();
             }
             catch(Exception E)
             {
@@ -79,6 +89,7 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
     @Override
     public String comment()
     {
+        // Get a random int id to be used in the query of retrieving a comment
         int numOfComments = 10;
         String comment = "";
         Random rand = new Random();
@@ -86,8 +97,9 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
         
         try
         {
-            Connection conn = DriverManager.getConnection(dbURL);
+            Connection conn = DriverManager.getConnection(dbURL); // Database Connection
             
+            // Query to retrieve a random comment
             String query = "SELECT COMMENT FROM BadCommentsTable WHERE ID = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setInt(1, id);

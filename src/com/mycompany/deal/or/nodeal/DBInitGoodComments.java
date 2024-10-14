@@ -14,6 +14,12 @@ import java.util.Random;
  *
  * @author rafae
  */
+
+/*
+    This class contains a WRITE AND READ database method to create a table to store the comments
+    to be used in the game.
+    It also has a method to retrieve a random comment to be used in the game
+*/
 public class DBInitGoodComments implements IDBInitComments, ICommentUI
 {
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
@@ -23,25 +29,29 @@ public class DBInitGoodComments implements IDBInitComments, ICommentUI
     {        
         try
         {
+            // Read the comments from a file
             FileReader fr = new FileReader("./resources/UIresources/goodcomment.txt");
             BufferedReader br = new BufferedReader(fr);
             
             try
             {
-                Connection conn = DriverManager.getConnection(dbURL);
+                Connection conn = DriverManager.getConnection(dbURL); // Establish database connection
                 Statement stmt = conn.createStatement();
                 
+                // To check if the table exists, then drop it
                 DatabaseMetaData dbMeta = conn.getMetaData();
                 ResultSet rs = dbMeta.getTables(null, null, "GOODCOMMENTSTABLE", null);
-                if(!rs.next())
+                if(rs.next())
                 {
                     stmt.executeUpdate("DROP TABLE GoodCommentsTable");
                 }
                 
+                // Create the table
                 stmt.executeUpdate("CREATE TABLE GoodCommentsTable"
                             + " (ID INT PRIMARY KEY, "
                             + "COMMENT VARCHAR(256))");
                 
+                // Insert the comments into GoodCommentsTable with an id
                 String line;
                 int id = 1;
                 while((line = br.readLine()) != null)
@@ -83,12 +93,13 @@ public class DBInitGoodComments implements IDBInitComments, ICommentUI
         int numOfComments = 10;
         String comment = "";
         Random rand = new Random();
-        int id = rand.nextInt(numOfComments) + 1;
+        int id = rand.nextInt(numOfComments) + 1; // Get a random id to be used to pick a comment
         
         try
         {
             Connection conn = DriverManager.getConnection(dbURL);
             
+            // Query for getting a comment from GoodCommentsTable
             String query = "SELECT COMMENT FROM GoodCommentsTable WHERE ID = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setInt(1, id);

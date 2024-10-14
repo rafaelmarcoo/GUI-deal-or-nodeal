@@ -13,6 +13,11 @@ import java.sql.*;
  *
  * @author rafae
  */
+
+/*
+    This class has a WRITE DB method which involves reading prize values from a file
+    and storing it in a table to be used in Cases.java
+*/
 public class DBInitCases 
 { 
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
@@ -21,23 +26,28 @@ public class DBInitCases
     {
         try
         {
+            // Read the file to get the prize values
             FileReader fr = new FileReader("./resources/UIresources/prizes.txt");
             BufferedReader br = new BufferedReader(fr);
             
             try
             {
+                // Establish connection and create statement
                 Connection conn = DriverManager.getConnection(dbURL);
                 Statement stmt = conn.createStatement();
                 
+                // If table exists, drop it
                 DatabaseMetaData dbMeta = conn.getMetaData();
                 ResultSet rs = dbMeta.getTables(null, null, "PRIZES", null);
                 if(rs.next())
                 {
                     stmt.executeUpdate("DROP TABLE Prizes");
                 }
+                // Then create table Prizes
                 stmt.executeUpdate("CREATE TABLE Prizes"
                     + " (MONEY DOUBLE)");
                 
+                // Insert the values and update the table
                 String moneyStr;
                 while((moneyStr = br.readLine()) != null)
                 {

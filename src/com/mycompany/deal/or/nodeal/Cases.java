@@ -29,16 +29,19 @@ public class Cases
         caseNums = new int[totalCases];
         caseValues = new double[totalCases];
 
+        // Initialise the prizes in the tables
         initCases.dbInitCases();
         
         try
         {
+            // Establish connection
             Connection conn = DriverManager.getConnection(dbURL);
             Statement stmt = conn.createStatement();
             
+            // Query to traverse through the prize values
             ResultSet rs = stmt.executeQuery("SELECT * FROM Prizes");
             int index = 0;
-            while(rs.next())
+            while(rs.next()) // Then store the values in the array to be used in the hashmap
             {
                 caseValues[index] = rs.getDouble("MONEY");
                 caseNums[index] = index + 1;
