@@ -36,6 +36,10 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
     // DB - Instances to log game and errors
     DBGameLog dbGLog = new DBGameLog();
     DBErrorLog dbELog = new DBErrorLog();
+    
+    // DB - Comments
+    DBInitBadComments dbBadCom = new DBInitBadComments();
+    DBInitGoodComments dbGoodCom = new DBInitGoodComments();
        
     @Override
     public void startGame() 

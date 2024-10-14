@@ -50,3 +50,12 @@
 20:57:58 || Action: Game Finished.
 
 
+21:08:58 || Action: Entered first and last name.
+21:09:02 || Action: Selected case 23 for the first time.
+21:09:02 || Action: Start of Round 1
+21:09:03 || Action: Opened case 2 containing $1.0
+21:09:54 || Action: Entered first and last name.
+21:09:55 || Action: Selected case 2 for the first time.
+21:09:55 || Action: Start of Round 1
+21:09:57 || Action: Opened case 3 containing $25.0
+21:09:58 || Action: Opened case 4 containing $750000.0
