@@ -28,7 +28,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
     FileOutGameLog folog = new FileOutGameLog();
     FileOutErrorLog foerror = new FileOutErrorLog();
     
-    // DB - Instances to log game and errors and results
+    // DB - Instances to log game and errors
     DBGameLog dbGLog = new DBGameLog();
     DBErrorLog dbELog = new DBErrorLog();
     

@@ -32,6 +32,10 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
     // File logging components
     FileOutGameLog folog = new FileOutGameLog();
     FileOutErrorLog foerror = new FileOutErrorLog();
+    
+    // DB - Instances to log game and errors
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
        
     @Override
     public void startGame() 
@@ -51,6 +55,7 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
                 String lastName = Mname.getLastName();
                 player = new Player(firstName, lastName);
                 folog.FileOutLog(firstName, lastName, "Entered first and last name.");
+                dbGLog.dbGameLog(firstName, lastName, "Entered first and last name.");
                 
                 // Player selects a case
                 Mselect.selectCase(cases);
@@ -82,18 +87,21 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
                             if(response.equalsIgnoreCase("y"))
                             {
                                 folog.FileOutLog(firstName, lastName, "Decided to swap case.");
+                                dbGLog.dbGameLog(firstName, lastName, "Decided to swap case.");
                                 Mchange.changeCase(cases);
                                 break;
                             }
                             else if(response.equalsIgnoreCase("n"))
                             {
                                 folog.FileOutLog(firstName, lastName, "Refused to swap case.");
+                                dbGLog.dbGameLog(firstName, lastName, "Refused to swap case.");
                                 System.out.println();
                                 break;
                             }
                             else
                             {
                                 foerror.FileOutLog(firstName, lastName, "Invalid input - Swapping Cases - MStartGame");
+                                dbELog.dbErrorLog(firstName, lastName, "Invalid input - Swapping Cases - MStartGame");
                                 System.out.println("Invalid!\n");
                             }
                         }
@@ -118,6 +126,7 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
             else if(response.equalsIgnoreCase("x"))
             {
                 folog.FileOutLog(Player.firstName, Player.lastName, "User quit game.\n\n");
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
                 messageUI.displayExitMessage();
                 break;
             }
@@ -130,7 +139,11 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
             
             // Log the end of the game
             folog.FileOutLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+            dbGLog.dbGameLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+            
             foerror.FileOutLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+            
             messageUI.displayExitMessage();
             break;
         }
