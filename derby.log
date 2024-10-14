@@ -1,13 +1,14 @@
+Mon Oct 14 21:00:24 NZDT 2024 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Mon Oct 14 19:45:10 NZDT 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0192-89c6-0ba5-0000073090f8 
-on database directory C:\Users\rafae\OneDrive\Documents\Coding\Github\GUI-deal-or-nodeal\dealornodealDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@18ef96 
-Loaded from file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/lib/derby.jar
+Mon Oct 14 21:00:29 NZDT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0192-8a0a-ea25-ffffecc3b7b1 
+on database directory C:\Users\rafae\OneDrive\Documents\Coding\Github\GUI-deal-or-nodeal\dealornodealDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Loaded from file:/C:/Program%20Files/Java/jdk-11/db-derby-10.14.2.0-lib/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=11.0.22+9-LTS-219
-user.dir=C:\Users\rafae\OneDrive\Documents\Coding\Github\GUI-deal-or-nodeal
+user.dir=C:\Program Files\Java\jdk-11\db-derby-10.14.2.0-lib
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0
-derby.system.home=null
+derby.system.home=C:\Users\rafae\OneDrive\Documents\Coding\Github\GUI-deal-or-nodeal
 Database Class Loader started - derby.database.classpath=''
