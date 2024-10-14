@@ -27,6 +27,11 @@ public class MechanicsDeal extends MechanicsControl implements IDeal
     FileOutGameLog folog = new FileOutGameLog();
     FileOutErrorLog foerror = new FileOutErrorLog();
     
+    // DB - Instances to log game and errors and results
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    DBListOfWin dbWin = new DBListOfWin();
+    
     @Override
     public void dealornodeal(double offer)
     {
@@ -47,9 +52,16 @@ public class MechanicsDeal extends MechanicsControl implements IDeal
                 
                 // Log the player's win and the game's completion
                 folist.FileOutListWin(Player.firstName, Player.lastName, offer);
+                dbWin.dbListWin(Player.firstName, Player.lastName, offer);
+                
                 folog.FileOutLog(Player.firstName, Player.lastName, "Accepted banker's offer of $" + offer);
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Accepted banker's offer of $" + offer);
+                
                 folog.FileOutLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+                
                 foerror.FileOutLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
                 
                 // Display exit message and end the game
                 messageUI.displayExitMessage();
@@ -58,18 +70,21 @@ public class MechanicsDeal extends MechanicsControl implements IDeal
             else if(response.equalsIgnoreCase("n")) // Player rejects the offer ('n')
             {
                 folog.FileOutLog(Player.firstName, Player.lastName, "Rejected banker's offer of $" + offer);
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Rejected banker's offer of $" + offer);
                 System.out.println();
                 break;
             }
             else if(response.equalsIgnoreCase("x")) // Player chooses to quit the game ('x')
             {
                 folog.FileOutLog(Player.firstName, Player.lastName, "User quit game.");
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.");
                 messageUI.displayExitMessage();
                 System.exit(0);
             }
             else // Invalid input handling
             {
                 foerror.FileOutLog(Player.firstName, Player.lastName, "Invalid! ('d' or 'n' only!) - MDeal");
+                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid! ('d' or 'n' only!) - MDeal");
                 System.out.println("Invalid! ('d' or 'n' only!)\n");
             }
         }
