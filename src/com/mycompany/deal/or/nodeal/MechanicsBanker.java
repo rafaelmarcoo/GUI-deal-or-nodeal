@@ -17,7 +17,8 @@ package com.mycompany.deal.or.nodeal;
 */
 public class MechanicsBanker extends MechanicsControl implements IBanker
 {
-    FileOutGameLog folog = new FileOutGameLog();
+    FileOutGameLog folog = new FileOutGameLog(); // Instance for File Out
+    DBGameLog dbGLog = new DBGameLog(); // Instance of DBGameLog
     
     @Override
     public double bankerOffer(Cases cases)
@@ -55,6 +56,9 @@ public class MechanicsBanker extends MechanicsControl implements IBanker
         
         // Log the banker's offer to game log file
         folog.FileOutLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
+        
+        // DB - Log the banker's offer to game log file
+        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
         
         return roundedOffer;
     }
