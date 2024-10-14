@@ -32,6 +32,10 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
     DBGameLog dbGLog = new DBGameLog();
     DBErrorLog dbELog = new DBErrorLog();
     
+    // DB - Comments
+    DBInitBadComments dbBadCom = new DBInitBadComments();
+    DBInitGoodComments dbGoodCom = new DBInitGoodComments();
+    
     @Override
     public void playRound(Cases cases, int roundNum) 
     {
@@ -94,12 +98,20 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                         // Provide comments based on the value in the case.
                         if(cases.getCases().get(caseNum) < 50000.00)
                         {
-                            String comment = goodUI.comment();
+                            // Old comment method using file i/o
+                            // String comment = goodUI.comment();
+                            
+                            dbBadCom.dBInitComments();
+                            String comment = dbBadCom.comment();
                             System.out.println(comment);
                         }
                         else
                         {
-                            String comment = badUI.comment();
+                            // Old comment method using file i/o
+                            // String comment = badUI.comment();
+                            
+                            dbGoodCom.dBInitComments();
+                            String comment = dbGoodCom.comment();
                             System.out.println(comment);
                         }
                         
