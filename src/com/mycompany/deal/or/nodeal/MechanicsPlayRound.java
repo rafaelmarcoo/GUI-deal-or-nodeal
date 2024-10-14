@@ -101,7 +101,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                             // Old comment method using file i/o
                             // String comment = goodUI.comment();
                             
-                            String comment = dbBadCom.comment();
+                            String comment = dbGoodCom.comment();
                             System.out.println(comment);
                         }
                         else
@@ -109,7 +109,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                             // Old comment method using file i/o
                             // String comment = badUI.comment();
                             
-                            String comment = dbGoodCom.comment();
+                            String comment = dbBadCom.comment();
                             System.out.println(comment);
                         }
                         

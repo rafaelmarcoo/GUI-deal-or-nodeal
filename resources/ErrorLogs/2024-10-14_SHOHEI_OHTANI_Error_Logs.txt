@@ -9,3 +9,6 @@
 20:57:58 || Error: Game Finished.
 
 
+21:13:00 || Error: Case already opened - MPlayRound
+21:13:03 || Error: Case already opened - MPlayRound
+21:13:06 || Error: Invalid Case Number - MPlayRound
