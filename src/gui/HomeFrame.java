@@ -4,6 +4,8 @@
  */
 package gui;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author rafae
@@ -33,7 +35,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home - DealOrNoDeal");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -131,6 +133,14 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        JDialog tutorialDialog = new JDialog(this, "Tutorial", true);
+        tutorialDialog.setSize(1000, 460);
+        tutorialDialog.setLocationRelativeTo(this);
+        
+        TutorialPanel tutPanel = new TutorialPanel();
+        
+        tutorialDialog.add(tutPanel);
+        tutorialDialog.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
