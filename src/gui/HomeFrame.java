@@ -57,7 +57,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText("Deal Or No Deal");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(459, 181, 368, 64);
+        jLabel1.setBounds(459, 181, 366, 64);
 
         jButton1.setBackground(new java.awt.Color(204, 204, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
@@ -102,31 +102,31 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(204, 204, 0));
         jLabel2.setText("By: Rafael Marco Manubay 22169755");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(459, 263, 371, 32);
+        jLabel2.setBounds(459, 263, 370, 32);
 
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(146, 470, 37, 16);
+        jLabel3.setBounds(146, 470, 38, 16);
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafae\\OneDrive\\Documents\\Coding\\Github\\GUI-deal-or-nodeal\\resources\\_cliparts\\coins.png")); // NOI18N
         jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(1010, 220, 300, 460);
+        jLabel4.setBounds(930, 130, 370, 550);
 
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafae\\OneDrive\\Documents\\Coding\\Github\\GUI-deal-or-nodeal\\resources\\_cliparts\\coins flying.png")); // NOI18N
         jLabel6.setText("jLabel5");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(-80, 40, 370, 720);
+        jLabel6.setBounds(-70, 40, 370, 720);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1272, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
         );
 
         pack();
