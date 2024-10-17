@@ -73,6 +73,11 @@ public class HomeFrame extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(204, 204, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jButton2.setText("List Of Winners");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2);
         jButton2.setBounds(522, 449, 241, 48);
 
@@ -152,6 +157,18 @@ public class HomeFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JDialog listDialog = new JDialog(this, "ListOfWinners", true);
+        listDialog.setSize(1000, 460);
+        listDialog.setLocationRelativeTo(this);
+
+        WinnersFrame winFrame = new WinnersFrame();
+
+        listDialog.add(winFrame);
+        listDialog.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

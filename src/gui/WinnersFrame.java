@@ -18,6 +18,7 @@ public class WinnersFrame extends javax.swing.JFrame {
      */
     public WinnersFrame() {
         initComponents();
+        loadListWinTable();
     }
 
     /**
