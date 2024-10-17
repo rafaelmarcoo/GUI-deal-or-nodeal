@@ -160,14 +160,8 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        JDialog listDialog = new JDialog(this, "ListOfWinners", true);
-        listDialog.setSize(1000, 460);
-        listDialog.setLocationRelativeTo(this);
-
         WinnersFrame winFrame = new WinnersFrame();
-
-        listDialog.add(winFrame);
-        listDialog.setVisible(true);
+        winFrame.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
