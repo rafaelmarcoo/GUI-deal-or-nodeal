@@ -1,0 +1,9 @@
+20:11:58 || Error: Case already opened - MPlayRound
+20:12:26 || Error: Invalid input! Only case numbers!
+20:12:26 || Error: Invalid input! Only case numbers!
+20:12:27 || Error: Invalid input! Only case numbers!
+20:12:49 || Error: Case already opened - MPlayRound
+20:12:51 || Error: Case already opened - MPlayRound
+20:13:51 || Error: Game Finished.
+
+
