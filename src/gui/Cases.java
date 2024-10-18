@@ -91,6 +91,11 @@ public class Cases
         return caseValues;
     }
     
+    public double[] getUnshuffledValues()
+    {
+        return caseNonShuffled;
+    }
+    
     public int getTotalCases() 
     {
         return totalCases;
