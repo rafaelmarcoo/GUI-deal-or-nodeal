@@ -46,6 +46,33 @@ public class MainGameFrame extends javax.swing.JFrame {
         jLabel24.setText("$ " + String.valueOf(values[23]));
         jLabel25.setText("$ " + String.valueOf(values[24]));
         jLabel26.setText("$ " + String.valueOf(values[25]));
+        
+        jButton1.setText("1");
+        jButton2.setText("2");
+        jButton3.setText("3");
+        jButton4.setText("4");
+        jButton5.setText("5");
+        jButton6.setText("6");
+        jButton7.setText("7");
+        jButton8.setText("8");
+        jButton9.setText("9");
+        jButton10.setText("10");
+        jButton11.setText("11");
+        jButton12.setText("12");
+        jButton13.setText("13");
+        jButton14.setText("14");
+        jButton15.setText("15");
+        jButton16.setText("16");
+        jButton17.setText("17");
+        jButton18.setText("18");
+        jButton19.setText("19");
+        jButton20.setText("20");
+        jButton21.setText("21");
+        jButton22.setText("22");
+        jButton23.setText("23");
+        jButton24.setText("24");
+        jButton25.setText("25");
+        jButton26.setText("26");
     }
 
     /**
@@ -85,6 +112,7 @@ public class MainGameFrame extends javax.swing.JFrame {
         jButton24 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -131,6 +159,11 @@ public class MainGameFrame extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("jButton2");
 
@@ -187,6 +220,8 @@ public class MainGameFrame extends javax.swing.JFrame {
 
         jButton26.setText("jButton26");
 
+        jLabel27.setText("jLabel27");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -235,11 +270,17 @@ public class MainGameFrame extends javax.swing.JFrame {
                             .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(74, 74, 74))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27)
+                .addGap(421, 421, 421))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel27)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -454,6 +495,10 @@ public class MainGameFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -535,6 +580,7 @@ public class MainGameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
