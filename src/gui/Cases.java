@@ -19,6 +19,7 @@ public class Cases
     private static HashMap<Integer, Double> cases; 
     private int[] caseNums;
     private double[] caseValues;
+    private double[] caseNonShuffled;
     private int totalCases = 26;
     
     DBInitCases initCases = new DBInitCases(); 
@@ -29,6 +30,7 @@ public class Cases
         cases = new HashMap<>();
         caseNums = new int[totalCases];
         caseValues = new double[totalCases];
+        caseNonShuffled = new double[totalCases];
 
         // Initialise the prizes in the tables
         initCases.dbInitCases();
@@ -44,6 +46,7 @@ public class Cases
             int index = 0;
             while(rs.next()) // Then store the values in the array to be used in the hashmap
             {
+                caseNonShuffled[index] = rs.getDouble("MONEY");
                 caseValues[index] = rs.getDouble("MONEY");
                 caseNums[index] = index + 1;
                 index++;
