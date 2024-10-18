@@ -71,7 +71,7 @@ public class WinnersFrame extends javax.swing.JFrame {
         jTable1.setSelectionForeground(new java.awt.Color(255, 51, 204));
         jScrollPane1.setViewportView(jTable1);
 
-        button1.setLabel("button1");
+        button1.setLabel("Back");
         button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button1ActionPerformed(evt);
