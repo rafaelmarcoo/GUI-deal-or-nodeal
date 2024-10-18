@@ -434,7 +434,7 @@ public class MainGameFrame extends javax.swing.JFrame {
                         .addComponent(jLabel24)
                         .addGap(52, 52, 52)
                         .addComponent(jLabel25)
-                        .addGap(40, 40, 40)
+                        .addGap(52, 52, 52)
                         .addComponent(jLabel26))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)

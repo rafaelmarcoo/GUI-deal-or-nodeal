@@ -1,0 +1,7 @@
+19:26:04 || Error: Invalid Case Number - MPlayRound
+19:26:06 || Error: Invalid input! Only case numbers!
+19:26:07 || Error: Invalid input! Only case numbers!
+19:26:08 || Error: Invalid input! Only case numbers!
+19:26:16 || Error: Game Finished.
+
+
