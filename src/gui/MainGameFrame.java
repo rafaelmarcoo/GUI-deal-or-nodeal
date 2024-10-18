@@ -18,10 +18,34 @@ public class MainGameFrame extends javax.swing.JFrame {
         
         Cases cases = new Cases();
         
-        double[] values = cases.getCaseValues();
+        double[] values = cases.getUnshuffledValues();
         
-        jLabel1.setText(String.valueOf(values[0]));
-        
+        jLabel1.setText("$ " + String.valueOf(values[0]));
+        jLabel2.setText("$ " + String.valueOf(values[1]));
+        jLabel3.setText("$ " + String.valueOf(values[2]));
+        jLabel4.setText("$ " + String.valueOf(values[3]));
+        jLabel5.setText("$ " + String.valueOf(values[4]));
+        jLabel6.setText("$ " + String.valueOf(values[5]));
+        jLabel7.setText("$ " + String.valueOf(values[6]));
+        jLabel8.setText("$ " + String.valueOf(values[7]));
+        jLabel9.setText("$ " + String.valueOf(values[8]));
+        jLabel10.setText("$ " + String.valueOf(values[9]));
+        jLabel11.setText("$ " + String.valueOf(values[10]));
+        jLabel12.setText("$ " + String.valueOf(values[11]));
+        jLabel13.setText("$ " + String.valueOf(values[12]));
+        jLabel14.setText("$ " + String.valueOf(values[13]));
+        jLabel15.setText("$ " + String.valueOf(values[14]));
+        jLabel16.setText("$ " + String.valueOf(values[15]));
+        jLabel17.setText("$ " + String.valueOf(values[16]));
+        jLabel18.setText("$ " + String.valueOf(values[17]));
+        jLabel19.setText("$ " + String.valueOf(values[18]));
+        jLabel20.setText("$ " + String.valueOf(values[19]));
+        jLabel21.setText("$ " + String.valueOf(values[20]));
+        jLabel22.setText("$ " + String.valueOf(values[21]));
+        jLabel23.setText("$ " + String.valueOf(values[22]));
+        jLabel24.setText("$ " + String.valueOf(values[23]));
+        jLabel25.setText("$ " + String.valueOf(values[24]));
+        jLabel26.setText("$ " + String.valueOf(values[25]));
     }
 
     /**
