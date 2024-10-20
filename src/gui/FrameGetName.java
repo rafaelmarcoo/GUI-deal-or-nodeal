@@ -141,6 +141,10 @@ public class FrameGetName extends javax.swing.JFrame {
             Player.lastName = lName;
             
             JOptionPane.showMessageDialog(this, "Welcome " + Player.firstName + " " + Player.lastName + "! \nGood Luck !!!");
+            
+            FrameGame gameFrame = new FrameGame();
+            gameFrame.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
