@@ -117,22 +117,26 @@ public class FrameGetName extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // Retrieve user input
         String fName = jTextField1.getText();
         String lName = jTextField2.getText();
         
+        // Check if inputs are empty, then give error
         if(fName.matches("^\\s*$") || lName.matches("^\\s*$"))
         {
             JOptionPane.showMessageDialog(this, "One or more inputs are empty!");
         }
-        else if(!fName.matches("^[a-zA-Z]+$") || !lName.matches("^[a-zA-Z]+$"))
+        else if(!fName.matches("^[a-zA-Z]+$") || !lName.matches("^[a-zA-Z]+$")) // No allowed whitespaces or special characters. Else try again
         {
             JOptionPane.showMessageDialog(this, "No whitespaces or special characters allowed");
         }
         else
         {
+            // Set fName and lName to upper case;
             fName = fName.toUpperCase();
             lName = lName.toUpperCase();
             
+            // Set firstName as fName and lastName as lName in MechanicsControl.java
             Player.firstName = fName;
             Player.lastName = lName;
             
