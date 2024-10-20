@@ -47,6 +47,7 @@ public class MainGameFrame extends javax.swing.JFrame {
         jLabel25.setText("$ " + String.valueOf(values[24]));
         jLabel26.setText("$ " + String.valueOf(values[25]));
         
+        
         jButton1.setText("1");
         jButton2.setText("2");
         jButton3.setText("3");

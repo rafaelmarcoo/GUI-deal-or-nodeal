@@ -4,11 +4,23 @@
  */
 package gui;
 
+import com.mycompany.deal.or.nodeal.Player;
+import javax.swing.JLabel;
+
 /**
  *
  * @author rafae
  */
-public class UIMessages 
+public class UIMessages extends MechanicsControl
 {
+    public void uiRound(JLabel jLabel)
+    {
+        jLabel.setText("Round " + roundNum);
+    }
+    
+    public void uiName(JLabel jLabel)
+    {
+        jLabel.setText("Goodluck " + Player.firstName + " " + Player.lastName + "!");
+    }
     
 }
