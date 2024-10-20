@@ -8,6 +8,7 @@ package gui;
  *
  * @author rafae
  */
-public class UIMessages {
+public class UIMessages 
+{
     
 }
