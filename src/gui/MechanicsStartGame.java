@@ -4,7 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
 
 /**
  *
@@ -18,22 +17,22 @@ import com.mycompany.deal.or.nodeal.*;
 
 public class MechanicsStartGame extends MechanicsControl implements IGameStart
 {
-    // UI components for user interaction
-    GameInputUI inputUI = new GameInputUI();
-    GameMessageUI messageUI = new GameMessageUI();
-    
-    // Game mechanics components
-    MechanicsCaseSelect Mselect = new MechanicsCaseSelect();
-    MechanicsBanker Mbanker = new MechanicsBanker();
-    MechanicsPlayRound Mplay = new MechanicsPlayRound();
-    MechanicsChangeCase Mchange = new MechanicsChangeCase();
-    MechanicsDeal Mdeal = new MechanicsDeal();
-    MechanicsLastPlay Mlast = new MechanicsLastPlay();
-    MechanicsGetName Mname = new MechanicsGetName();
-    
-    // File logging components
-    FileOutGameLog folog = new FileOutGameLog();
-    FileOutErrorLog foerror = new FileOutErrorLog();
+//    // UI components for user interaction
+//    GameInputUI inputUI = new GameInputUI();
+//    GameMessageUI messageUI = new GameMessageUI();
+//    
+//    // Game mechanics components
+//    MechanicsCaseSelect Mselect = new MechanicsCaseSelect();
+//    MechanicsBanker Mbanker = new MechanicsBanker();
+//    MechanicsPlayRound Mplay = new MechanicsPlayRound();
+//    MechanicsChangeCase Mchange = new MechanicsChangeCase();
+//    MechanicsDeal Mdeal = new MechanicsDeal();
+//    MechanicsLastPlay Mlast = new MechanicsLastPlay();
+//    MechanicsGetName Mname = new MechanicsGetName();
+//    
+//    // File logging components
+//    FileOutGameLog folog = new FileOutGameLog();
+//    FileOutErrorLog foerror = new FileOutErrorLog();
     
     // DB - Instances to log game and errors
     DBGameLog dbGLog = new DBGameLog();
