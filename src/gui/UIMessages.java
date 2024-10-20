@@ -22,4 +22,8 @@ public class UIMessages extends MechanicsControl
         jLabel.setText("Goodluck " + Player.firstName + " " + Player.lastName + "!");
     }
     
+    public void uiPlayerCase(JLabel jLabel)
+    {
+        jLabel.setText("Your Case Number is: " + playerCase);
+    }
 }

@@ -4,34 +4,15 @@
  */
 package gui;
 
-import javax.swing.JButton;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 /**
  *
  * @author rafae
  */
-public class MechanicsCaseHandling implements ActionListener
+public class MechanicsCaseHandling 
 {
-    private JButton caseButton;
-    private int caseNum;
-    
-    public MechanicsCaseHandling(JButton caseButton, int caseNum)
-    {
-        this.caseButton = caseButton;
-        this.caseNum = caseNum;
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent E)
-    {
-        revealCase(caseNum);
-        
-        caseButton.setEnabled(false);
-    }
-
-    private void revealCase(int caseNum) 
+    private void openCase(int caseNum) 
     {
         
     }

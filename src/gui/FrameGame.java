@@ -4,6 +4,9 @@
  */
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author rafae
@@ -13,7 +16,8 @@ public class FrameGame extends javax.swing.JFrame {
     /**
      * Creates new form MainGameFrame
      */
-    public FrameGame() {
+    public FrameGame() 
+    {
         initComponents();
         
         UIMessages uiMessages = new UIMessages();
@@ -22,60 +26,45 @@ public class FrameGame extends javax.swing.JFrame {
         
         Cases cases = new Cases();
         double[] values = cases.getUnshuffledValues();
-        jLabel1.setText("$ " + String.valueOf(values[0]));
-        jLabel2.setText("$ " + String.valueOf(values[1]));
-        jLabel3.setText("$ " + String.valueOf(values[2]));
-        jLabel4.setText("$ " + String.valueOf(values[3]));
-        jLabel5.setText("$ " + String.valueOf(values[4]));
-        jLabel6.setText("$ " + String.valueOf(values[5]));
-        jLabel7.setText("$ " + String.valueOf(values[6]));
-        jLabel8.setText("$ " + String.valueOf(values[7]));
-        jLabel9.setText("$ " + String.valueOf(values[8]));
-        jLabel10.setText("$ " + String.valueOf(values[9]));
-        jLabel11.setText("$ " + String.valueOf(values[10]));
-        jLabel12.setText("$ " + String.valueOf(values[11]));
-        jLabel13.setText("$ " + String.valueOf(values[12]));
-        jLabel14.setText("$ " + String.valueOf(values[13]));
-        jLabel15.setText("$ " + String.valueOf(values[14]));
-        jLabel16.setText("$ " + String.valueOf(values[15]));
-        jLabel17.setText("$ " + String.valueOf(values[16]));
-        jLabel18.setText("$ " + String.valueOf(values[17]));
-        jLabel19.setText("$ " + String.valueOf(values[18]));
-        jLabel20.setText("$ " + String.valueOf(values[19]));
-        jLabel21.setText("$ " + String.valueOf(values[20]));
-        jLabel22.setText("$ " + String.valueOf(values[21]));
-        jLabel23.setText("$ " + String.valueOf(values[22]));
-        jLabel24.setText("$ " + String.valueOf(values[23]));
-        jLabel25.setText("$ " + String.valueOf(values[24]));
-        jLabel26.setText("$ " + String.valueOf(values[25])); 
         
-        jButton1.setText("1");
-        jButton2.setText("2");
-        jButton3.setText("3");
-        jButton4.setText("4");
-        jButton5.setText("5");
-        jButton6.setText("6");
-        jButton7.setText("7");
-        jButton8.setText("8");
-        jButton9.setText("9");
-        jButton10.setText("10");
-        jButton11.setText("11");
-        jButton12.setText("12");
-        jButton13.setText("13");
-        jButton14.setText("14");
-        jButton15.setText("15");
-        jButton16.setText("16");
-        jButton17.setText("17");
-        jButton18.setText("18");
-        jButton19.setText("19");
-        jButton20.setText("20");
-        jButton21.setText("21");
-        jButton22.setText("22");
-        jButton23.setText("23");
-        jButton24.setText("24");
-        jButton25.setText("25");
-        jButton26.setText("26");
+        // Set values for the labels using a loop
+        javax.swing.JLabel[] labels = 
+        {
+            jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9, jLabel10,
+            jLabel11, jLabel12, jLabel13, jLabel14, jLabel15, jLabel16, jLabel17, jLabel18, jLabel19, 
+            jLabel20, jLabel21, jLabel22, jLabel23, jLabel24, jLabel25, jLabel26
+        };
+
+        for(int i = 0; i < labels.length; i++) 
+            labels[i].setText("$ " + values[i]);
+
+        // Set button texts and add action listeners in a loop
+        javax.swing.JButton[] buttons = 
+        {
+            jButton1, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7, jButton8, jButton9, 
+            jButton10, jButton11, jButton12, jButton13, jButton14, jButton15, jButton16, jButton17, 
+            jButton18, jButton19, jButton20, jButton21, jButton22, jButton23, jButton24, jButton25, jButton26
+        };
+
+        for(int i = 0; i < buttons.length; i++) 
+        {
+            buttons[i].setText(String.valueOf(i + 1));
+            buttons[i].addActionListener(buttonActionListener);
+        }
     }
+    
+    // Create one ActionListener for all buttons
+    private final ActionListener buttonActionListener = new ActionListener() 
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) 
+        {
+            // Get the button source
+            javax.swing.JButton clickedButton = (javax.swing.JButton) e.getSource();
+
+            clickedButton.setEnabled(false);
+        }
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
