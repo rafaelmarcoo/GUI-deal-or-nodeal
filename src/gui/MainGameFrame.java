@@ -16,10 +16,12 @@ public class MainGameFrame extends javax.swing.JFrame {
     public MainGameFrame() {
         initComponents();
         
+        UIMessages uiMessages = new UIMessages();
+        uiMessages.uiRound(jLabel27);
+        uiMessages.uiName(jLabel28);
+        
         Cases cases = new Cases();
-        
         double[] values = cases.getUnshuffledValues();
-        
         jLabel1.setText("$ " + String.valueOf(values[0]));
         jLabel2.setText("$ " + String.valueOf(values[1]));
         jLabel3.setText("$ " + String.valueOf(values[2]));
@@ -45,8 +47,7 @@ public class MainGameFrame extends javax.swing.JFrame {
         jLabel23.setText("$ " + String.valueOf(values[22]));
         jLabel24.setText("$ " + String.valueOf(values[23]));
         jLabel25.setText("$ " + String.valueOf(values[24]));
-        jLabel26.setText("$ " + String.valueOf(values[25]));
-        
+        jLabel26.setText("$ " + String.valueOf(values[25])); 
         
         jButton1.setText("1");
         jButton2.setText("2");
