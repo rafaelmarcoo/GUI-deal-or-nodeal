@@ -52,6 +52,8 @@ public class MechanicsStartGame extends MechanicsControl implements IGameStart
             messageUI.displayWelcomeMessage();
             String response = inputUI.getInput();
             
+            
+            
             // If the player chooses to start the game
             if(response.equalsIgnoreCase("w"))
             {
