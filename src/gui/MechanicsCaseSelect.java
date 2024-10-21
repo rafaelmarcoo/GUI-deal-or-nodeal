@@ -16,7 +16,7 @@ public class MechanicsCaseSelect extends MechanicsControl
     {
         for(int i = 0; i < buttons.length; i++)
         {
-            final int caseNum = i + 1;
+            int caseNum = i + 1;
             buttons[i].addActionListener(e -> 
             {
                 playerCase = caseNum;
@@ -27,6 +27,13 @@ public class MechanicsCaseSelect extends MechanicsControl
                 
                 JButton clickedButton = (JButton) e.getSource();
                 clickedButton.setEnabled(false);
+                
+                roundNum++;
+                
+                frame.nextRound();
+                frame.dispose();
+                FrameGame gameFrame = new FrameGame();
+                gameFrame.setVisible(true);
             });
         }
     }

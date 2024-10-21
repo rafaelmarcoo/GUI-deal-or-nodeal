@@ -23,10 +23,9 @@ public class FrameGame extends javax.swing.JFrame {
         UIMessages uiMessages = new UIMessages();
         uiMessages.uiRound(jLabel27);
         uiMessages.uiName(jLabel28);
-//        uiMessages.uiPlayerCase(jLabel29);
+        uiMessages.uiPlayerCase(jLabel29);
         
-        Cases cases = new Cases();
-        double[] values = cases.getUnshuffledValues();
+        double[] values = MechanicsControl.cases.getUnshuffledValues();
         
         // Set values for the labels using a loop
         javax.swing.JLabel[] labels = 
@@ -60,6 +59,17 @@ public class FrameGame extends javax.swing.JFrame {
             MechanicsCaseSelect MCaseSelect = new MechanicsCaseSelect();
             MCaseSelect.selectCase(getAllButtons(), this);
         }
+//        if(MechanicsControl.roundNum >= 1 && MechanicsControl.roundNum <= 5);
+//        {
+//            MechanicsPlayRound MPlayRound = new MechanicsPlayRound();
+//            MPlayRound.playRound(getAllButtons(), this);
+//        }
+    }
+    
+    public void nextRound()
+    {
+        MechanicsControl.roundNum++;
+        startGame();
     }
     
     // Helper to get all the buttons representing cases
@@ -70,13 +80,6 @@ public class FrameGame extends javax.swing.JFrame {
             jButton16, jButton17, jButton18, jButton19, jButton20, jButton21, jButton22, jButton23,
             jButton24, jButton25, jButton26};
     }
-    
-    public void nextRound()
-    {
-        MechanicsControl.roundNum++;
-        startGame();
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
