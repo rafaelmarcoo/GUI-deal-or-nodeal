@@ -27,7 +27,7 @@ public class MechanicsControl
     public MechanicsControl()
     {
         cases = new Cases();
-        roundNum = 1;
+        roundNum = 0;
     }
       
 }

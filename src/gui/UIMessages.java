@@ -24,6 +24,13 @@ public class UIMessages extends MechanicsControl
     
     public void uiPlayerCase(JLabel jLabel)
     {
-        jLabel.setText("Your Case Number is: " + playerCase);
+        if(roundNum == 0)
+        {
+            jLabel.setText("Welcome! Please select a case to keep for the game!");
+        }
+        else
+        {
+            jLabel.setText("Your Case Number is: " + playerCase);
+        }
     }
 }

@@ -4,8 +4,7 @@
  */
 package gui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -19,10 +18,12 @@ public class FrameGame extends javax.swing.JFrame {
     public FrameGame() 
     {
         initComponents();
+        startGame();
         
         UIMessages uiMessages = new UIMessages();
         uiMessages.uiRound(jLabel27);
         uiMessages.uiName(jLabel28);
+//        uiMessages.uiPlayerCase(jLabel29);
         
         Cases cases = new Cases();
         double[] values = cases.getUnshuffledValues();
@@ -49,67 +50,33 @@ public class FrameGame extends javax.swing.JFrame {
         for(int i = 0; i < buttons.length; i++) 
         {
             buttons[i].setText(String.valueOf(i + 1));
-//            buttons[i].addActionListener(buttonActionListener);
         }
     }
     
-    private void setActionListener()
+    private void startGame()
     {
-        javax.swing.JButton[] buttons = 
+        if(MechanicsControl.roundNum == 0)
         {
-            jButton1, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7, jButton8, jButton9, 
-            jButton10, jButton11, jButton12, jButton13, jButton14, jButton15, jButton16, jButton17, 
-            jButton18, jButton19, jButton20, jButton21, jButton22, jButton23, jButton24, jButton25, jButton26
-        };
-        
-        for(javax.swing.JButton button : buttons)
-        {
-            button.addActionListener(button.getActionListeners()[0]);
-        }
-        
-        switch(MechanicsControl.roundNum)
-        {
-            case 0:
-                for(javax.swing.JButton button : buttons)
-                {
-                    button.addActionListener(button.getActionListeners()[0]);
-                }
-                for(javax.swing.JButton button : buttons)
-                {
-                    button.addActionListener(new caseSelect());
-                }
-                break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
+            MechanicsCaseSelect MCaseSelect = new MechanicsCaseSelect();
+            MCaseSelect.selectCase(getAllButtons(), this);
         }
     }
     
-    private class caseSelect implements ActionListener
+    // Helper to get all the buttons representing cases
+    private JButton[] getAllButtons() 
     {
-        @Override
-        public void actionPerformed(ActionEvent e) 
-        {
-            
-        }
-        
+        return new JButton[]{jButton1, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7,
+            jButton8, jButton9, jButton10, jButton11, jButton12, jButton13, jButton14, jButton15,
+            jButton16, jButton17, jButton18, jButton19, jButton20, jButton21, jButton22, jButton23,
+            jButton24, jButton25, jButton26};
     }
     
-    // Create one ActionListener for all buttons
-//    private final ActionListener buttonActionListener = new ActionListener() 
-//    {
-//        @Override
-//        public void actionPerformed(ActionEvent e) 
-//        {
-//            // Get the button source
-//            javax.swing.JButton clickedButton = (javax.swing.JButton) e.getSource();
-//
-//            clickedButton.setEnabled(false);
-//        }
-//    };
+    public void nextRound()
+    {
+        MechanicsControl.roundNum++;
+        startGame();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
