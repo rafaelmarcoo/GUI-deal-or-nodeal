@@ -77,17 +77,22 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton1" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton7" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton13" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton19" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton2" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton8" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton14" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="jButton20" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButton1" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jButton7" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jButton13" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jButton19" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButton2" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jButton8" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jButton14" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jButton20" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -189,6 +194,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton25" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
                       <Component id="jButton26" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
@@ -340,6 +346,11 @@
         <Component class="javax.swing.JLabel" name="jLabel28">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel28"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel29">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel29"/>
           </Properties>
         </Component>
       </SubComponents>
