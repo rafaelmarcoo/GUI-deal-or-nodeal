@@ -13,6 +13,8 @@ import javax.swing.JTextField;
  */
 public class MechanicsPlayRound extends MechanicsControl
 {
+    MechanicsOffer MOffer = new MechanicsOffer();
+    
     UIMessages uiMessages = new UIMessages();
     
     // DB - Comments
@@ -54,7 +56,7 @@ public class MechanicsPlayRound extends MechanicsControl
                 
                 if(count == 0)
                 {
-                    
+                    MOffer.bankerOffer(frame, cases);
                 }
             }
         }
