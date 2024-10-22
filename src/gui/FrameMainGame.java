@@ -14,6 +14,7 @@ public class FrameMainGame extends javax.swing.JFrame
 {
     MechanicsControl MControl = new MechanicsControl();
     MechanicsCaseSelect MSelect = new MechanicsCaseSelect();
+    MechanicsPlayRound MPlay = new MechanicsPlayRound();
     UICaseDisplay uiCase;
     UIMessages uiMessages;
     /**
@@ -27,7 +28,6 @@ public class FrameMainGame extends javax.swing.JFrame
         
         uiCase.showCases(MControl.cases);
         uiMessages.uiRound(jLabel1);
-//        popUp();
     }
     
     // Method to refresh case display whenever cases are updated
@@ -36,11 +36,9 @@ public class FrameMainGame extends javax.swing.JFrame
         uiCase.showCases(MControl.cases);
         uiMessages.uiRound(jLabel1);
         uiMessages.uiPlayerCase(jLabel2);
-    }
-    
-    public void startUp()
-    {
-        JOptionPane.showMessageDialog(this, "Welcome to Deal Or No Deal!\nTog get started, pick one case to keep!");
+        
+        if(MControl.roundNum != 0 || MControl.roundNum < 5)
+            uiMessages.uiCasesToOpen(jLabel3, MControl.count);
     }
 
     /**
@@ -60,6 +58,7 @@ public class FrameMainGame extends javax.swing.JFrame
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setFocusable(false);
@@ -89,21 +88,12 @@ public class FrameMainGame extends javax.swing.JFrame
 
         jButton2.setText("jButton2");
 
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton2)
-                        .addGap(268, 268, 268)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(150, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,13 +106,29 @@ public class FrameMainGame extends javax.swing.JFrame
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(313, 313, 313))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton2)
+                        .addGap(268, 268, 268)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(397, 397, 397)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(293, 293, 293)
+                        .addComponent(jLabel3)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addGap(50, 50, 50)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
@@ -158,6 +164,10 @@ public class FrameMainGame extends javax.swing.JFrame
         if(MControl.roundNum == 0)
         {
             MSelect.selectCase(this, jTextField1);
+        }
+        else if(MControl.roundNum < 5)
+        {
+            MPlay.playRound(this, jTextField1);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -204,6 +214,7 @@ public class FrameMainGame extends javax.swing.JFrame
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

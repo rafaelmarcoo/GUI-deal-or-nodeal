@@ -14,7 +14,14 @@ public class UIMessages extends MechanicsControl
 {
     public void uiRound(JLabel jLabel)
     {
-        jLabel.setText("Round " + roundNum);
+        if(roundNum == 0)
+        {
+            jLabel.setText("Please select one case to keep!");
+        }
+        else
+        {
+            jLabel.setText("Round " + roundNum);
+        }
     }
     
     public void uiName(JLabel jLabel)
@@ -32,5 +39,10 @@ public class UIMessages extends MechanicsControl
         {
             jLabel.setText("Your Case Number is: " + playerCase);
         }
+    }
+    
+    public void uiCasesToOpen(JLabel jLabel, int count)
+    {
+        jLabel.setText(count + " more cases to open this round!");
     }
 }

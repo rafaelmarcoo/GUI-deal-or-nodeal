@@ -147,7 +147,7 @@ public class FrameGetName extends javax.swing.JFrame {
             
             FrameMainGame gameFrame = new FrameMainGame();
             gameFrame.setVisible(true);
-            gameFrame.startUp();
+            JOptionPane.showMessageDialog(gameFrame, "Welcome to Deal Or No Deal!\nTo get started, pick one case to keep!");
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

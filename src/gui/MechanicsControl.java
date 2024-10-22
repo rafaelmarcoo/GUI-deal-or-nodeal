@@ -22,11 +22,13 @@ public class MechanicsControl
     public static double playerCaseValue;
     public static int roundNum;
     public static Cases cases;
+    public static int count;
     
     public MechanicsControl()
     {
         cases = new Cases();
         roundNum = 0;
+        count = 5;
     }
       
 }

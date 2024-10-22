@@ -4,32 +4,63 @@
  */
 package gui;
 
-import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author rafae
  */
-public class MechanicsPlayRound 
+public class MechanicsPlayRound extends MechanicsControl
 {
-    public void playRound(JButton[] buttons, FrameGame frame) 
-    {
-        for(int i = 0; i < buttons.length; i++) 
+    UIMessages uiMessages = new UIMessages();
+    
+    // DB - Comments
+    DBInitBadComments dbBadCom = new DBInitBadComments();
+    DBInitGoodComments dbGoodCom = new DBInitGoodComments();
+    
+    public void playRound(FrameMainGame frame, JTextField jTextField1) 
+    {        
+        try
         {
-            buttons[i].addActionListener(e -> 
+            int caseNum = Integer.parseInt(jTextField1.getText());
+            
+            if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
             {
-                JButton clickedButton = (JButton) e.getSource();
-                clickedButton.setEnabled(false); // Disable case after it's opened
+                JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
+            }
+            else if(!cases.getCases().containsKey(caseNum))
+            {
+                JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
+            }
+            else
+            {
+                String comment;
+                if(cases.getCases().get(caseNum) < 50000.00)
+                {
+                    comment = dbGoodCom.comment();
+                }
+                else
+                {
+                    comment = dbBadCom.comment();
+                }
                 
-                int caseNumber = Integer.parseInt(clickedButton.getText()); // Get case number
-                double caseValue = MechanicsControl.cases.getCases().get(caseNumber);
+                JOptionPane.showMessageDialog(frame, "Case " + caseNum + " contains: $" 
+                        + cases.getCases().get(caseNum) + "\n" + comment);
                 
-                System.out.println("Opened case " + caseNumber + " with value: " + caseValue);
+                cases.getCases().remove(caseNum);
+                count--;
+                frame.refreshUI();
                 
-                MechanicsControl.cases.getCases().remove(caseNumber); // Remove opened case from list
-                
-//                frame.updateUI(); // Update game state based on opened case
-            });
+                if(count == 0)
+                {
+                    
+                }
+            }
+        }
+        catch(NumberFormatException E)
+        {
+            JOptionPane.showMessageDialog(frame, "Invalid input!");
         }
     }
 }

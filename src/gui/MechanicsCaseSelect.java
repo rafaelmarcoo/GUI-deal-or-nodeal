@@ -21,7 +21,7 @@ public class MechanicsCaseSelect extends MechanicsControl
         cases.getCases().remove(caseNum);
         roundNum++;
         
-        JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase);
+        JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase + "\nContains: $" + playerCaseValue);
         frame.refreshUI();
     }
 }
