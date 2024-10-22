@@ -36,12 +36,16 @@ public class FrameGetName extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setFocusable(false);
 
         jLabel1.setText("Enter your first name!");
 
+        jTextField1.setFocusable(false);
+
         jLabel2.setText("Enter your last name!");
 
+        jTextField2.setFocusable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -49,6 +53,7 @@ public class FrameGetName extends javax.swing.JFrame {
         });
 
         jButton1.setText("Proceed");
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -56,6 +61,7 @@ public class FrameGetName extends javax.swing.JFrame {
         });
 
         jButton2.setText("Back");
+        jButton2.setFocusable(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
