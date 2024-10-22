@@ -31,9 +31,9 @@ public class MechanicsCaseSelect extends MechanicsControl
                 roundNum++;
                 
                 frame.nextRound();
-                frame.dispose();
-                FrameGame gameFrame = new FrameGame();
-                gameFrame.setVisible(true);
+//                frame.dispose();
+//                FrameGame gameFrame = new FrameGame();
+//                gameFrame.setVisible(true);
             });
         }
     }

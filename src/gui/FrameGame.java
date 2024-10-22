@@ -56,8 +56,12 @@ public class FrameGame extends javax.swing.JFrame {
     {
         if(MechanicsControl.roundNum == 0)
         {
+            UIMessages uiMessages = new UIMessages();
             MechanicsCaseSelect MCaseSelect = new MechanicsCaseSelect();
             MCaseSelect.selectCase(getAllButtons(), this);
+            uiMessages.uiRound(jLabel27);
+            uiMessages.uiPlayerCase(jLabel29);
+            this.repaint();
         }
 //        if(MechanicsControl.roundNum >= 1 && MechanicsControl.roundNum <= 5);
 //        {
