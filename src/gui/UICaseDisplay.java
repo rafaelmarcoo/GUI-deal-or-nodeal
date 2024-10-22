@@ -30,7 +30,7 @@ public class UICaseDisplay
         // StringBuilder to construct case display text
         StringBuilder caseDisplay = new StringBuilder();
         int count = 0;
-        caseDisplay.append("\n\n\n");
+        caseDisplay.append("\n");
         // Loop through case numbers
         for (int i = 1; i <= cases.getCaseNums().length; i++) {
             // If 7 cases are printed in a row, add a newline for formatting
@@ -41,9 +41,9 @@ public class UICaseDisplay
 
             // Display 'X' if case has already been opened, else display case number
             if (!cases.getCases().containsKey(i)) {
-                caseDisplay.append("{ X }");
+                caseDisplay.append("      { X }   ");
             } else {
-                caseDisplay.append("        { ").append(i).append(" }     ");
+                caseDisplay.append("      { ").append(i).append(" }   ");
             }
             count++;
         }

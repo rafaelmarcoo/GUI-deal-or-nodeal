@@ -58,7 +58,7 @@ public class FrameGame extends javax.swing.JFrame {
         {
             UIMessages uiMessages = new UIMessages();
             MechanicsCaseSelect MCaseSelect = new MechanicsCaseSelect();
-            MCaseSelect.selectCase(getAllButtons(), this);
+//            MCaseSelect.selectCase(getAllButtons(), this);
             uiMessages.uiRound(jLabel27);
             uiMessages.uiPlayerCase(jLabel29);
             this.repaint();

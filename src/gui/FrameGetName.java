@@ -41,11 +41,8 @@ public class FrameGetName extends javax.swing.JFrame {
 
         jLabel1.setText("Enter your first name!");
 
-        jTextField1.setFocusable(false);
-
         jLabel2.setText("Enter your last name!");
 
-        jTextField2.setFocusable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -148,8 +145,9 @@ public class FrameGetName extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "Welcome " + Player.firstName + " " + Player.lastName + "! \nGood Luck !!!");
             
-            FrameGame gameFrame = new FrameGame();
+            FrameMainGame gameFrame = new FrameMainGame();
             gameFrame.setVisible(true);
+            gameFrame.startUp();
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

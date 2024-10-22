@@ -4,7 +4,8 @@
  */
 package gui;
 
-import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -12,29 +13,15 @@ import javax.swing.JButton;
  */
 public class MechanicsCaseSelect extends MechanicsControl
 {
-    public void selectCase(JButton[] buttons, FrameGame frame)
+    public void selectCase(FrameMainGame frame, JTextField jTextField1)
     {
-        for(int i = 0; i < buttons.length; i++)
-        {
-            int caseNum = i + 1;
-            buttons[i].addActionListener(e -> 
-            {
-                playerCase = caseNum;
-                playerCaseValue = cases.getCases().get(caseNum);
-                cases.getCases().remove(caseNum);
-                
-                System.out.println("Player selected case " + caseNum + " with value: " + MechanicsControl.playerCaseValue);
-                
-                JButton clickedButton = (JButton) e.getSource();
-                clickedButton.setEnabled(false);
-                
-                roundNum++;
-                
-                frame.nextRound();
-//                frame.dispose();
-//                FrameGame gameFrame = new FrameGame();
-//                gameFrame.setVisible(true);
-            });
-        }
+        int caseNum = Integer.parseInt(jTextField1.getText());
+        playerCase = caseNum;
+        playerCaseValue = cases.getCases().get(caseNum);
+        cases.getCases().remove(caseNum);
+        roundNum++;
+        
+        JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase);
+        frame.refreshUI();
     }
 }
