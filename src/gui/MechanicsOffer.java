@@ -55,17 +55,14 @@ public class MechanicsOffer extends MechanicsControl
         System.out.println("Banker's offer is $" + roundedOffer + "!\n");
         
         // DB - Log the banker's offer to game log file
-        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
+//        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
         
-        
-//        JOptionPane.showMessageDialog(frame, "Banker has offered you $" + roundedOffer + "\nDeal or No Deal?");
         
         Object[] options ={"Deal", "No Deal", "Quit"};
-        
         int option = JOptionPane.showOptionDialog(
                 frame, 
-                "Offer",
                 "Banker has offered you $" + roundedOffer + "\nDeal or No Deal?",
+                "Offer",
                 JOptionPane.DEFAULT_OPTION, 
                 JOptionPane.INFORMATION_MESSAGE, 
                 null, options, options[0]);
@@ -74,9 +71,19 @@ public class MechanicsOffer extends MechanicsControl
          {
             case 0:
                 System.out.println("Deal");
+                JOptionPane.showMessageDialog(frame, "Deal!");
+                JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + roundedOffer +
+                        "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
+                frame.dispose();
+                FrameHome homeFrame = new FrameHome();
+                homeFrame.setVisible(true);
                 break;
             case 1:
                 System.out.println("No Deal");
+                JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
+                count = 5;
+                roundNum++;
+                frame.refreshUI();
                 break;
             case 2:
                 System.out.println("Cancel clicked");

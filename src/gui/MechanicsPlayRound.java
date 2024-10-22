@@ -52,6 +52,7 @@ public class MechanicsPlayRound extends MechanicsControl
                 
                 cases.getCases().remove(caseNum);
                 count--;
+                jTextField1.setText("");
                 frame.refreshUI();
                 
                 if(count == 0)

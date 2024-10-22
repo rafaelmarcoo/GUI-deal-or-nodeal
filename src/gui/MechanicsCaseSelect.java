@@ -20,6 +20,7 @@ public class MechanicsCaseSelect extends MechanicsControl
         playerCaseValue = cases.getCases().get(caseNum);
         cases.getCases().remove(caseNum);
         roundNum++;
+        jTextField1.setText("");
         
         JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase + "\nContains: $" + playerCaseValue);
         frame.refreshUI();
