@@ -8,13 +8,29 @@ package gui;
  *
  * @author rafae
  */
-public class FrameMainGame extends javax.swing.JFrame {
-
+public class FrameMainGame extends javax.swing.JFrame 
+{
+    MechanicsControl MControl = new MechanicsControl();
+    UICaseDisplay uiCase;
     /**
      * Creates new form FrameMainGame
      */
-    public FrameMainGame() {
+    public FrameMainGame() 
+    {
         initComponents();
+        
+        
+        // Initialize GameCaseDisplayUI with JTextArea reference
+        uiCase = new UICaseDisplay(jTextArea1);
+        
+        // Initially show cases
+        uiCase.showCases(MControl.cases);
+    }
+    
+    // Method to refresh case display whenever cases are updated
+    public void refreshCaseDisplay() 
+    {
+        uiCase.showCases(MControl.cases);
     }
 
     /**

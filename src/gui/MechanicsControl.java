@@ -4,7 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
 
 /**
  *
