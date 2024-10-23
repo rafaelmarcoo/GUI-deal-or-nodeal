@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class MechanicsOffer extends MechanicsControl
 {
     MechanicsChangeCase MChange = new MechanicsChangeCase();
+    MechanicsLastPlay MLast = new MechanicsLastPlay();
     
     DBGameLog dbGLog = new DBGameLog(); // Instance of DBGameLog
     
@@ -91,8 +92,16 @@ public class MechanicsOffer extends MechanicsControl
                     done = true;
                     System.out.println("No Deal");
 
-                    JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
-
+                    if(roundNum != 3 || roundNum != 4 )
+                    {
+                        JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
+                    }
+                    else
+                    {
+                       JOptionPane.showMessageDialog(frame, "No Deal!"); 
+                    }
+                    
+                    
                     if(roundNum == 3 || roundNum == 4)
                     {
                         MChange.changeCase(frame, MechanicsControl.cases);
@@ -106,6 +115,11 @@ public class MechanicsOffer extends MechanicsControl
                     else
                     {
                         count = 4;
+                    }
+                    
+                    if(roundNum == 6)
+                    {
+                        MLast.lastPlay(frame, cases);
                     }
 
                     frame.refreshUI();

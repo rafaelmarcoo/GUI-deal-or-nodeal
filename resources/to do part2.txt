@@ -7,9 +7,11 @@
 
 - ✅SWAP CASE
 - ✅LAST ROUND
-- LAST PLAY
-- EXITS THROUGHOUT GAMEPLAY
+- ✅LAST PLAY
+- ✅EXITS THROUGHOUT GAMEPLAY
 - IMPLEMENT DB METHODS
-- maybe add a prize table if i have the time
+
+** maybe add a prize table if i have the time **
+- only do this if done everything else .. like everything perfect
 
 ***APPLY COMMENTS AS U GO***

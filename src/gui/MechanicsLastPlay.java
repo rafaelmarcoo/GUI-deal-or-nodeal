@@ -38,7 +38,7 @@ public class MechanicsLastPlay extends MechanicsControl
             int option = JOptionPane.showOptionDialog
             (
                 frame, 
-                "Swap you case " + playerCase + "with the last case on display, case " + otherCaseNum,
+                "Swap you case " + playerCase + " with the last case on display, case " + otherCaseNum,
                 "Round " + roundNum + " banker's offer",
                 JOptionPane.DEFAULT_OPTION, 
                 JOptionPane.INFORMATION_MESSAGE, 

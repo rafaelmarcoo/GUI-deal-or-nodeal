@@ -63,6 +63,9 @@ public class MechanicsChangeCase extends MechanicsControl
                             playerCaseValue = cases.getCases().get(caseNum);
                             cases.getCases().remove(caseNum);
                             
+                            JOptionPane.showMessageDialog(frame, "You swapped your case " + temp + " with case " + playerCase + "!");
+                            JOptionPane.showMessageDialog(frame, "Onto the next round!");
+                            
                             frame.refreshUI();
                             done = true;
                         }
