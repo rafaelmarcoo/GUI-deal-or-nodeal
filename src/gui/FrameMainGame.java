@@ -169,7 +169,7 @@ public class FrameMainGame extends javax.swing.JFrame
         {
             MSelect.selectCase(this, jTextField1);
         }
-        else if(MControl.roundNum < 5)
+        else if(MControl.roundNum <= 5)
         {
             MPlay.playRound(this, jTextField1);
         }

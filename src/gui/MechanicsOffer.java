@@ -98,8 +98,15 @@ public class MechanicsOffer extends MechanicsControl
                         MChange.changeCase(frame, MechanicsControl.cases);
                     }
 
-                    count = 5;
                     roundNum++;
+                    if(roundNum < 5)
+                    {
+                        count = 5;
+                    }
+                    else
+                    {
+                        count = 4;
+                    }
 
                     frame.refreshUI();
                     break;
