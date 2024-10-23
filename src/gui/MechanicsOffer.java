@@ -59,49 +59,57 @@ public class MechanicsOffer extends MechanicsControl
         // DB - Log the banker's offer to game log file
 //        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
         
-        
+        boolean done = false;
         Object[] options ={ "Deal", "No Deal", "Quit" };
-        int option = JOptionPane.showOptionDialog
-        (
-            frame, 
-            "Banker has offered you $" + roundedOffer + "\nDeal or No Deal?",
-            "Round " + roundNum + " banker's offer",
-            JOptionPane.DEFAULT_OPTION, 
-            JOptionPane.INFORMATION_MESSAGE, 
-            null, options, options[0]
-        );
         
-        switch(option) 
+        while(!done)
         {
-            case 0:
-                System.out.println("Deal");
-                JOptionPane.showMessageDialog(frame, "Deal!");
-                JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + roundedOffer +
-                        "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
-                frame.dispose();
-                FrameHome homeFrame = new FrameHome();
-                homeFrame.setVisible(true);
-                break;
-            case 1:
-                System.out.println("No Deal");
-                
-                JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
-                
-                if(roundNum == 3 || roundNum == 4)
-                {
-                    MChange.changeCase(frame, MechanicsControl.cases);
-                }
-                
-                count = 5;
-                roundNum++;
-                
-                frame.refreshUI();
-                break;
-            case 2:
-                System.out.println("Cancel clicked");
-                break;
-            default:
-                
+            int option = JOptionPane.showOptionDialog
+            (
+                frame, 
+                "Banker has offered you $" + roundedOffer + "\nDeal or No Deal?",
+                "Round " + roundNum + " banker's offer",
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.INFORMATION_MESSAGE, 
+                null, options, options[0]
+            );
+
+            switch(option) 
+            {
+                case 0:
+                    done = true;
+                    System.out.println("Deal");
+                    JOptionPane.showMessageDialog(frame, "Deal!");
+                    JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + roundedOffer +
+                            "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
+                    frame.dispose();
+                    FrameHome homeFrame = new FrameHome();
+                    homeFrame.setVisible(true);
+                    break;
+                    
+                case 1:
+                    done = true;
+                    System.out.println("No Deal");
+
+                    JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
+
+                    if(roundNum == 3 || roundNum == 4)
+                    {
+                        MChange.changeCase(frame, MechanicsControl.cases);
+                    }
+
+                    count = 5;
+                    roundNum++;
+
+                    frame.refreshUI();
+                    break;
+                    
+                case 2:
+                    JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
+                    System.exit(0);
+                    break;
+            }
         }
+        
     }
 }
