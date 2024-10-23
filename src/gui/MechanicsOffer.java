@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 */
 public class MechanicsOffer extends MechanicsControl
 {
+    MechanicsChangeCase MChange = new MechanicsChangeCase();
+    
     DBGameLog dbGLog = new DBGameLog(); // Instance of DBGameLog
     
 //    @Override
@@ -58,17 +60,19 @@ public class MechanicsOffer extends MechanicsControl
 //        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
         
         
-        Object[] options ={"Deal", "No Deal", "Quit"};
-        int option = JOptionPane.showOptionDialog(
-                frame, 
-                "Banker has offered you $" + roundedOffer + "\nDeal or No Deal?",
-                "Offer",
-                JOptionPane.DEFAULT_OPTION, 
-                JOptionPane.INFORMATION_MESSAGE, 
-                null, options, options[0]);
+        Object[] options ={ "Deal", "No Deal", "Quit" };
+        int option = JOptionPane.showOptionDialog
+        (
+            frame, 
+            "Banker has offered you $" + roundedOffer + "\nDeal or No Deal?",
+            "Round " + roundNum + " banker's offer",
+            JOptionPane.DEFAULT_OPTION, 
+            JOptionPane.INFORMATION_MESSAGE, 
+            null, options, options[0]
+        );
         
-         switch(option) 
-         {
+        switch(option) 
+        {
             case 0:
                 System.out.println("Deal");
                 JOptionPane.showMessageDialog(frame, "Deal!");
@@ -80,14 +84,24 @@ public class MechanicsOffer extends MechanicsControl
                 break;
             case 1:
                 System.out.println("No Deal");
+                
                 JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
+                
+                if(roundNum == 3 || roundNum == 4)
+                {
+                    MChange.changeCase(frame, MechanicsControl.cases);
+                }
+                
                 count = 5;
                 roundNum++;
+                
                 frame.refreshUI();
                 break;
             case 2:
                 System.out.println("Cancel clicked");
                 break;
+            default:
+                
         }
     }
 }
