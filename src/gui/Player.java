@@ -10,8 +10,8 @@ package gui;
  */
 public class Player 
 {
-    public static String firstName;
-    public static String lastName;
+    private static String firstName;
+    private static String lastName;
     
     public Player(String f, String l)
     {
@@ -21,7 +21,39 @@ public class Player
     
     public void reset() 
     {
-        Player.firstName = "";
-        Player.lastName = "";
+        Player.setFirstName("");
+        Player.setLastName("");
+    }
+
+    /**
+     * @return the firstName
+     */
+    public static String getFirstName() 
+    {
+        return firstName;
+    }
+
+    /**
+     * @param aFirstName the firstName to set
+     */
+    public static void setFirstName(String aFirstName) 
+    {
+        firstName = aFirstName;
+    }
+
+    /**
+     * @return the lastName
+     */
+    public static String getLastName() 
+    {
+        return lastName;
+    }
+
+    /**
+     * @param aLastName the lastName to set
+     */
+    public static void setLastName(String aLastName) 
+    {
+        lastName = aLastName;
     }
 }

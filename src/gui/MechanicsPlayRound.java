@@ -38,14 +38,14 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                 JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
                 
                 // DB Log
-                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid Case Number - MPlayRound");
+                dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid Case Number - MPlayRound");
             }
             else if(!cases.getCases().containsKey(caseNum))
             {
                 JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
                 
                 // DB Log
-                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Case already opened - MPlayRound");
+                dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Case already opened - MPlayRound");
             }
             else
             {
@@ -63,7 +63,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                         + cases.getCases().get(caseNum) + "\n" + comment);
                 
                 // DB Log
-                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Opened case " + caseNum +
+                dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Opened case " + caseNum +
                                 " containing $" + cases.getCases().get(caseNum));
                 
                 cases.getCases().remove(caseNum);
@@ -82,7 +82,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
             JOptionPane.showMessageDialog(frame, "Invalid input!");
             
             // DB Log
-            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers! - MPlayRound");
+            dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid input! Only case numbers! - MPlayRound");
         }
     }
 }

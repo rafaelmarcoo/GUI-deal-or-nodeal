@@ -65,9 +65,9 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     JOptionPane.showMessageDialog(frame, "Thanks for playing!");
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Chose to keep case " + playerCase);
-                    dbWin.dbListWin(Player.firstName, Player.lastName, playerCaseValue);
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Won $" + playerCaseValue);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Chose to keep case " + playerCase);
+                    dbWin.dbListWin(Player.getFirstName(), Player.getLastName(), playerCaseValue);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Won $" + playerCaseValue);
                     
                     frame.dispose();
                     FrameHome homeFrame = new FrameHome();
@@ -85,10 +85,10 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     JOptionPane.showMessageDialog(frame, "Thanks for playing!");
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Chose to swap case " + playerCase + 
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Chose to swap case " + playerCase + 
                         " with case " + otherCaseNum);
-                    dbWin.dbListWin(Player.firstName, Player.lastName, otherCaseVal);
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Won $" + otherCaseVal);
+                    dbWin.dbListWin(Player.getFirstName(), Player.getLastName(), otherCaseVal);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Won $" + otherCaseVal);
                     
                     frame.dispose();
                     FrameHome home = new FrameHome();
@@ -100,7 +100,7 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.\n\n");
                     break;
             }
         }

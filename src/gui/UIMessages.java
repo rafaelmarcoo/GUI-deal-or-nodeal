@@ -28,7 +28,7 @@ public class UIMessages extends MechanicsControl
     
     public void uiName(JLabel jLabel)
     {
-        jLabel.setText("Goodluck " + Player.firstName + " " + Player.lastName + "!");
+        jLabel.setText("Goodluck " + Player.getFirstName() + " " + Player.getLastName() + "!");
     }
     
     public void uiPlayerCase(JLabel jLabel)

@@ -52,10 +52,10 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     uiCompare.compareValues(frame, playerCaseValue, offer);
                     
                     // DB Log
-                    dbWin.dbListWin(Player.firstName, Player.lastName, offer);
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Accepted banker's offer of $" + offer);
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
-                    dbELog.dbErrorLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+                    dbWin.dbListWin(Player.getFirstName(), Player.getLastName(), offer);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Accepted banker's offer of $" + offer);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Game Finished.\n\n");
+                    dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Game Finished.\n\n");
                     
                     frame.dispose();
                     FrameHome homeFrame = new FrameHome();
@@ -67,7 +67,7 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     System.out.println("No Deal");
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Rejected banker's offer of $" + offer);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Rejected banker's offer of $" + offer);
                     
                     if(roundNum != 3 || roundNum != 4 )
                     {
@@ -84,12 +84,12 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     }
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "End of Round " + roundNum);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "End of Round " + roundNum);
                     
                     roundNum++;
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Start of Round " + roundNum);
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Start of Round " + roundNum);
                     
                     if(roundNum < 5)
                     {
@@ -112,7 +112,7 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.");
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
                     
                     break;
             }

@@ -28,7 +28,7 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
                 JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
                 
                 // DB Error Log
-                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid case number! - MCaseSelect");
+                dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid case number! - MCaseSelect");
             }
             else
             {
@@ -40,8 +40,8 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
                 JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase + "\nContains: $" + playerCaseValue);
                 
                 // DB Log
-                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Selected case " + playerCase + " for the first time.");         
-                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Start of Round " + roundNum);
+                dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Selected case " + playerCase + " for the first time.");         
+                dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Start of Round " + roundNum);
                 
                 frame.refreshUI(); 
             }
@@ -51,7 +51,7 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
             JOptionPane.showMessageDialog(frame, "Invalid input! Only case numbers!");
             
             // DB Error Log
-            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! - MCaseSelect");
+            dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid input! - MCaseSelect");
         }
         
     }

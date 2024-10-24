@@ -58,14 +58,14 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                             JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
                             
                             // DB Log
-                            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid case number! - ChangeCase");
+                            dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid case number! - ChangeCase");
                         }
                         else if(!cases.getCases().containsKey(caseNum))
                         {
                             JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
                             
                             // DB Log
-                            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Case has already been opened! - ChangeCase");
+                            dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Case has already been opened! - ChangeCase");
                         }
                         else
                         {
@@ -85,7 +85,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                             JOptionPane.showMessageDialog(frame, "Onto the next round!");
                             
                             // DB Log
-                            dbGLog.dbGameLog(Player.firstName, Player.lastName, "Swapped case " + temp + " with case " + caseNum);
+                            dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Swapped case " + temp + " with case " + caseNum);
                             
                             frame.refreshUI();
                             done = true;
@@ -96,7 +96,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                         JOptionPane.showMessageDialog(frame, "Invalid input!");
                         
                         // DB Log
-                        dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers! - MChangeCase");
+                        dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid input! Only case numbers! - MChangeCase");
                     }             
                     break;
                     
@@ -104,7 +104,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                     JOptionPane.showMessageDialog(frame, "No Swap! We move on to the next round then!");
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Player refused swapping cases.");
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Player refused swapping cases.");
                     
                     done = true;
                     break;
@@ -113,7 +113,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.\n\n");
                     break;
             }
         }   

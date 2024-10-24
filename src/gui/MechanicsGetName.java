@@ -39,13 +39,13 @@ public class MechanicsGetName implements IGetName
             lName = lName.toUpperCase();
             
             // Set firstName as fName and lastName as lName in MechanicsControl.java
-            Player.firstName = fName;
-            Player.lastName = lName;
+            Player.setFirstName(fName);
+            Player.setLastName(lName);
             
             // DB Log
             dbGLog.dbGameLog(fName, lName, "Entered first and last name.");
             
-            JOptionPane.showMessageDialog(frame, "Welcome " + Player.firstName + " " + Player.lastName + "! \nGood Luck !!!");
+            JOptionPane.showMessageDialog(frame, "Welcome " + Player.getFirstName() + " " + Player.getLastName() + "! \nGood Luck !!!");
             
             FrameMainGame gameFrame = new FrameMainGame();
             gameFrame.setVisible(true);

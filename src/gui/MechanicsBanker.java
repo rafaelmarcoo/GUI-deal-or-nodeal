@@ -56,7 +56,7 @@ public class MechanicsBanker extends MechanicsControl implements IBanker
         System.out.println("Banker's offer is $" + roundedOffer + "!\n");
         
         // DB - Log the banker's offer to game log file
-        dbGLog.dbGameLog(Player.firstName, Player.lastName, "Banker offered $" + roundedOffer);
+        dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Banker offered $" + roundedOffer);
         
         MOffer.makeOffer(frame, roundedOffer);
     }
