@@ -4,7 +4,9 @@
  */
 package gui;
 
+import static gui.MechanicsControl.roundNum;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,5 +46,36 @@ public class UIMessages extends MechanicsControl
     public void uiCasesToOpen(JLabel jLabel, int count)
     {
         jLabel.setText(count + " more cases to open this round!");
+    }
+    
+    public void quitMessage(FrameMainGame frame)
+    {
+        boolean done = false;
+        Object[] options ={ "Quit", "No" };
+        
+        while(!done)
+        {
+            int option = JOptionPane.showOptionDialog
+            (
+                frame, 
+                "Are you sure you want to quit?",
+                "Quit?",
+                JOptionPane.DEFAULT_OPTION, 
+                JOptionPane.INFORMATION_MESSAGE, 
+                null, options, options[0]
+            );
+            
+            switch(option)
+            {
+                case 0:
+                    JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
+                    System.exit(0);
+                    break;
+                    
+                case 1:
+                    done = true;
+                    break;
+            }
+        }
     }
 }

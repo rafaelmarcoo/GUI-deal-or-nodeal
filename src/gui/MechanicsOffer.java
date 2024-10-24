@@ -14,6 +14,7 @@ public class MechanicsOffer extends MechanicsControl
 {
     MechanicsChangeCase MChange = new MechanicsChangeCase();
     MechanicsLastPlay MLast = new MechanicsLastPlay();
+    UIMessages uiMessages = new UIMessages();
     
     public void makeOffer(FrameMainGame frame, double offer)
     {
@@ -83,8 +84,7 @@ public class MechanicsOffer extends MechanicsControl
                     break;
                     
                 case 2:
-                    JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
-                    System.exit(0);
+                    uiMessages.quitMessage(frame);
                     break;
             }
         }

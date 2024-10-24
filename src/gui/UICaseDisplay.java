@@ -12,16 +12,13 @@ import javax.swing.JTextArea;
  */
 public class UICaseDisplay 
 {
-
     private JTextArea caseTextArea;
 
-    // Constructor to accept JTextArea from the FrameMainGame
     public UICaseDisplay(JTextArea caseTextArea) 
     {
         this.caseTextArea = caseTextArea;
     }
 
-//    @Override
     public void showCases(Cases cases) 
     {
         // Clear the previous content
@@ -31,18 +28,23 @@ public class UICaseDisplay
         StringBuilder caseDisplay = new StringBuilder();
         int count = 0;
         caseDisplay.append("\n");
+        
         // Loop through case numbers
-        for (int i = 1; i <= cases.getCaseNums().length; i++) {
+        for(int i = 1; i <= cases.getCaseNums().length; i++) 
+        {
             // If 7 cases are printed in a row, add a newline for formatting
-            if (count == 7) {
+            if(count == 7) 
+            {
                 caseDisplay.append("\n\n\n\n");
                 count = 0;
             }
-
             // Display 'X' if case has already been opened, else display case number
-            if (!cases.getCases().containsKey(i)) {
+            if(!cases.getCases().containsKey(i)) 
+            {
                 caseDisplay.append("      { X }   ");
-            } else {
+            } 
+            else 
+            {
                 caseDisplay.append("      { ").append(i).append(" }   ");
             }
             count++;

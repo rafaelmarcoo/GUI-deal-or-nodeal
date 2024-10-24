@@ -15,6 +15,8 @@ import javax.swing.JTextField;
  */
 public class MechanicsChangeCase extends MechanicsControl
 {
+    UIMessages uiMessages = new UIMessages();
+    
     public void changeCase(FrameMainGame frame, Cases cases)
     {
         JPanel panel = new JPanel();
@@ -42,9 +44,10 @@ public class MechanicsChangeCase extends MechanicsControl
             switch(option2)
             {
                 case 0:
+                    String strNum = textField.getText().trim();
                     try
                     {
-                        int caseNum = Integer.parseInt(textField.getText());
+                        int caseNum = Integer.parseInt(strNum);
                         if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
                         {
                             JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
@@ -82,8 +85,7 @@ public class MechanicsChangeCase extends MechanicsControl
                     break;
                     
                 case 3:
-                    JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
-                    System.exit(0);
+                    uiMessages.quitMessage(frame);
                     break;
             }
         }

@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class MechanicsLastPlay extends MechanicsControl
 {
+    UIMessages uiMessages = new UIMessages();
+    
     // Variables to store the number and value of the other (last) case
     int otherCaseNum;
     double otherCaseVal;
@@ -76,8 +78,7 @@ public class MechanicsLastPlay extends MechanicsControl
                     break;
                     
                 case 2:
-                    JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
-                    System.exit(0);
+                    uiMessages.quitMessage(frame);
                     break;
             }
         }

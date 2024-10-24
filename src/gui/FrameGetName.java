@@ -121,8 +121,8 @@ public class FrameGetName extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Retrieve user input
-        String fName = jTextField1.getText();
-        String lName = jTextField2.getText();
+        String fName = jTextField1.getText().trim();
+        String lName = jTextField2.getText().trim();
         
         // Check if inputs are empty, then give error
         if(fName.matches("^\\s*$") || lName.matches("^\\s*$"))
@@ -131,7 +131,7 @@ public class FrameGetName extends javax.swing.JFrame {
         }
         else if(!fName.matches("^[a-zA-Z]+$") || !lName.matches("^[a-zA-Z]+$")) // No allowed whitespaces or special characters. Else try again
         {
-            JOptionPane.showMessageDialog(this, "No whitespaces or special characters allowed");
+            JOptionPane.showMessageDialog(this, "No whitespaces or special characters or numbers allowed");
         }
         else
         {

@@ -23,9 +23,10 @@ public class MechanicsPlayRound extends MechanicsControl
     
     public void playRound(FrameMainGame frame, JTextField jTextField1) 
     {        
+        String strNum = jTextField1.getText().trim();
         try
         {
-            int caseNum = Integer.parseInt(jTextField1.getText());
+            int caseNum = Integer.parseInt(strNum);
             
             if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
             {
