@@ -10,12 +10,14 @@ import javax.swing.JOptionPane;
  *
  * @author rafae
  */
-public class FrameGetName extends javax.swing.JFrame {
-
+public class FrameGetName extends javax.swing.JFrame 
+{
+    MechanicsGetName MGetName = new MechanicsGetName();
     /**
      * Creates new form FrameGetName
      */
-    public FrameGetName() {
+    public FrameGetName() 
+    {
         initComponents();
     }
 
@@ -120,36 +122,7 @@ public class FrameGetName extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        // Retrieve user input
-        String fName = jTextField1.getText().trim();
-        String lName = jTextField2.getText().trim();
-        
-        // Check if inputs are empty, then give error
-        if(fName.matches("^\\s*$") || lName.matches("^\\s*$"))
-        {
-            JOptionPane.showMessageDialog(this, "One or more inputs are empty!");
-        }
-        else if(!fName.matches("^[a-zA-Z]+$") || !lName.matches("^[a-zA-Z]+$")) // No allowed whitespaces or special characters. Else try again
-        {
-            JOptionPane.showMessageDialog(this, "No whitespaces or special characters or numbers allowed");
-        }
-        else
-        {
-            // Set fName and lName to upper case;
-            fName = fName.toUpperCase();
-            lName = lName.toUpperCase();
-            
-            // Set firstName as fName and lastName as lName in MechanicsControl.java
-            Player.firstName = fName;
-            Player.lastName = lName;
-            
-            JOptionPane.showMessageDialog(this, "Welcome " + Player.firstName + " " + Player.lastName + "! \nGood Luck !!!");
-            
-            FrameMainGame gameFrame = new FrameMainGame();
-            gameFrame.setVisible(true);
-            JOptionPane.showMessageDialog(gameFrame, "Welcome to Deal Or No Deal!\nTo get started, pick one case to keep!");
-            this.dispose();
-        }
+        MGetName.getName(this, jTextField1, jTextField2);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

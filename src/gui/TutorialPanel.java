@@ -11,12 +11,14 @@ package gui;
 import javax.swing.SwingUtilities;
 import javax.swing.JDialog;
 
-public class TutorialPanel extends javax.swing.JPanel {
+public class TutorialPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form TutorialPanel
      */
-    public TutorialPanel() {
+    public TutorialPanel() 
+    {
         initComponents();
     }
 

@@ -10,12 +10,14 @@ import javax.swing.JDialog;
  *
  * @author rafae
  */
-public class FrameHome extends javax.swing.JFrame {
+public class FrameHome extends javax.swing.JFrame 
+{
 
     /**
      * Creates new form HomeFrame
      */
-    public FrameHome() {
+    public FrameHome() 
+    {
         initComponents();
     }
 
@@ -192,6 +194,12 @@ public class FrameHome extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrameHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
