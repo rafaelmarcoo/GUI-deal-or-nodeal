@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  */
 public class MechanicsPlayRound extends MechanicsControl
 {
-    MechanicsOffer MOffer = new MechanicsOffer();
+    MechanicsBanker MOffer = new MechanicsBanker();
     
     UIMessages uiMessages = new UIMessages();
     

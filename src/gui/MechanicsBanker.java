@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  It extends MechanicsControl as it contains all info required in one game 
  and implements the IBanker interface, ensuring it provides the bankerOffer method.
 */
-public class MechanicsOffer extends MechanicsControl
+public class MechanicsBanker extends MechanicsControl
 {
     MechanicsChangeCase MChange = new MechanicsChangeCase();
     MechanicsLastPlay MLast = new MechanicsLastPlay();
