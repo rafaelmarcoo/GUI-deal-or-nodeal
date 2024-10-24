@@ -14,6 +14,8 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
 {
     MechanicsChangeCase MChange = new MechanicsChangeCase();
     MechanicsLastPlay MLast = new MechanicsLastPlay();
+    
+    UICompare uiCompare = new UICompare();
     UIMessages uiMessages = new UIMessages();
     
     // DB - Instances to log game and errors and results
@@ -47,6 +49,7 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     JOptionPane.showMessageDialog(frame, "Deal!");
                     JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + offer +
                             "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
+                    uiCompare.compareValues(frame, playerCaseValue, offer);
                     
                     // DB Log
                     dbWin.dbListWin(Player.firstName, Player.lastName, offer);

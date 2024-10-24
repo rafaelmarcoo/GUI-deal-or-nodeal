@@ -4,8 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
-
 /**
  *
  * @author rcman
@@ -20,4 +18,10 @@ public class Player
         Player.firstName = f;
         Player.lastName = l;
     } 
+    
+    public void reset() 
+    {
+        Player.firstName = "";
+        Player.lastName = "";
+    }
 }

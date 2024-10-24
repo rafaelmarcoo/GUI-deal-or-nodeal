@@ -10,7 +10,6 @@ package gui;
  */
 public class FrameMainGame extends javax.swing.JFrame 
 {
-    MechanicsControl MControl = new MechanicsControl();
     MechanicsCaseSelect MSelect = new MechanicsCaseSelect();
     MechanicsPlayRound MPlay = new MechanicsPlayRound();
     UICaseDisplay uiCase;
@@ -22,22 +21,24 @@ public class FrameMainGame extends javax.swing.JFrame
     public FrameMainGame() 
     {
         initComponents();
+        MechanicsControl.resetGame();
+        
         uiCase = new UICaseDisplay(jTextArea1);
         uiMessages = new UIMessages();
         
-        uiCase.showCases(MControl.cases);
+        uiCase.showCases(MechanicsControl.cases);
         uiMessages.uiRound(jLabel1);
     }
     
     // Method to refresh case display whenever cases are updated
     public void refreshUI() 
     {
-        uiCase.showCases(MControl.cases);
+        uiCase.showCases(MechanicsControl.cases);
         uiMessages.uiRound(jLabel1);
         uiMessages.uiPlayerCase(jLabel2);
         
-        if(MControl.roundNum != 0 || MControl.roundNum < 5)
-            uiMessages.uiCasesToOpen(jLabel3, MControl.count);
+        if(MechanicsControl.roundNum != 0 || MechanicsControl.roundNum < 5)
+            uiMessages.uiCasesToOpen(jLabel3, MechanicsControl.count);
     }
 
     /**
@@ -170,11 +171,11 @@ public class FrameMainGame extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(MControl.roundNum == 0)
+        if(MechanicsControl.roundNum == 0)
         {
             MSelect.selectCase(this, jTextField1);
         }
-        else if(MControl.roundNum <= 5)
+        else if(MechanicsControl.roundNum <= 5)
         {
             MPlay.playRound(this, jTextField1);
         }

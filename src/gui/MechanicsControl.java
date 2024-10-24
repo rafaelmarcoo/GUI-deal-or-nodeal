@@ -15,7 +15,7 @@ package gui;
  of Deal or No Deal. It keeps static variables for tracking the player, the selected case, 
  the value of the selected case, the current round number, and the collection of cases.
 */
-public class MechanicsControl
+public abstract class MechanicsControl
 {
     public static Player player;
     public static int playerCase;
@@ -30,5 +30,17 @@ public class MechanicsControl
         roundNum = 0;
         count = 5;
     }
-      
+    
+    public static void resetGame() 
+    {
+        roundNum = 0;
+        count = 5;
+        playerCase = -1;
+        playerCaseValue = 0.0;
+        
+        if(player != null) 
+        {
+            player.reset();  // Reset player name data
+        }
+    }
 }

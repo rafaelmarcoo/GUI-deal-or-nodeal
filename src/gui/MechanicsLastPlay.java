@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
 {
     UIMessages uiMessages = new UIMessages();
+    UICompareLast uiCompareLast = new UICompareLast();
     
     // DB - Instances to log game and errors and results
     DBGameLog dbGLog = new DBGameLog();
@@ -60,6 +61,7 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     
                     JOptionPane.showMessageDialog(frame, "Your case " + playerCase + " contains $" + playerCaseValue
                         + "\nThe other case " + otherCaseNum + " contains $" + otherCaseVal);
+                    uiCompareLast.compareValues(frame, playerCaseValue, otherCaseVal);
                     JOptionPane.showMessageDialog(frame, "Thanks for playing!");
                     
                     // DB Log
@@ -79,6 +81,7 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     JOptionPane.showMessageDialog(frame, "You swapped your case " + playerCase + " for case " + otherCaseNum);
                     JOptionPane.showMessageDialog(frame, "Your new case " + otherCaseNum + " contains $ " + otherCaseVal
                         + "\nYour old case " + playerCase + " contains $ " + playerCaseValue);
+                    uiCompareLast.compareValues(frame, otherCaseVal, playerCaseValue);
                     JOptionPane.showMessageDialog(frame, "Thanks for playing!");
                     
                     // DB Log
