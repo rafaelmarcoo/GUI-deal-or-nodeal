@@ -11,7 +11,7 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
-public class MechanicsPlayRound extends MechanicsControl
+public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
 {
     MechanicsBanker MOffer = new MechanicsBanker();
     
@@ -25,6 +25,7 @@ public class MechanicsPlayRound extends MechanicsControl
     DBInitBadComments dbBadCom = new DBInitBadComments();
     DBInitGoodComments dbGoodCom = new DBInitGoodComments();
     
+    @Override
     public void playRound(FrameMainGame frame, JTextField jTextField1) 
     {        
         String strNum = jTextField1.getText().trim();

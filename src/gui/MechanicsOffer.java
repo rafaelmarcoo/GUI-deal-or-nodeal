@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author rafae
  */
-public class MechanicsOffer extends MechanicsControl
+public class MechanicsOffer extends MechanicsControl implements IOffer
 {
     MechanicsChangeCase MChange = new MechanicsChangeCase();
     MechanicsLastPlay MLast = new MechanicsLastPlay();
@@ -21,6 +21,7 @@ public class MechanicsOffer extends MechanicsControl
     DBErrorLog dbELog = new DBErrorLog();
     DBListOfWin dbWin = new DBListOfWin();
     
+    @Override
     public void makeOffer(FrameMainGame frame, double offer)
     {
         boolean done = false;

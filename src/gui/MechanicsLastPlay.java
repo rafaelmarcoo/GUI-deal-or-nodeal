@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author rafae
  */
-public class MechanicsLastPlay extends MechanicsControl
+public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
 {
     UIMessages uiMessages = new UIMessages();
     
@@ -24,6 +24,7 @@ public class MechanicsLastPlay extends MechanicsControl
     int otherCaseNum;
     double otherCaseVal;
     
+    @Override
     public void lastPlay(FrameMainGame frame, Cases cases)
     {
         JOptionPane.showMessageDialog(frame, "This is the last play of the game!");

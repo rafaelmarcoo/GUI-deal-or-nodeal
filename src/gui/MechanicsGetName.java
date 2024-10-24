@@ -11,11 +11,12 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
-public class MechanicsGetName 
+public class MechanicsGetName implements IGetName
 {
     // DB - Instances to log game
     DBGameLog dbGLog = new DBGameLog();
     
+    @Override
     public void getName(FrameGetName frame, JTextField jTextField1, JTextField jTextField2)
     {
         // Retrieve user input

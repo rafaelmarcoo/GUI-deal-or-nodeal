@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
-public class MechanicsChangeCase extends MechanicsControl
+public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
 {
     UIMessages uiMessages = new UIMessages();
     
@@ -21,6 +21,7 @@ public class MechanicsChangeCase extends MechanicsControl
     DBGameLog dbGLog = new DBGameLog();
     DBErrorLog dbELog = new DBErrorLog();
     
+    @Override
     public void changeCase(FrameMainGame frame, Cases cases)
     {
         JPanel panel = new JPanel();

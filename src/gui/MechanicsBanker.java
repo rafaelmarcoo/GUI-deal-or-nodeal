@@ -15,13 +15,13 @@ package gui;
  It extends MechanicsControl as it contains all info required in one game 
  and implements the IBanker interface, ensuring it provides the bankerOffer method.
 */
-public class MechanicsBanker extends MechanicsControl
+public class MechanicsBanker extends MechanicsControl implements IBanker
 {
     MechanicsOffer MOffer = new MechanicsOffer();
     
     DBGameLog dbGLog = new DBGameLog(); // Instance of DBGameLog
     
-//    @Override
+    @Override
     public void bankerOffer(FrameMainGame frame, Cases cases)
     {
         double totalValue = 0;

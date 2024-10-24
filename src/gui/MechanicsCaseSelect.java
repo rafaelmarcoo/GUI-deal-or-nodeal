@@ -4,7 +4,6 @@
  */
 package gui;
 
-import static com.mycompany.deal.or.nodeal.MechanicsControl.playerCase;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -12,7 +11,7 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
-public class MechanicsCaseSelect extends MechanicsControl
+public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
 {
     // DB - Instances to log game and errors
     DBGameLog dbGLog = new DBGameLog();
