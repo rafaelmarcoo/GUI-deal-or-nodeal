@@ -52,15 +52,6 @@ public class DBListOfWin implements IDBListWin
             pstmt.setDouble(4, winnings);
             pstmt.executeUpdate();
             
-//            // Test
-//            rs = stmt.executeQuery("SELECT * FROM ListOfWinners");
-//            while(rs.next())
-//            {
-//                System.out.println("Date: " + rs.getDate("DATE_PLAYED") + "\n"
-//                        + rs.getString("FIRST_NAME") + "\n"  
-//                        + rs.getString("LAST_NAME") + "\n" 
-//                        + rs.getDouble("AMOUNT_WON"));
-//            }
             conn.close(); // Close connection
         }
         catch(Exception E)
@@ -68,13 +59,4 @@ public class DBListOfWin implements IDBListWin
             E.printStackTrace();
         }
     }
-    
-//    public static void main(String[] args) 
-//    {
-//        String first = "Rafael";
-//        String last = "Marco";
-//        double amount = 1234.42;
-//        
-//        dbListWin(first,last,amount);
-//    }
 }

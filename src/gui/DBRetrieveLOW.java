@@ -15,8 +15,9 @@ import java.sql.*;
     This class contains a method to retrieve all the list of past winners that has 
     played Deal Or No Deal. It returns an ArrayList to be displayed in WinnersFrame
 */
-public class DBRetrieveLOW 
+public class DBRetrieveLOW implements IDBRetrieveLOW
 {
+    @Override
     public ArrayList<String[]> retrieveWinnersList()
     {
         // ArrayList of list of winners

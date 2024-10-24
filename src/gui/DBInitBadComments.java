@@ -66,14 +66,6 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
                 }
                 br.close();
                 
-//                // Test
-//                rs = stmt.executeQuery("SELECT * FROM BadCommentsTable");
-//                while(rs.next())
-//                {
-//                    System.out.println("ID: " + rs.getInt("ID") + "\n"
-//                            + "Comment: " + rs.getString("COMMENT"));
-//                    System.out.println("");
-//                }
                 conn.close();
             }
             catch(Exception E)
@@ -110,8 +102,6 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
                 comment = rs.getString("COMMENT");
             }
             
-//            // Test
-//            System.out.println("ID: " + id + "\n" + "Comment: " + comment);
         }
         catch(Exception E)
         {
@@ -121,9 +111,4 @@ public class DBInitBadComments implements IDBInitComments, ICommentUI
         return comment;
     }
     
-//    public static void main(String[] args) 
-//    {
-//        dBInitComments();
-//        comment();
-//    }
 }

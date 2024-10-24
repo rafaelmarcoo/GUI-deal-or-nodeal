@@ -10,7 +10,7 @@
 - ✅LAST PLAY
 - ✅EXITS THROUGHOUT GAMEPLAY
 - ✅IMPLEMENT DB METHODS
-- INTERFACES!!
+- ✅INTERFACES!!
 
 ** maybe add a prize table if i have the time **
 - only do this if done everything else .. like everything perfect

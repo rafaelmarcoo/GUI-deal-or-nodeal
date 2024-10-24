@@ -51,14 +51,6 @@ public class DBGameLog implements IDBGameLog
             pstmt.setString(2, action);
             pstmt.executeUpdate();
             
-//            // Test
-//            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_GAMELOG");
-//            while(rs.next())
-//            {
-//                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
-//                        + "Action: " + rs.getString("ACTION") + "\n");  
-//            }
-//            System.out.println("");
             conn.close();
         }
         catch(Exception E)
@@ -66,9 +58,4 @@ public class DBGameLog implements IDBGameLog
             E.printStackTrace();
         }
     }
-    
-//    public static void main(String[] args) 
-//    {
-//        dbGameLog("RAFAEL", "MARCO", "INITIALISED FIRST NAME");
-//    }
 }
