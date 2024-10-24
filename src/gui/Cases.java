@@ -99,18 +99,7 @@ public class Cases
     public int getTotalCases() 
     {
         return totalCases;
-    }
-    
-    public static void main(String[] args) 
-    {
-        Cases gameCases = new Cases();
-        // Test
-        for(Integer i : gameCases.getCases().keySet()) 
-        {
-            System.out.println("Case Num: " + i + " Value: " + cases.get(i));
-            System.out.println("");
-        }
-    }
+    }    
 }
 
 

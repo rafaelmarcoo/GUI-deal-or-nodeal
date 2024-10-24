@@ -92,8 +92,6 @@ public class MechanicsChangeCase extends MechanicsControl
                     uiMessages.quitMessage(frame);
                     break;
             }
-        }
-        
-        
+        }   
     }
 }
