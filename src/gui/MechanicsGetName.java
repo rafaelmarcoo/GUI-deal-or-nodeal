@@ -13,6 +13,9 @@ import javax.swing.JTextField;
  */
 public class MechanicsGetName 
 {
+    // DB - Instances to log game
+    DBGameLog dbGLog = new DBGameLog();
+    
     public void getName(FrameGetName frame, JTextField jTextField1, JTextField jTextField2)
     {
         // Retrieve user input
@@ -37,6 +40,9 @@ public class MechanicsGetName
             // Set firstName as fName and lastName as lName in MechanicsControl.java
             Player.firstName = fName;
             Player.lastName = lName;
+            
+            // DB Log
+            dbGLog.dbGameLog(fName, lName, "Entered first and last name.");
             
             JOptionPane.showMessageDialog(frame, "Welcome " + Player.firstName + " " + Player.lastName + "! \nGood Luck !!!");
             

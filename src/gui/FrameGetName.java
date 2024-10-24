@@ -3,16 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gui;
-
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author rafae
  */
 public class FrameGetName extends javax.swing.JFrame 
 {
+    // Game mechanics components
     MechanicsGetName MGetName = new MechanicsGetName();
+    
     /**
      * Creates new form FrameGetName
      */

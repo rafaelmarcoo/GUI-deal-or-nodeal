@@ -15,7 +15,12 @@ public class MechanicsLastPlay extends MechanicsControl
 {
     UIMessages uiMessages = new UIMessages();
     
-    // Variables to store the number and value of the other (last) case
+    // DB - Instances to log game and errors and results
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    DBListOfWin dbWin = new DBListOfWin();
+    
+    // Variables to store the number and value of the other case
     int otherCaseNum;
     double otherCaseVal;
     
@@ -56,6 +61,10 @@ public class MechanicsLastPlay extends MechanicsControl
                         + "\nThe other case " + otherCaseNum + " contains $" + otherCaseVal);
                     JOptionPane.showMessageDialog(frame, "Thanks for playing!");
                     
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Chose to keep case " + playerCase);
+                    dbWin.dbListWin(Player.firstName, Player.lastName, playerCaseValue);
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Won $" + playerCaseValue);
                     
                     frame.dispose();
                     FrameHome homeFrame = new FrameHome();
@@ -71,6 +80,12 @@ public class MechanicsLastPlay extends MechanicsControl
                         + "\nYour old case " + playerCase + " contains $ " + playerCaseValue);
                     JOptionPane.showMessageDialog(frame, "Thanks for playing!");
                     
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Chose to swap case " + playerCase + 
+                        " with case " + otherCaseNum);
+                    dbWin.dbListWin(Player.firstName, Player.lastName, otherCaseVal);
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Won $" + otherCaseVal);
+                    
                     frame.dispose();
                     FrameHome home = new FrameHome();
                     home.setVisible(true);
@@ -79,6 +94,9 @@ public class MechanicsLastPlay extends MechanicsControl
                     
                 case 2:
                     uiMessages.quitMessage(frame);
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
                     break;
             }
         }

@@ -16,6 +16,11 @@ public class MechanicsOffer extends MechanicsControl
     MechanicsLastPlay MLast = new MechanicsLastPlay();
     UIMessages uiMessages = new UIMessages();
     
+    // DB - Instances to log game and errors and results
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    DBListOfWin dbWin = new DBListOfWin();
+    
     public void makeOffer(FrameMainGame frame, double offer)
     {
         boolean done = false;
@@ -41,6 +46,13 @@ public class MechanicsOffer extends MechanicsControl
                     JOptionPane.showMessageDialog(frame, "Deal!");
                     JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + offer +
                             "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
+                    
+                    // DB Log
+                    dbWin.dbListWin(Player.firstName, Player.lastName, offer);
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Accepted banker's offer of $" + offer);
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+                    dbELog.dbErrorLog(Player.firstName, Player.lastName, "Game Finished.\n\n");
+                    
                     frame.dispose();
                     FrameHome homeFrame = new FrameHome();
                     homeFrame.setVisible(true);
@@ -49,7 +61,10 @@ public class MechanicsOffer extends MechanicsControl
                 case 1:
                     done = true;
                     System.out.println("No Deal");
-
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Rejected banker's offer of $" + offer);
+                    
                     if(roundNum != 3 || roundNum != 4 )
                     {
                         JOptionPane.showMessageDialog(frame, "No Deal! We move on to the next round!");
@@ -58,14 +73,20 @@ public class MechanicsOffer extends MechanicsControl
                     {
                        JOptionPane.showMessageDialog(frame, "No Deal!"); 
                     }
-                    
-                    
+                       
                     if(roundNum == 3 || roundNum == 4)
                     {
                         MChange.changeCase(frame, MechanicsControl.cases);
                     }
-
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "End of Round " + roundNum);
+                    
                     roundNum++;
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Start of Round " + roundNum);
+                    
                     if(roundNum < 5)
                     {
                         count = 5;
@@ -85,6 +106,10 @@ public class MechanicsOffer extends MechanicsControl
                     
                 case 2:
                     uiMessages.quitMessage(frame);
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.");
+                    
                     break;
             }
         }

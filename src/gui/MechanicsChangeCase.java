@@ -17,6 +17,10 @@ public class MechanicsChangeCase extends MechanicsControl
 {
     UIMessages uiMessages = new UIMessages();
     
+    // DB - Instances to log game and errors
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    
     public void changeCase(FrameMainGame frame, Cases cases)
     {
         JPanel panel = new JPanel();
@@ -51,10 +55,16 @@ public class MechanicsChangeCase extends MechanicsControl
                         if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
                         {
                             JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
+                            
+                            // DB Log
+                            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid case number! - ChangeCase");
                         }
                         else if(!cases.getCases().containsKey(caseNum))
                         {
                             JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
+                            
+                            // DB Log
+                            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Case has already been opened! - ChangeCase");
                         }
                         else
                         {
@@ -73,6 +83,9 @@ public class MechanicsChangeCase extends MechanicsControl
                             JOptionPane.showMessageDialog(frame, "You swapped your case " + temp + " with case " + playerCase + "!");
                             JOptionPane.showMessageDialog(frame, "Onto the next round!");
                             
+                            // DB Log
+                            dbGLog.dbGameLog(Player.firstName, Player.lastName, "Swapped case " + temp + " with case " + caseNum);
+                            
                             frame.refreshUI();
                             done = true;
                         }
@@ -80,16 +93,26 @@ public class MechanicsChangeCase extends MechanicsControl
                     catch(NumberFormatException E)
                     {
                         JOptionPane.showMessageDialog(frame, "Invalid input!");
+                        
+                        // DB Log
+                        dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers! - MChangeCase");
                     }             
                     break;
                     
                 case 1:
                     JOptionPane.showMessageDialog(frame, "No Swap! We move on to the next round then!");
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "Player refused swapping cases.");
+                    
                     done = true;
                     break;
                     
                 case 3:
                     uiMessages.quitMessage(frame);
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.firstName, Player.lastName, "User quit game.\n\n");
                     break;
             }
         }   

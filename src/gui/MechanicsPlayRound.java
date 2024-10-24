@@ -17,6 +17,10 @@ public class MechanicsPlayRound extends MechanicsControl
     
     UIMessages uiMessages = new UIMessages();
     
+    // DB - Instances to log game and errors
+    DBGameLog dbGLog = new DBGameLog();
+    DBErrorLog dbELog = new DBErrorLog();
+    
     // DB - Comments
     DBInitBadComments dbBadCom = new DBInitBadComments();
     DBInitGoodComments dbGoodCom = new DBInitGoodComments();
@@ -31,10 +35,16 @@ public class MechanicsPlayRound extends MechanicsControl
             if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
             {
                 JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
+                
+                // DB Log
+                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid Case Number - MPlayRound");
             }
             else if(!cases.getCases().containsKey(caseNum))
             {
                 JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
+                
+                // DB Log
+                dbELog.dbErrorLog(Player.firstName, Player.lastName, "Case already opened - MPlayRound");
             }
             else
             {
@@ -51,6 +61,10 @@ public class MechanicsPlayRound extends MechanicsControl
                 JOptionPane.showMessageDialog(frame, "Case " + caseNum + " contains: $" 
                         + cases.getCases().get(caseNum) + "\n" + comment);
                 
+                // DB Log
+                dbGLog.dbGameLog(Player.firstName, Player.lastName, "Opened case " + caseNum +
+                                " containing $" + cases.getCases().get(caseNum));
+                
                 cases.getCases().remove(caseNum);
                 count--;
                 jTextField1.setText("");
@@ -65,6 +79,9 @@ public class MechanicsPlayRound extends MechanicsControl
         catch(NumberFormatException E)
         {
             JOptionPane.showMessageDialog(frame, "Invalid input!");
+            
+            // DB Log
+            dbELog.dbErrorLog(Player.firstName, Player.lastName, "Invalid input! Only case numbers! - MPlayRound");
         }
     }
 }
