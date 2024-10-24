@@ -222,3 +222,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\rafae\OneDrive\Documents\Coding\Github\GUI-deal-or-nodeal
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Oct 24 21:14:27 NZDT 2024: Shutting down Derby engine
+----------------------------------------------------------------
+Thu Oct 24 21:14:27 NZDT 2024:
+Shutting down instance 601a400f-0192-bd94-8958-ffffecc3b7b1 on database directory C:\Users\rafae\OneDrive\Documents\Coding\Github\GUI-deal-or-nodeal\dealornodealDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+----------------------------------------------------------------
