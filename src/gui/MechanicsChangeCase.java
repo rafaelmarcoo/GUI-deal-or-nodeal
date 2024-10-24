@@ -52,6 +52,10 @@ public class MechanicsChangeCase extends MechanicsControl
                         {
                             JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
                         }
+                        else if(!cases.getCases().containsKey(caseNum))
+                        {
+                            JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
+                        }
                         else
                         {
                             // Temporarily store the current case and value
