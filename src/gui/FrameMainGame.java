@@ -187,8 +187,8 @@ public class FrameMainGame extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        uiMessages.quitMessage(this);
         dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
+        uiMessages.quitMessage(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

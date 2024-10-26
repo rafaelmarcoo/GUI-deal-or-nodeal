@@ -37,7 +37,7 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
                 cases.getCases().remove(caseNum);
                 roundNum++;
                 jTextField1.setText("");
-                JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase + "\nContains: $" + playerCaseValue);
+                JOptionPane.showMessageDialog(frame, "You have chosen case " + playerCase + "!");
                 
                 // DB Log
                 dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Selected case " + playerCase + " for the first time.");         
