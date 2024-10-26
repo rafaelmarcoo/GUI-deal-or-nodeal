@@ -11,7 +11,7 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
-public class MechanicsGetName implements IGetName
+public class MechanicsGetName extends MechanicsControl implements IGetName
 {
     // DB - Instances to log game
     DBGameLog dbGLog = new DBGameLog();

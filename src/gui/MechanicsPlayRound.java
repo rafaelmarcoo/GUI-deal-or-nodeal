@@ -36,6 +36,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
             if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
             {
                 JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
+                jTextField1.setText("");
                 
                 // DB Log
                 dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid Case Number - MPlayRound");
@@ -43,6 +44,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
             else if(!cases.getCases().containsKey(caseNum))
             {
                 JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
+                jTextField1.setText("");
                 
                 // DB Log
                 dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Case already opened - MPlayRound");

@@ -26,6 +26,7 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
             if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
             {
                 JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
+                jTextField1.setText("");
                 
                 // DB Error Log
                 dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid case number! - MCaseSelect");
@@ -49,6 +50,7 @@ public class MechanicsCaseSelect extends MechanicsControl implements ICaseSelect
         catch(NumberFormatException E)
         {
             JOptionPane.showMessageDialog(frame, "Invalid input! Only case numbers!");
+            jTextField1.setText("");
             
             // DB Error Log
             dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid input! - MCaseSelect");

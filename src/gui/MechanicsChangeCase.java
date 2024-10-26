@@ -56,6 +56,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                         if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
                         {
                             JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
+                            textField.setText("");
                             
                             // DB Log
                             dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid case number! - ChangeCase");
@@ -63,6 +64,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                         else if(!cases.getCases().containsKey(caseNum))
                         {
                             JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
+                            textField.setText("");
                             
                             // DB Log
                             dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Case has already been opened! - ChangeCase");
@@ -94,6 +96,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                     catch(NumberFormatException E)
                     {
                         JOptionPane.showMessageDialog(frame, "Invalid input!");
+                        textField.setText("");
                         
                         // DB Log
                         dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid input! Only case numbers! - MChangeCase");
