@@ -4,7 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,15 +18,13 @@ import java.util.Random;
     This class contains a WRITE AND READ database method to read comments from a file and store it in a
     table to be utilised in the game. It also has a method to retrieve a random comment
 */
-public class DBInitBadComments implements IDBInitComments, ICommentUI
+public class DBInitBadComments implements IDBInitComments
 {
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
     
     @Override
     public void dBInitComments()
-    {
-        String dbURL = "jdbc:derby:dealornodealDB;create=true";
-        
+    {   
         try
         {
             // Read the comments from a file

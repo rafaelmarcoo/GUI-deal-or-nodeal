@@ -4,7 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,7 +20,7 @@ import java.util.Random;
     to be used in the game.
     It also has a method to retrieve a random comment to be used in the game
 */
-public class DBInitGoodComments implements IDBInitComments, ICommentUI
+public class DBInitGoodComments implements IDBInitComments
 {
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
     

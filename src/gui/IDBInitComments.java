@@ -4,8 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
-
 /**
  *
  * @author rafae
@@ -13,4 +11,5 @@ import com.mycompany.deal.or.nodeal.*;
 public interface IDBInitComments 
 {
     public void dBInitComments();
+    public String comment();
 }
