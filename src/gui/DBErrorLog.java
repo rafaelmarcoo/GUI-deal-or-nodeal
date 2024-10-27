@@ -4,7 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
 import java.sql.*;
 import java.time.LocalDateTime;
 
@@ -53,24 +52,11 @@ public class DBErrorLog implements IDBErrorLog
             pstmt.setString(2, action);
             pstmt.executeUpdate();
             
-//            // Test
-//            rs = stmt.executeQuery("SELECT * FROM " + firstName + "_" + lastName + "_ERRORLOG");
-//            while(rs.next())
-//            {
-//                System.out.println("Timestamp: " + rs.getTimestamp("TIMESTAMP") + "\n"
-//                        + "Action: " + rs.getString("ACTION") + "\n");  
-//            }
-//            System.out.println("");
             conn.close();
         }
-        catch(Exception E)
+        catch(SQLException E)
         {
             E.printStackTrace();
         }
     }
-    
-//    public static void main(String[] args) 
-//    {
-//        dbErrorLog("RAFAEL", "MARCO", "INVALID INPUT!");
-//    }
 }
