@@ -7,9 +7,7 @@ package gui;
 import java.sql.*;
 import javax.swing.JTextField;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -23,43 +21,43 @@ public class MechanicsCaseSelectTest
     private FrameMainGame frame;
     private JTextField jTextField;
     
-    public MechanicsCaseSelectTest() 
-    {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() 
+    {
+        
+        
+        MCaseSelect = new MechanicsCaseSelect();
+        frame = new FrameMainGame(); // Assuming this can be instantiated directly
+        jTextField = new JTextField();
+        
+        MechanicsCaseSelect.cases = new Cases(); 
+        Player player = new Player("TEST", "PLAYER");
+        MechanicsPlayRound.player = player;
+    }
+    
+    @After
+    public void tearDown() 
     {
         try
         {
             Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
             Statement statement = conn.createStatement();       
-            statement.executeUpdate("DROP TABLE NULL_NULL_ERRORLOG");
-            statement.executeUpdate("DROP TABLE NULL_NULL_GAMELOG");
+            
+            // If tables exist then delete it
+            DatabaseMetaData dbMeta = conn.getMetaData();
+            ResultSet rs = dbMeta.getTables(null, null, "TEST_PLAYER_GAMELOG", null);
+            ResultSet rs2 = dbMeta.getTables(null, null, "TEST_PLAYER_ERRORLOG", null);
+            if(rs.next())
+                statement.executeUpdate("DROP TABLE TEST_PLAYER_GAMELOG");
+            if(rs2.next())
+                statement.executeUpdate("DROP TABLE TEST_PLAYER_ERRORLOG");
+            
             conn.close();
         }
         catch(SQLException E) 
         {
             E.printStackTrace();
         }
-        
-        MCaseSelect = new MechanicsCaseSelect();
-        frame = new FrameMainGame(); // Assuming this can be instantiated directly
-        jTextField = new JTextField();
-        
-        MechanicsCaseSelect.cases = new Cases();
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -70,18 +68,19 @@ public class MechanicsCaseSelectTest
     {
         // Arrange
         jTextField.setText("2");
-
+        double caseVal = MCaseSelect.cases.getCases().get(2);
+        
         // Act
         MCaseSelect.selectCase(frame, jTextField);
 
         // Assert
         assertEquals(2, MCaseSelect.playerCase);
-        assertEquals(MCaseSelect.cases.getCases().get(2), MCaseSelect.playerCaseValue, 0.001);
+        assertEquals(caseVal, MCaseSelect.playerCaseValue, 0.001);
         assertTrue(MCaseSelect.cases.getCases().size() < 26); // One case should be removed
         assertEquals(1, MCaseSelect.roundNum); // Assuming this is the first round
     }
     
-     @Test
+    @Test
     public void testSelectCase_InvalidNumberFormat() 
     {
         // Arrange

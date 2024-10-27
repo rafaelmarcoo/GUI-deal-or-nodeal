@@ -27,10 +27,14 @@ public class MechanicsGetName extends MechanicsControl implements IGetName
         if(fName.matches("^\\s*$") || lName.matches("^\\s*$"))
         {
             JOptionPane.showMessageDialog(frame, "One or more inputs are empty!");
+            jTextField1.setText("");
+            jTextField2.setText("");
         }
         else if(!fName.matches("^[a-zA-Z]+$") || !lName.matches("^[a-zA-Z]+$")) // No allowed whitespaces or special characters. Else try again
         {
             JOptionPane.showMessageDialog(frame, "No whitespaces or special characters or numbers allowed");
+            jTextField1.setText("");
+            jTextField2.setText("");
         }
         else
         {

@@ -6,6 +6,7 @@ package gui;
 
 import java.sql.*;
 import javax.swing.JTextField;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -22,23 +23,7 @@ public class MechanicsPlayRoundTest
     
     @Before
     public void setUp() 
-    {
-        
-        try
-        {
-            Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
-            Statement statement = conn.createStatement();       
-            statement.executeUpdate("DROP TABLE TEST_PLAYER_ERRORLOG");
-            statement.executeUpdate("DROP TABLE TEST_PLAYER_GAMELOG");
-            conn.close();
-        }
-        catch(SQLException E) 
-        {
-            E.printStackTrace();
-        }
-        
-        
-        
+    {     
         MPlayRound = new MechanicsPlayRound();
         frame = new FrameMainGame();
         jTextField = new JTextField();
@@ -46,8 +31,33 @@ public class MechanicsPlayRoundTest
         Cases cases = new Cases();
         MechanicsPlayRound.cases = cases;
         
-        Player player = new Player("Test", "Player");
+        Player player = new Player("TEST", "PLAYER");
         MechanicsPlayRound.player = player;
+    }
+    
+    @After
+    public void tearDown() 
+    {
+        try
+        {
+            Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
+            Statement statement = conn.createStatement();       
+            
+            // If tables exist then delete it
+            DatabaseMetaData dbMeta = conn.getMetaData();
+            ResultSet rs = dbMeta.getTables(null, null, "TEST_PLAYER_GAMELOG", null);
+            ResultSet rs2 = dbMeta.getTables(null, null, "TEST_PLAYER_ERRORLOG", null);
+            if(rs.next())
+                statement.executeUpdate("DROP TABLE TEST_PLAYER_GAMELOG");
+            if(rs2.next())
+                statement.executeUpdate("DROP TABLE TEST_PLAYER_ERRORLOG");
+            
+            conn.close();
+        }
+        catch(SQLException E) 
+        {
+            E.printStackTrace();
+        }
     }
 
     /**
@@ -68,7 +78,8 @@ public class MechanicsPlayRoundTest
     }
     
      @Test
-    public void testPlayRound_InvalidCase() {
+    public void testPlayRound_InvalidCase() 
+    {
         
         // Add an invalid case number to the text field
         jTextField.setText("999");

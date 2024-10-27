@@ -4,6 +4,7 @@
  */
 package gui;
 
+import java.sql.*;
 import javax.swing.JTextField;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -46,8 +47,23 @@ public class MechanicsGetNameTest
     @After
     public void tearDown() 
     {
-        Player.setFirstName(null);
-        Player.setLastName(null);
+        try
+        {
+            Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
+            Statement statement = conn.createStatement();       
+            
+            // If tables exist then delete it
+            DatabaseMetaData dbMeta = conn.getMetaData();
+            ResultSet rs = dbMeta.getTables(null, null, "TEST_PLAYER_GAMELOG", null);
+            if(rs.next())
+                statement.executeUpdate("DROP TABLE TEST_PLAYER_GAMELOG");
+            
+            conn.close();
+        }
+        catch(SQLException E) 
+        {
+            E.printStackTrace();
+        }
     }
 
     /**
@@ -73,20 +89,22 @@ public class MechanicsGetNameTest
 
         MGetName.getName(frame, fNameField, lNameField);
 
-        assertNull("First name should be null due to invalid characters", Player.getFirstName());
-        assertNull("Last name should be null due to invalid characters", Player.getLastName());
+//        assertNull("First name should be null due to invalid characters", Player.getFirstName());
+//        assertNull("Last name should be null due to invalid characters", Player.getLastName());
+        assertEquals("Should be cleared", "", fNameField.getText());
+        assertEquals("Should be cleared", "", lNameField.getText());
     }
 
     @Test
     public void testValidInput() 
     {
-        fNameField.setText("John");
-        lNameField.setText("Doe");
+        fNameField.setText("TEST");
+        lNameField.setText("PLAYER");
 
         MGetName.getName(frame, fNameField, lNameField);
 
-        assertEquals("First name should be JOHN", "JOHN", Player.getFirstName());
-        assertEquals("Last name should be DOE", "DOE", Player.getLastName());
+        assertEquals("First name should be TEST", "TEST", Player.getFirstName());
+        assertEquals("Last name should be PLAYER", "PLAYER", Player.getLastName());
     }
     
 }

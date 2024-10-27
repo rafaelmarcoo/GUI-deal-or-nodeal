@@ -101,6 +101,7 @@ public class DBInitGoodComments implements IDBInitComments, ICommentUI
             {
                 comment = rs.getString("COMMENT");
             }   
+            conn.close();
         }
         catch(Exception E)
         {
