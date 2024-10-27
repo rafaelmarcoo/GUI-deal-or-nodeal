@@ -151,7 +151,6 @@ public class FrameHome extends javax.swing.JFrame
         tutorialDialog.setLocationRelativeTo(this);
 
         TutorialPanel tutPanel = new TutorialPanel();
-
         tutorialDialog.add(tutPanel);
         tutorialDialog.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed

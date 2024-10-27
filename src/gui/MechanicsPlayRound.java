@@ -80,9 +80,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
                 frame.refreshUI();
                 
                 if(count == 0)
-                {
                     MOffer.bankerOffer(frame, cases);
-                }
             }
         }
         catch(NumberFormatException E)

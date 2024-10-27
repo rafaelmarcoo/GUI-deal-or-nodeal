@@ -17,9 +17,17 @@ package gui;
 */
 public class MechanicsBanker extends MechanicsControl implements IBanker
 {
+    // Mechanics Instances
     MechanicsOffer MOffer = new MechanicsOffer();
     
-    DBGameLog dbGLog = new DBGameLog(); // Instance of DBGameLog
+    // DB Instances
+    DBGameLog dbGLog = new DBGameLog();
+    
+    private static final double INITIAL_MULTIPLIER = 0.30;
+    private static final double MULTIPLIER_INCREMENT = 0.10;
+    private static final double MAX_MULTIPLIER = 0.80;
+    private static final double RISK_FACTOR_MULTIPLIER = 0.25;
+
     
     @Override
     public void bankerOffer(FrameMainGame frame, Cases cases)
@@ -34,23 +42,21 @@ public class MechanicsBanker extends MechanicsControl implements IBanker
             totalValue += d;
             
             if(d > highestValue)
-            {
                 highestValue = d;
-            }
         }
         
         // Calculate the average total value of the remaining cases
         double avgTot = totalValue / numCases;
         
         // Calculate the offer multiplier based on the round number, capped at 0.80
-        double multiplier = 0.30 + (roundNum * 0.10);
-        if(multiplier > 0.80)
+        double multiplier = INITIAL_MULTIPLIER + (roundNum * MULTIPLIER_INCREMENT);
+        if(MAX_MULTIPLIER > 0.80)
             multiplier = 0.80;
         
         // Calculate the risk factor based on the highest value
         // Calculate the final offer using the average total value, multiplier, and risk factor
         double risk = highestValue / totalValue;
-        double offer = avgTot * multiplier * (1 - (risk * 0.25));
+        double offer = avgTot * multiplier * (1 - (risk * RISK_FACTOR_MULTIPLIER));
         double roundedOffer = Math.round(offer * 100.0) / 100.0;
         
         // DB - Log the banker's offer to game log file

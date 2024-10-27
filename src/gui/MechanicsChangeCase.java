@@ -32,21 +32,21 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
         
         boolean done = false;
                 
-        Object[] options2 = {"Swap", "Or Pass", "Quit"};
+        Object[] options = {"Swap", "Or Pass", "Quit"};
         
         while(!done)
         {
-            int option2 = JOptionPane.showOptionDialog
+            int option = JOptionPane.showOptionDialog
             (
                 frame,
                 panel,
                 "Opportunity",
                 JOptionPane.DEFAULT_OPTION, 
                 JOptionPane.INFORMATION_MESSAGE, 
-                null, options2, options2[0]
+                null, options, options[0]
             );
 
-            switch(option2)
+            switch(option)
             {
                 case 0:
                     String strNum = textField.getText().trim();

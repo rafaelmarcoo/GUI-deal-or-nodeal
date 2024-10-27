@@ -8,7 +8,6 @@ package gui;
  *
  * @author rafae
  */
-import com.mycompany.deal.or.nodeal.*;
 import java.sql.*;
 import java.time.LocalDate;
 

@@ -63,7 +63,6 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     
                 case 1:
                     done = true;
-                    
                     // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Rejected banker's offer of $" + offer);
                     
@@ -77,16 +76,11 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     }
                        
                     if(roundNum == 3 || roundNum == 4)
-                    {
                         MChange.changeCase(frame, MechanicsControl.cases);
-                    }
                     
                     // DB Log
-                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "End of Round " + roundNum);
-                    
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "End of Round " + roundNum);   
                     roundNum++;
-                    
-                    // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Start of Round " + roundNum);
                     
                     if(roundNum < 5)
@@ -99,9 +93,7 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     }
                     
                     if(roundNum == 6)
-                    {
                         MLast.lastPlay(frame, cases);
-                    }
 
                     frame.refreshUI();
                     break;
