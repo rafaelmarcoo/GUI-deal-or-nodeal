@@ -4,7 +4,6 @@
  */
 package gui;
 
-import com.mycompany.deal.or.nodeal.*;
 import java.util.HashMap;
 import java.util.Random;
 import java.sql.*;
@@ -20,7 +19,7 @@ public class Cases
     private int[] caseNums;
     private double[] caseValues;
     private double[] caseNonShuffled;
-    private int totalCases = 26;
+    private final static int TOTALCASES = 26;
     
     DBInitCases initCases = new DBInitCases(); 
     public static final String dbURL = "jdbc:derby:dealornodealDB;create=true";
@@ -28,13 +27,20 @@ public class Cases
     public Cases()
     {
         cases = new HashMap<>();
-        caseNums = new int[totalCases];
-        caseValues = new double[totalCases];
-        caseNonShuffled = new double[totalCases];
+        caseNums = new int[TOTALCASES];
+        caseValues = new double[TOTALCASES];
+        caseNonShuffled = new double[TOTALCASES];
 
         // Initialise the prizes in the tables
         initCases.dbInitCases();
         
+        retrievePrizes();
+        shuffleArrays();
+        fillUpHashMap();
+    }
+    
+    private void retrievePrizes()
+    {
         try
         {
             // Establish connection
@@ -53,11 +59,14 @@ public class Cases
             }
             conn.close();
         }
-        catch(Exception E)
+        catch(SQLException E)
         {
             E.printStackTrace();
         }
-
+    }
+    
+    private void shuffleArrays()
+    {
         // Shuffling of caseValues array using a for loop and a Random object
         Random rand = new Random();
         for(int i = 0; i < caseValues.length; i++)
@@ -67,7 +76,10 @@ public class Cases
             caseValues[randomIndex] = caseValues[i];
             caseValues[i] = temp;
         }
-
+    }
+    
+    private void fillUpHashMap()
+    {
         // Filling in the HashMap with caseNums as the keys and caseValues as the values 
         for(int i = 0; i < caseNums.length; i++)
         {
@@ -98,7 +110,7 @@ public class Cases
     
     public int getTotalCases() 
     {
-        return totalCases;
+        return TOTALCASES;
     }    
 }
 

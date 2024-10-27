@@ -51,9 +51,7 @@ public class MechanicsBanker extends MechanicsControl implements IBanker
         // Calculate the final offer using the average total value, multiplier, and risk factor
         double risk = highestValue / totalValue;
         double offer = avgTot * multiplier * (1 - (risk * 0.25));
-        
         double roundedOffer = Math.round(offer * 100.0) / 100.0;
-        System.out.println("Banker's offer is $" + roundedOffer + "!\n");
         
         // DB - Log the banker's offer to game log file
         dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Banker offered $" + roundedOffer);

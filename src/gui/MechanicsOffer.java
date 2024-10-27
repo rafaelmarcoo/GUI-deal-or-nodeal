@@ -45,7 +45,6 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
             {
                 case 0:
                     done = true;
-                    System.out.println("Deal");
                     JOptionPane.showMessageDialog(frame, "Deal!");
                     JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + offer +
                             "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
@@ -64,7 +63,6 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     
                 case 1:
                     done = true;
-                    System.out.println("No Deal");
                     
                     // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Rejected banker's offer of $" + offer);
