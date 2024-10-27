@@ -40,16 +40,29 @@ public class FrameGetName extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setFocusable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText("Enter your first name!");
 
+        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 0));
         jLabel2.setText("Enter your last name!");
 
+        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jButton1.setText("Proceed");
         jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +71,8 @@ public class FrameGetName extends javax.swing.JFrame
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jButton2.setText("Back");
         jButton2.setFocusable(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +96,7 @@ public class FrameGetName extends javax.swing.JFrame
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                         .addComponent(jButton1)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

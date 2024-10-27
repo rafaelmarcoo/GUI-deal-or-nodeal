@@ -18,7 +18,7 @@ public class UIMessages extends MechanicsControl
     {
         if(roundNum == 0)
         {
-            jLabel.setText("Please select one case to keep!");
+            jLabel.setText("Select a case!");
         }
         else
         {
