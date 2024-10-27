@@ -68,8 +68,8 @@ public class UIMessages extends MechanicsControl
             switch(option)
             {
                 case 0:
+                    done = true;
                     JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
-                    System.exit(0);
                     break;
                     
                 case 1:

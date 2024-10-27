@@ -25,6 +25,12 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
     DBInitBadComments dbBadCom = new DBInitBadComments();
     DBInitGoodComments dbGoodCom = new DBInitGoodComments();
     
+    public MechanicsPlayRound()
+    {
+        dbBadCom.dBInitComments();
+        dbGoodCom.dBInitComments();
+    }
+    
     @Override
     public void playRound(FrameMainGame frame, JTextField jTextField1) 
     {        

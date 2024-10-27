@@ -109,10 +109,15 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     break;
                     
                 case 2:
+                    done = true;
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
+                    
+                    frame.dispose();
+                    FrameHome home = new FrameHome();
+                    home.setVisible(true);
                     
                     break;
             }

@@ -189,6 +189,9 @@ public class FrameMainGame extends javax.swing.JFrame
         // TODO add your handling code here:
         dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
         uiMessages.quitMessage(this);
+        this.dispose();
+        FrameHome home = new FrameHome();
+        home.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

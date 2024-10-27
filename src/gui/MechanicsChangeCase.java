@@ -112,11 +112,17 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                     done = true;
                     break;
                     
-                case 3:
+                case 2:
+                    done = true;
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.\n\n");
+                    
+                    frame.dispose();
+                    FrameHome home = new FrameHome();
+                    home.setVisible(true);
+                    
                     break;
             }
         }   
