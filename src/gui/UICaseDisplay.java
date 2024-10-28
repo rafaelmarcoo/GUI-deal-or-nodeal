@@ -10,6 +10,10 @@ import javax.swing.JTextArea;
  *
  * @author rafae
  */
+
+/*
+    This class displays the cases in an easy to read manner
+*/
 public class UICaseDisplay 
 {
     private JTextArea caseTextArea;

@@ -8,6 +8,10 @@ package gui;
  *
  * @author rcman
  */
+
+/*
+    This class holds information about the player
+*/
 public class Player 
 {
     private static String firstName;
@@ -19,6 +23,7 @@ public class Player
         Player.lastName = l;
     } 
     
+    // Reset player variables
     public void reset() 
     {
         Player.setFirstName("");

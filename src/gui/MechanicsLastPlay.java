@@ -11,8 +11,15 @@ import javax.swing.JOptionPane;
  *
  * @author rafae
  */
+
+/*
+    This class handles the last round of the Deal or No Deal game, 
+    allowing the player to keep, swap, or quit.
+    Implements ILastPlay and extends MechanicsControl for game setup.
+*/
 public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
 {
+    // UI Components
     UIMessages uiMessages = new UIMessages();
     UICompareLast uiCompareLast = new UICompareLast();
     
@@ -32,9 +39,10 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
         JOptionPane.showMessageDialog(frame, "You can either keep your case! Or \nswap it with the"
                 + " last case on display");
         
-        boolean done = false;
+        boolean done = false; // Track if user has made a choice
         Object[] options = {"Keep your case", "Swap cases", "Quit"};
         
+        // Retrieve the last case remaining
         Iterator<Integer> caseIterator = cases.getCases().keySet().iterator();
         if(caseIterator.hasNext())
         {
@@ -42,6 +50,7 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
         }
         otherCaseVal = cases.getCases().get(otherCaseNum);
     
+        // Loop until the player has made a choice
         while(!done)
         {
             int option = JOptionPane.showOptionDialog
@@ -56,9 +65,10 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
             
             switch(option)
             {
-                case 0:
+                case 0: // Keep current case
                     done = true;
                     
+                    // Display outcome after keep
                     JOptionPane.showMessageDialog(frame, "Your case " + playerCase + " contains $" + playerCaseValue
                         + "\nThe other case " + otherCaseNum + " contains $" + otherCaseVal);
                     uiCompareLast.compareValues(frame, playerCaseValue, otherCaseVal);
@@ -69,15 +79,17 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     dbWin.dbListWin(Player.getFirstName(), Player.getLastName(), playerCaseValue);
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Won $" + playerCaseValue);
                     
+                    // Go home
                     frame.dispose();
                     FrameHome homeFrame = new FrameHome();
                     homeFrame.setVisible(true);
                     
                     break;
                     
-                case 1:
+                case 1: // Swap cases
                     done = true;
                     
+                    // Display outcome after swap
                     JOptionPane.showMessageDialog(frame, "You swapped your case " + playerCase + " for case " + otherCaseNum);
                     JOptionPane.showMessageDialog(frame, "Your new case " + otherCaseNum + " contains $ " + otherCaseVal
                         + "\nYour old case " + playerCase + " contains $ " + playerCaseValue);
@@ -90,18 +102,20 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                     dbWin.dbListWin(Player.getFirstName(), Player.getLastName(), otherCaseVal);
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Won $" + otherCaseVal);
                     
+                    // Go home
                     frame.dispose();
                     FrameHome home = new FrameHome();
                     home.setVisible(true);
                     
                     break;
                     
-                case 2:
+                case 2: // Quit
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.\n\n");
                     
+                    // Go home
                     frame.dispose();
                     FrameHome frameHome = new FrameHome();
                     frameHome.setVisible(true);

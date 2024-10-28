@@ -11,6 +11,11 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
+
+/*
+    This class validates and processes the player's first and last name.
+    Implements IGetName and extends MechanicsControl for game setup.
+*/
 public class MechanicsGetName extends MechanicsControl implements IGetName
 {
     // DB - Instances to log game
@@ -51,6 +56,7 @@ public class MechanicsGetName extends MechanicsControl implements IGetName
             
             JOptionPane.showMessageDialog(frame, "Welcome " + Player.getFirstName() + " " + Player.getLastName() + "! \nGood Luck !!!");
             
+            // Then direct user to the main game frame
             FrameMainGame gameFrame = new FrameMainGame();
             gameFrame.setVisible(true);
             JOptionPane.showMessageDialog(gameFrame, "Welcome to Deal Or No Deal!\nTo get started, pick one case to keep!");

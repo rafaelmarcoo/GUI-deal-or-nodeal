@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
  *
  * @author rafae
  */
+
+/*
+    This class handles UI messages and updates for the Deal or No Deal game.
+*/
 public class UIMessages extends MechanicsControl
 {
     public void uiRound(JLabel jLabel)
@@ -24,11 +28,6 @@ public class UIMessages extends MechanicsControl
         {
             jLabel.setText("Round " + roundNum);
         }
-    }
-    
-    public void uiName(JLabel jLabel)
-    {
-        jLabel.setText("Goodluck " + Player.getFirstName() + " " + Player.getLastName() + "!");
     }
     
     public void uiPlayerCase(JLabel jLabel)
@@ -50,9 +49,10 @@ public class UIMessages extends MechanicsControl
     
     public void quitMessage(FrameMainGame frame)
     {
-        boolean done = false;
+        boolean done = false; // Track if user has made a choice
         Object[] options ={ "Quit", "No" };
         
+        // Loop until user has made a choice
         while(!done)
         {
             int option = JOptionPane.showOptionDialog
@@ -67,12 +67,12 @@ public class UIMessages extends MechanicsControl
             
             switch(option)
             {
-                case 0:
+                case 0: // Quit
                     done = true;
                     JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
                     break;
                     
-                case 1:
+                case 1: // User backs off
                     done = true;
                     break;
             }

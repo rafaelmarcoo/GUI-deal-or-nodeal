@@ -13,8 +13,14 @@ import javax.swing.JTextField;
  *
  * @author rafae
  */
+
+/*
+    This class handles the logic for selecting a game case in the Deal or No Deal game. 
+    It implements the ICaseSelect interface and extends MechanicsControl.
+*/
 public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
 {
+    // UI Instance
     UIMessages uiMessages = new UIMessages();
     
     // DB - Instances to log game and errors
@@ -30,10 +36,12 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
         panel.add(label);
         panel.add(textField);
         
-        boolean done = false;
+        boolean done = false; // Track if user has made a choice
                 
+        // Button options
         Object[] options = {"Swap", "Or Pass", "Quit"};
         
+        // Loop until player makes a valid choice
         while(!done)
         {
             int option = JOptionPane.showOptionDialog
@@ -46,14 +54,16 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                 null, options, options[0]
             );
 
+            // Handle decisions
             switch(option)
             {
+                // Swap case option
                 case 0:
-                    String strNum = textField.getText().trim();
+                    String strNum = textField.getText().trim(); // Clean input
                     try
                     {
-                        int caseNum = Integer.parseInt(strNum);
-                        if(caseNum <= 0 || caseNum > cases.getCaseNums().length)
+                        int caseNum = Integer.parseInt(strNum); // Parse into an integer
+                        if(caseNum <= 0 || caseNum > cases.getCaseNums().length) // Validate case number
                         {
                             JOptionPane.showMessageDialog(frame, "Invalid case number! Please try again!");
                             textField.setText("");
@@ -61,7 +71,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                             // DB Log
                             dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid case number! - ChangeCase");
                         }
-                        else if(!cases.getCases().containsKey(caseNum))
+                        else if(!cases.getCases().containsKey(caseNum)) // Check if case has already been opened
                         {
                             JOptionPane.showMessageDialog(frame, "Case has already been opened! Pick another one!");
                             textField.setText("");
@@ -93,7 +103,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                             done = true;
                         }
                     }
-                    catch(NumberFormatException E)
+                    catch(NumberFormatException E) // Invalid input - letters and such
                     {
                         JOptionPane.showMessageDialog(frame, "Invalid input!");
                         textField.setText("");
@@ -103,7 +113,7 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                     }             
                     break;
                     
-                case 1:
+                case 1: // Pass option
                     JOptionPane.showMessageDialog(frame, "No Swap! We move on to the next round then!");
                     
                     // DB Log
@@ -112,13 +122,16 @@ public class MechanicsChangeCase extends MechanicsControl implements IChangeCase
                     done = true;
                     break;
                     
-                case 2:
+                case 2: // Quit option
                     done = true;
+                    
+                    // Display quit dialog
                     uiMessages.quitMessage(frame);
                     
                     // DB Log
                     dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.\n\n");
                     
+                    // Go back home
                     frame.dispose();
                     FrameHome home = new FrameHome();
                     home.setVisible(true);

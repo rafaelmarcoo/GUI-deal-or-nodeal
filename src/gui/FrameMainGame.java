@@ -8,24 +8,34 @@ package gui;
  *
  * @author rafae
  */
+
+/*
+    This JFrame displays a GUI for the main game dashboard. This is where the main game
+    occurs throughout. It displays cases and JTextField for user input.
+*/
 public class FrameMainGame extends javax.swing.JFrame 
 {
+    // Mechanics Components
     MechanicsCaseSelect MSelect = new MechanicsCaseSelect();
     MechanicsPlayRound MPlay = new MechanicsPlayRound();
+    
+    // UI Components
     UICaseDisplay uiCase;
     UIMessages uiMessages;
+    
+    // DB Component
     DBGameLog dbGLog = new DBGameLog();
-    /**
-     * Creates new form FrameMainGame
-     */
+
     public FrameMainGame() 
     {
         initComponents();
-        MechanicsControl.resetGame();
+        MechanicsControl.resetGame(); // Reset MechanicsControl everytime a game starts
         
+        // Initialise
         uiCase = new UICaseDisplay(jTextArea1);
         uiMessages = new UIMessages();
         
+        // Display Cases and update UI
         uiCase.showCases(MechanicsControl.cases);
         uiMessages.uiRound(jLabel1);
     }
@@ -181,11 +191,13 @@ public class FrameMainGame extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        // Round 0 - select a case
         if(MechanicsControl.roundNum == 0)
         {
             MSelect.selectCase(this, jTextField1);
         }
-        else if(MechanicsControl.roundNum <= 5)
+        else if(MechanicsControl.roundNum <= 5) // Round 1 to 5 - normal gameplay
         {
             MPlay.playRound(this, jTextField1);
         }
@@ -197,9 +209,15 @@ public class FrameMainGame extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        // When user decides to quit
+        
+        // DB Log
         dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
         uiMessages.quitMessage(this);
         this.dispose();
+        
+        // Go to FrameHome
         FrameHome home = new FrameHome();
         home.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

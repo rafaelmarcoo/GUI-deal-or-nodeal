@@ -23,6 +23,7 @@ public class MechanicsBanker extends MechanicsControl implements IBanker
     // DB Instances
     DBGameLog dbGLog = new DBGameLog();
     
+    // Final static variables
     private static final double INITIAL_MULTIPLIER = 0.30;
     private static final double MULTIPLIER_INCREMENT = 0.10;
     private static final double MAX_MULTIPLIER = 0.80;
@@ -62,6 +63,7 @@ public class MechanicsBanker extends MechanicsControl implements IBanker
         // DB - Log the banker's offer to game log file
         dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "Banker offered $" + roundedOffer);
         
+        // Run make offer to user
         MOffer.makeOffer(frame, roundedOffer);
     }
 }

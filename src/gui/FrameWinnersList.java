@@ -11,6 +11,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author rafae
  */
+
+/*
+    This JFrame is displays a GUI, displaying the list of winners table
+*/
 public class FrameWinnersList extends javax.swing.JFrame 
 {
 
@@ -20,7 +24,7 @@ public class FrameWinnersList extends javax.swing.JFrame
     public FrameWinnersList() 
     {
         initComponents();
-        loadListWinTable();
+        loadListWinTable(); // Load winners into the table
     }
 
     /**
@@ -114,13 +118,19 @@ public class FrameWinnersList extends javax.swing.JFrame
 
     private void loadListWinTable()
     {
+        // Instance of DB Retrieval of Winners
         DBRetrieveLOW dbListOfWin = new DBRetrieveLOW();
+        
+        // Retrieve winner's list 
         ArrayList<String[]> winList = dbListOfWin.retrieveWinnersList();
         
+        // Get table model
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
+        // Clear existing rows
         model.setRowCount(0);
         
+        // Add each entry to the table
         for(String[] win : winList)
         {
             model.addRow(win);

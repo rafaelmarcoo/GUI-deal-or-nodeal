@@ -8,6 +8,10 @@ package gui;
  *
  * @author rafae
  */
+
+/*
+    This panel displays a GUI tutorial
+*/
 import javax.swing.SwingUtilities;
 import javax.swing.JDialog;
 
@@ -141,6 +145,8 @@ public class TutorialPanel extends javax.swing.JPanel
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        // Dispose
         ((JDialog) SwingUtilities.getWindowAncestor(this)).dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

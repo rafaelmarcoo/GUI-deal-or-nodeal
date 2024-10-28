@@ -10,6 +10,11 @@ import javax.swing.JDialog;
  *
  * @author rafae
  */
+
+/*
+    This JFrame displays a GUI for the Deal Or No Deal Game.
+    It also includes different options, like starting the game, etc.
+*/
 public class FrameHome extends javax.swing.JFrame 
 {
 
@@ -146,10 +151,15 @@ public class FrameHome extends javax.swing.JFrame
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+        // Tutorial button when pressed
+        
+        // JDialog with tutorial panel, then attach panel to JDialog
         JDialog tutorialDialog = new JDialog(this, "Tutorial", true);
         tutorialDialog.setSize(1000, 460);
         tutorialDialog.setLocationRelativeTo(this);
-
+        
+        // Then open panel
         TutorialPanel tutPanel = new TutorialPanel();
         tutorialDialog.add(tutPanel);
         tutorialDialog.setVisible(true);
@@ -157,6 +167,9 @@ public class FrameHome extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        // Start game button
+        // Opens FrameGetName
         FrameGetName nameFrame = new FrameGetName();
         nameFrame.setVisible(true);
         this.dispose();
@@ -164,6 +177,10 @@ public class FrameHome extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        // WinnersList Table button 
+        
+        // Open FrameWinnersList frame
         FrameWinnersList winFrame = new FrameWinnersList();
         winFrame.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
