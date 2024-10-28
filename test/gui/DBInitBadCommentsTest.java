@@ -90,6 +90,8 @@ public class DBInitBadCommentsTest
     {
         // Retrieve a comment
         String comment = db.comment();
+        
+        // Assert
         assertNotNull("Comment should not be null", comment); // comment should not be null
         assertFalse("Comment should not be empty", comment.trim().isEmpty()); // comment should not be empty
     }
