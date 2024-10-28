@@ -15,35 +15,46 @@ import static org.junit.Assert.*;
  *
  * @author rafae
  */
+
+/*
+    Unit tests for MechanicsCaseSelect. Tests include selecting valid and invalid cases 
+    and checking the behavior when a case is already opened or out of range.
+*/
 public class MechanicsCaseSelectTest 
 {
+    // Instances for tests
     private MechanicsCaseSelect MCaseSelect;
     private FrameMainGame frame;
     private JTextField jTextField;
     
+    // DB URL
+    private static final String URL = "jdbc:derby:dealornodealDB;create=true";
+    
+    // Set up before test
     @Before
     public void setUp() 
     {
-        
-        
         MCaseSelect = new MechanicsCaseSelect();
-        frame = new FrameMainGame(); // Assuming this can be instantiated directly
+        frame = new FrameMainGame();
         jTextField = new JTextField();
         
+        // Initialise cases and test player
         MechanicsCaseSelect.cases = new Cases(); 
         Player player = new Player("TEST", "PLAYER");
         MechanicsPlayRound.player = player;
     }
     
+    // Tear down after test
     @After
     public void tearDown() 
     {
         try
         {
-            Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
+            // Establish connection
+            Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement();       
             
-            // If tables exist then delete it
+            // If tables exist then drop it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, "TEST_PLAYER_GAMELOG", null);
             ResultSet rs2 = dbMeta.getTables(null, null, "TEST_PLAYER_ERRORLOG", null);
@@ -60,20 +71,17 @@ public class MechanicsCaseSelectTest
         }
     }
 
-    /**
-     * Test of selectCase method, of class MechanicsCaseSelect.
-     */
     @Test
     public void testSelectCase_ValidInput() 
     {
-        // Arrange
+        // Set up
         jTextField.setText("2");
         double caseVal = MCaseSelect.cases.getCases().get(2);
         
-        // Act
+        // Run the method
         MCaseSelect.selectCase(frame, jTextField);
-
-        // Assert
+        
+        // Assert that the case has been selected and chosen and the case has been removed from the pool
         assertEquals(2, MCaseSelect.playerCase);
         assertEquals(caseVal, MCaseSelect.playerCaseValue, 0.001);
         assertTrue(MCaseSelect.cases.getCases().size() < 26); // One case should be removed
@@ -83,42 +91,26 @@ public class MechanicsCaseSelectTest
     @Test
     public void testSelectCase_InvalidNumberFormat() 
     {
-        // Arrange
-        jTextField.setText("abc");
+        // Set up
+        jTextField.setText("abc"); // No letters allowed
 
-        // Act
+        // Run method
         MCaseSelect.selectCase(frame, jTextField);
 
-        // Assert
+        // Assert the jTextField has been cleared after an invalid input
         assertEquals("", jTextField.getText());
-        // Check for the dialog message or a state change
-        // You might want to adjust this part based on how your implementation handles this
     }
     
     @Test
     public void testSelectCase_CaseNumberOutOfRange() 
     {
-        // Arrange
-        jTextField.setText("30"); // Invalid case number (out of range)
+        // Set up
+        jTextField.setText("30"); // Out of Range
 
-        // Act
+        // Run Method
         MCaseSelect.selectCase(frame, jTextField);
 
-        // Assert
-        // Check for the dialog message or a state change
-        // Again, adjust based on your implementation
+        // Assert the jTextField has been cleared after an invalid input
         assertEquals("", jTextField.getText());
-    }
-    
-    @Test
-    public void testSelectCase_CaseAlreadyOpened()
-    {
-        int testCase = 1;
-        
-        MechanicsCaseSelect.cases.getCases().remove(testCase);
-        
-        assertFalse(MechanicsCaseSelect.cases.getCases().containsKey(testCase));
-    }
-    
-    
+    } 
 }

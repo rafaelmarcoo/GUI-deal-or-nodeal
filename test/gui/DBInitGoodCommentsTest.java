@@ -14,11 +14,19 @@ import static org.junit.Assert.*;
  *
  * @author rafae
  */
+
+/*
+    Unit Test for DBInitGoodComments, testing database table initialization for good comments
+    and checks/verifies data.
+*/
 public class DBInitGoodCommentsTest 
 {
+    // Instance of DBInitGoodComments
     private DBInitGoodComments db;
+    // DB URL
     private static final String URL = "jdbc:derby:dealornodealDB;create=true";
     
+    // Set up before test
     @Before
     public void setUp() 
     {
@@ -26,14 +34,18 @@ public class DBInitGoodCommentsTest
         db.dBInitComments();
     }
     
+    // Tear down after test
+    // Drop tables used/created during test.
     @After
     public void tearDown() 
     {
         try
         {
+            // Establish connection
             Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement(); 
             
+            // If table exists, then drop it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, "GOODCOMMENTSTABLE", null);
             if(rs.next())
@@ -49,18 +61,18 @@ public class DBInitGoodCommentsTest
         }
     }
 
-    /**
-     * Test of dBInitComments method, of class DBInitGoodComments.
-     */
     @Test
     public void testDBInitComments() 
     {
         // Check if the table was created and populated correctly
         try
         {
+            // Establish connection
             Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT COUNT(*) AS count FROM GoodCommentsTable");
+            
+            // Assert true that the table has entries
             assertTrue(rs.next());
             int count = rs.getInt("count");
             assertTrue(count > 0); // Check that the count is greater than zero
@@ -73,15 +85,15 @@ public class DBInitGoodCommentsTest
         }
     }
 
-    /**
-     * Test of comment method, of class DBInitGoodComments.
-     */
     @Test
     public void testComment() 
     {
+        // Retrieve a comment;
         String comment = db.comment();
-        assertNotNull("Comment should not be null", comment);
-        assertFalse("Comment should not be empty", comment.trim().isEmpty());
+        
+        // Assert
+        assertNotNull("Comment should not be null", comment); // Should not be null
+        assertFalse("Comment should not be empty", comment.trim().isEmpty()); // Should not be empty
     }
     
 }

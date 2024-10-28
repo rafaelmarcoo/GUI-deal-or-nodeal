@@ -15,35 +15,49 @@ import static org.junit.Assert.*;
  *
  * @author rafae
  */
+
+/*
+    Unit test for MechanicsPlayRound,  validating the playRound 
+    method for handling correct case selection, invalid case numbers, and non integer input.
+*/
 public class MechanicsPlayRoundTest 
 {
+    // Instances required
     private MechanicsPlayRound MPlayRound;
     private JTextField jTextField;
     private FrameMainGame frame;
     
+    // DB URL
+    private static final String URL = "jdbc:derby:dealornodealDB;create=true";
+    
+    // Set up before test
     @Before
     public void setUp() 
     {     
+        // Initialise instances
         MPlayRound = new MechanicsPlayRound();
         frame = new FrameMainGame();
         jTextField = new JTextField();
         
+        // Initialise cases
         Cases cases = new Cases();
         MechanicsPlayRound.cases = cases;
         
+        // Initialise test player
         Player player = new Player("TEST", "PLAYER");
         MechanicsPlayRound.player = player;
     }
     
+    // Tear down
     @After
     public void tearDown() 
     {
         try
         {
-            Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
+            Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement();       
             
-            // If tables exist then delete it
+            // If tables exist, then drop it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, "TEST_PLAYER_GAMELOG", null);
             ResultSet rs2 = dbMeta.getTables(null, null, "TEST_PLAYER_ERRORLOG", null);
@@ -60,47 +74,44 @@ public class MechanicsPlayRoundTest
         }
     }
 
-    /**
-     * Test of playRound method, of class MechanicsPlayRound.
-     */
     @Test
     public void testPlayRound_Correct() 
     {
+        // Set up - Valid input
         jTextField.setText("1");
         
-        MechanicsPlayRound.cases.getCases().put(1, 20000.0);
-        
+        // Run method
         MPlayRound.playRound(frame, jTextField);
         
-        assertFalse(MechanicsPlayRound.cases.getCases().containsKey(1));
-        
-        assertEquals("", jTextField.getText());
+        // Assert 
+        assertFalse(MechanicsPlayRound.cases.getCases().containsKey(1)); // False because case has been removed 
+        assertEquals("", jTextField.getText()); // jTextField has been cleared
     }
     
-     @Test
+    @Test
     public void testPlayRound_InvalidCase() 
     {
-        
-        // Add an invalid case number to the text field
+        // Set up - Invalid case number
         jTextField.setText("999");
+        int initialSize = MechanicsPlayRound.cases.getCases().size();
         
-        // Call playRound method
+        // Run method
         MPlayRound.playRound(frame, jTextField);
         
-        // Check that an invalid case number doesn't remove any cases
-        assertTrue(!MechanicsPlayRound.cases.getCases().isEmpty());
+        // Assert that the size of HashMap has not changed, meaning no case was removed
+        assertEquals("No cases should be removed for an invalid selection", initialSize, MechanicsPlayRound.cases.getCases().size());
     }
 
     @Test
     public void testPlayRound_NonIntegerInput() 
     {
-        // Set non-integer text in the input field
+        // Set up - non-integer text
         jTextField.setText("invalid");
         
         // Call playRound method
         MPlayRound.playRound(frame, jTextField);
         
-        // Verify the text field was reset, indicating error was handled
+        // Assert the text field was reset, indicating error was handled
         assertEquals("invalid", jTextField.getText());
     }
     

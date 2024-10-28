@@ -14,11 +14,19 @@ import static org.junit.Assert.*;
  *
  * @author rafae
  */
+
+/*
+    Unit Test for DBInitCases, testing database table initialization for cases 
+    and checking the existence of prize entries
+*/
 public class DBInitCasesTest 
 {
+    // Instance of DBInitCases
     private DBInitCases db;
+    // DB URL
     private static final String URL = "jdbc:derby:dealornodealDB;create=true";
     
+    // Set up before test
     @Before
     public void setUp() 
     {
@@ -26,14 +34,18 @@ public class DBInitCasesTest
         db.dbInitCases();
     }
     
+    // Tear down after test
+    // To drop any existing tables that were used/created during testing
     @After
     public void tearDown() 
     {
         try
         {
+            // Establish connection
             Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement(); 
             
+            // If table exists, then drop it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, "PRIZES", null);
             if(rs.next())
@@ -41,7 +53,7 @@ public class DBInitCasesTest
                 statement.executeUpdate("DROP TABLE Prizes");
             }
             
-            conn.close();
+            conn.close(); // Close connection
         }
         catch(SQLException E) 
         {
@@ -49,18 +61,17 @@ public class DBInitCasesTest
         }
     }
 
-    /**
-     * Test of dbInitCases method, of class DBInitCases.
-     */
     @Test
     public void testDbInitCases() 
     {
+        // Check if prizes were populated properly
         try
         {
             Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT COUNT(*) AS count FROM Prizes");
             
+            // Assert that entries exist
             assertTrue(rs.next());
             int count = rs.getInt("count");
             assertTrue("Prize count should be > 0", count > 0);

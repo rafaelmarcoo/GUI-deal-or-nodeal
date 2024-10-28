@@ -7,9 +7,7 @@ package gui;
 import java.sql.*;
 import javax.swing.JTextField;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,42 +15,45 @@ import static org.junit.Assert.*;
  *
  * @author rafae
  */
+
+/*
+    Unit test for MechanicsGetName, validating the 
+    getName method for handling empty, invalid, and valid input.
+*/
 public class MechanicsGetNameTest 
 {
+    // Instances required
     private MechanicsGetName MGetName;
     private JTextField fNameField;
     private JTextField lNameField;
     private FrameGetName frame;
     
-    public MechanicsGetNameTest() {
-    }
+    // DB URL
+    private static final String URL = "jdbc:derby:dealornodealDB;create=true";
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+    // Set up before test
     @Before
     public void setUp() 
     {
+        // Initialise instances
         MGetName = new MechanicsGetName();
         fNameField = new JTextField();
         lNameField = new JTextField();
         frame = new FrameGetName();
     }
     
+    // Tear down after test
+    // Drop tables created and used during testing
     @After
     public void tearDown() 
     {
         try
         {
-            Connection conn = DriverManager.getConnection("jdbc:derby:dealornodealDB;create=true");
+            // Establish connection
+            Connection conn = DriverManager.getConnection(URL);
             Statement statement = conn.createStatement();       
             
-            // If tables exist then delete it
+            // If table exists, then drop it
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet rs = dbMeta.getTables(null, null, "TEST_PLAYER_GAMELOG", null);
             if(rs.next())
@@ -66,31 +67,32 @@ public class MechanicsGetNameTest
         }
     }
 
-    /**
-     * Test of getName method, of class MechanicsGetName.
-     */
-     @Test
+    @Test
     public void testEmptyInput() 
     {
+        // Set up - Empty inputs
         fNameField.setText("");
         lNameField.setText("");
         
+        // Run method
         MGetName.getName(frame, fNameField, lNameField);
         
-        assertNull("First name should be null", Player.getFirstName());
-        assertNull("Last name should be null", Player.getLastName());
+        // Assert that jTextField has been cleared due to invalid input
+        assertEquals("Should be cleared", "", fNameField.getText());
+        assertEquals("Should be cleared", "", lNameField.getText());
     }
 
     @Test
     public void testInvalidCharacters() 
     {
+        // Set up - Invalid characters
         fNameField.setText("John3");
         lNameField.setText("Doe!");
 
+        // Run method
         MGetName.getName(frame, fNameField, lNameField);
 
-//        assertNull("First name should be null due to invalid characters", Player.getFirstName());
-//        assertNull("Last name should be null due to invalid characters", Player.getLastName());
+        // Assert that jTextField has been cleared
         assertEquals("Should be cleared", "", fNameField.getText());
         assertEquals("Should be cleared", "", lNameField.getText());
     }
@@ -98,11 +100,14 @@ public class MechanicsGetNameTest
     @Test
     public void testValidInput() 
     {
+        // Set up - VALID Inputs
         fNameField.setText("TEST");
         lNameField.setText("PLAYER");
 
+        // Run method
         MGetName.getName(frame, fNameField, lNameField);
 
+        // Assert that Player first name and last name match
         assertEquals("First name should be TEST", "TEST", Player.getFirstName());
         assertEquals("Last name should be PLAYER", "PLAYER", Player.getLastName());
     }
