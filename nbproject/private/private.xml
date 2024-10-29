@@ -3,24 +3,38 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsLastPlay.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBRetrieveLOW.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsGetName.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsControl.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/FrameGetName.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsBanker.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsOffer.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/UICompare.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsChangeCase.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBGameLog.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBInitCases.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/FrameHome.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/TutorialPanel.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/FrameMainGame.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/UICaseDisplay.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsCaseSelect.java</file>
-            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/UIMessages.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/test/gui/MechanicsPlayRoundTest.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/test/gui/DBInitBadCommentsTest.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/UICompareLast.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsPlayRound.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/test/gui/DBInitCasesTest.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBInitBadComments.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/Cases.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsLastPlay.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBErrorLog.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsControl.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsBanker.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/test/gui/DBInitGoodCommentsTest.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/MechanicsChangeCase.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/TutorialPanel.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBListOfWin.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/FrameMainGame.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/UICaseDisplay.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/test/gui/MechanicsGetNameTest.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/UIMessages.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/test/gui/MechanicsCaseSelectTest.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/Player.java</file>
             <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/FrameWinnersList.java</file>
+            <file>file:/C:/Users/rafae/OneDrive/Documents/Coding/Github/GUI-deal-or-nodeal/src/gui/DBInitGoodComments.java</file>
         </group>
     </open-files>
 </project-private>
