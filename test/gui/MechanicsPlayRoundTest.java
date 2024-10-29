@@ -112,7 +112,7 @@ public class MechanicsPlayRoundTest
         MPlayRound.playRound(frame, jTextField);
         
         // Assert the text field was reset, indicating error was handled
-        assertEquals("invalid", jTextField.getText());
+        assertEquals("", jTextField.getText());
     }
     
 }
