@@ -97,6 +97,7 @@ public class MechanicsPlayRound extends MechanicsControl implements IPlayRound
         catch(NumberFormatException E) // Invalid input like letters and such
         {
             JOptionPane.showMessageDialog(frame, "Invalid input!");
+            jTextField1.setText("");
             
             // DB Log
             dbELog.dbErrorLog(Player.getFirstName(), Player.getLastName(), "Invalid input! Only case numbers! - MPlayRound");

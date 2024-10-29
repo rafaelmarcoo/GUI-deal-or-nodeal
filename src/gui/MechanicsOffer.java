@@ -58,7 +58,7 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     JOptionPane.showMessageDialog(frame, "Deal!");
                     JOptionPane.showMessageDialog(frame, "Congratulations! You will take home $" + offer +
                             "!\n" + "Your case " + playerCase + " contains $" + playerCaseValue);
-                    uiCompare.compareValues(frame, playerCaseValue, offer);
+                    uiCompare.compareValues(frame, offer, playerCaseValue);
                     
                     // DB Log
                     dbWin.dbListWin(Player.getFirstName(), Player.getLastName(), offer);
@@ -107,16 +107,7 @@ public class MechanicsOffer extends MechanicsControl implements IOffer
                     break;
                     
                 case 2: // Quit Game
-                    done = true;
                     uiMessages.quitMessage(frame);
-                    
-                    // DB Log
-                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
-                    
-                    // Go home
-                    frame.dispose();
-                    FrameHome home = new FrameHome();
-                    home.setVisible(true);
                     
                     break;
             }

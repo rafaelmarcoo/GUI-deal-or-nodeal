@@ -112,14 +112,6 @@ public class MechanicsLastPlay extends MechanicsControl implements ILastPlay
                 case 2: // Quit
                     uiMessages.quitMessage(frame);
                     
-                    // DB Log
-                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.\n\n");
-                    
-                    // Go home
-                    frame.dispose();
-                    FrameHome frameHome = new FrameHome();
-                    frameHome.setVisible(true);
-                    
                     break;
             }
         }

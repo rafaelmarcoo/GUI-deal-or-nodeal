@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 */
 public class UIMessages extends MechanicsControl
 {
+    DBGameLog dbGLog = new DBGameLog();
+    
     public void uiRound(JLabel jLabel)
     {
         if(roundNum == 0)
@@ -32,19 +34,14 @@ public class UIMessages extends MechanicsControl
     
     public void uiPlayerCase(JLabel jLabel)
     {
-        if(roundNum == 0)
-        {
-            jLabel.setText("Welcome! Please select a case to keep for the game!");
-        }
-        else
-        {
+        if(roundNum != 0)
             jLabel.setText("Your Case Number is: " + playerCase);
-        }
     }
     
     public void uiCasesToOpen(JLabel jLabel, int count)
     {
-        jLabel.setText(count + " more cases to open this round!");
+        if(roundNum != 0)
+            jLabel.setText(count + " more cases to open this round!");
     }
     
     public void quitMessage(FrameMainGame frame)
@@ -68,8 +65,12 @@ public class UIMessages extends MechanicsControl
             switch(option)
             {
                 case 0: // Quit
-                    done = true;
                     JOptionPane.showMessageDialog(frame, "Quitting! Bye Bye!");
+                    
+                    // DB Log
+                    dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
+                    
+                    System.exit(0);
                     break;
                     
                 case 1: // User backs off

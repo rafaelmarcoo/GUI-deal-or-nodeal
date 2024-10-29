@@ -38,6 +38,8 @@ public class FrameMainGame extends javax.swing.JFrame
         // Display Cases and update UI
         uiCase.showCases(MechanicsControl.cases);
         uiMessages.uiRound(jLabel1);
+        
+        refreshUI();
     }
     
     // Method to refresh case display whenever cases are updated
@@ -96,18 +98,23 @@ public class FrameMainGame extends javax.swing.JFrame
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+        jButton1.setText("Submit");
+        jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText(" ");
 
-        jButton2.setText("jButton2");
+        jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
+        jButton2.setText("Exit Game");
+        jButton2.setToolTipText("");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -143,7 +150,7 @@ public class FrameMainGame extends javax.swing.JFrame
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jButton2)
-                        .addGap(253, 253, 253)
+                        .addGap(246, 246, 246)
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(230, 230, 230)
@@ -211,15 +218,7 @@ public class FrameMainGame extends javax.swing.JFrame
         // TODO add your handling code here:
         
         // When user decides to quit
-        
-        // DB Log
-        dbGLog.dbGameLog(Player.getFirstName(), Player.getLastName(), "User quit game.");
         uiMessages.quitMessage(this);
-        this.dispose();
-        
-        // Go to FrameHome
-        FrameHome home = new FrameHome();
-        home.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

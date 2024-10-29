@@ -43,7 +43,6 @@ public class FrameHome extends javax.swing.JFrame
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -64,7 +63,7 @@ public class FrameHome extends javax.swing.JFrame
         jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText("Deal Or No Deal");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(459, 181, 368, 64);
+        jLabel1.setBounds(459, 181, 366, 64);
 
         jButton1.setBackground(new java.awt.Color(204, 204, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
@@ -114,11 +113,7 @@ public class FrameHome extends javax.swing.JFrame
         jLabel2.setForeground(new java.awt.Color(204, 204, 0));
         jLabel2.setText("By: Rafael Marco Manubay 22169755");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(459, 263, 371, 32);
-
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(146, 470, 37, 16);
+        jLabel2.setBounds(459, 263, 370, 32);
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafae\\OneDrive\\Documents\\Coding\\Github\\GUI-deal-or-nodeal\\resources\\_cliparts\\coins.png")); // NOI18N
         jLabel4.setText("jLabel4");
@@ -234,7 +229,6 @@ public class FrameHome extends javax.swing.JFrame
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
